@@ -19,3 +19,115 @@
   - whoAmI
 
 The build-changing tools are rebuildBuild, replayBuild, triggerBuild, and updateBuild; the rest are read-only.
+
+
+
+› list parameters of all jenkins tools
+
+
+• my-jenkins-server tool parameters:
+
+  findJobsWithScmUrl(
+    scmUrl: string required,
+    branch?: string,
+    limit?: number (max 10),
+    skip?: number,
+    tree?: string
+  )
+
+  getBuild(
+    jobFullName: string required,
+    buildNumber?: number,
+    tree?: string
+  )
+
+  getBuildChangeSets(
+    jobFullName: string required,
+    buildNumber?: number
+  )
+
+  getBuildLog(
+    jobFullName: string required,
+    buildNumber?: number,
+    cursor?: string,
+    limit?: number,
+    skip?: number
+  )
+
+  getBuildScm(
+    jobFullName: string required,
+    buildNumber?: number
+  )
+
+  getFlakyFailures(
+    jobFullName: string required,
+    buildNumber?: number
+  )
+
+  getJob(
+    jobFullName: string required,
+    tree?: string
+  )
+
+  getJobScm(
+    jobFullName: string required
+  )
+
+  getJobs(
+    parentFullName?: string,
+    limit?: number (max 10),
+    skip?: number,
+    tree?: string
+  )
+
+  getQueueItem(
+    id: number required,
+    tree?: string
+  )
+
+  getReplayScripts(
+    jobFullName: string required,
+    buildNumber?: number
+  )
+
+  getStatus()
+
+  getTestResults(
+    jobFullName: string required,
+    buildNumber?: number,
+    onlyFailingTests?: boolean
+
+  rebuildBuild(
+    jobFullName: string required,
+    buildNumber?: number,
+
+  replayBuild(
+    jobFullName: string required,
+    loadedScripts?: { [scriptName: string]: string },
+    tree?: string
+  )
+
+  searchBuildLog(
+    jobFullName: string required,
+    pattern: string required,
+    buildNumber?: number,
+    contextLines?: number,
+    ignoreCase?: boolean,
+    maxMatches?: number (maximum 1000),
+    useRegex?: boolean
+  )
+
+  triggerBuild(
+    jobFullName: string required,
+    parameters?: { [key: string]: unknown },
+    tree?: string
+  )
+
+  updateBuild(
+    jobFullName: string required,
+    buildNumber?: number,
+    displayName?: string,
+    description?: string
+  )
+
+  whoAmI()
