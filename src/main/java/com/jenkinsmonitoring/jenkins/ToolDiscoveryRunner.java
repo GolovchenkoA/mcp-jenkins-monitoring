@@ -1,5 +1,6 @@
 package com.jenkinsmonitoring.jenkins;
 
+import com.jenkinsmonitoring.common.Threads;
 import com.jenkinsmonitoring.server.JenkinsServer;
 import com.jenkinsmonitoring.server.ServerCatalog;
 import org.slf4j.Logger;
@@ -28,7 +29,7 @@ class ToolDiscoveryRunner implements ApplicationRunner {
     @Override
     public void run(ApplicationArguments args) {
         for (JenkinsServer server : servers.servers()) {
-            Thread.startVirtualThread(() -> {
+            Threads.startDaemon("jenkins-connect", () -> {
                 try {
                     gateway.connect(server);
                     log.info("Connected to Jenkins MCP server {}", server.canonical());

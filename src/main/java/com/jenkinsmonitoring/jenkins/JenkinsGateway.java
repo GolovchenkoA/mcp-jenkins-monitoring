@@ -1,5 +1,6 @@
 package com.jenkinsmonitoring.jenkins;
 
+import com.jenkinsmonitoring.common.Threads;
 import com.jenkinsmonitoring.config.JenkinsProperties;
 import com.jenkinsmonitoring.logging.McpCallLogger;
 import com.jenkinsmonitoring.server.JenkinsServer;
@@ -24,6 +25,7 @@ import java.util.Map;
 import java.util.Set;
 import java.util.concurrent.ConcurrentHashMap;
 import java.util.concurrent.ConcurrentMap;
+import java.util.concurrent.TimeUnit;
 import java.util.regex.Pattern;
 
 /**
@@ -294,7 +296,7 @@ public class JenkinsGateway implements DisposableBean {
     }
 
     private static Thread startClosing(McpSyncClient client) {
-        return Thread.startVirtualThread(() -> {
+        return Threads.startDaemon("jenkins-client-closer", () -> {
             try {
                 client.close();
             } catch (RuntimeException e) {
@@ -307,8 +309,12 @@ public class JenkinsGateway implements DisposableBean {
     private static void awaitAll(List<Thread> closers) {
         long deadline = System.nanoTime() + CLOSE_TIMEOUT.toNanos();
         for (Thread closer : closers) {
+            long remainingMillis = TimeUnit.NANOSECONDS.toMillis(deadline - System.nanoTime());
+            if (remainingMillis <= 0) {
+                return; // join(0) would wait forever, and the time is up anyway
+            }
             try {
-                closer.join(Duration.ofNanos(Math.max(deadline - System.nanoTime(), 0)));
+                closer.join(remainingMillis);
             } catch (InterruptedException e) {
                 Thread.currentThread().interrupt();
                 return;

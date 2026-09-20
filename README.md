@@ -6,7 +6,14 @@ The full design is in [REQUIREMENTS.md](REQUIREMENTS.md). This page is the short
 
 ## Build and run
 
-Requires Java 25.
+Build with JDK 25. The default build produces `target/application.jar` for Java 25. To also get a jar for a machine that only has Java 17, build with the `java17` profile; it compiles for Java 17 (the compiler rejects any newer API) and writes `target/java17/application-java17.jar`, so both jars can exist side by side:
+
+```bash
+./mvnw clean package                # target/application.jar, needs Java 25 to run
+./mvnw package -Pjava17             # target/java17/application-java17.jar, runs on Java 17 or newer
+```
+
+Both are built from the same source and behave the same.
 
 ```bash
 ./mvnw test                       # Windows PowerShell: .\mvnw test

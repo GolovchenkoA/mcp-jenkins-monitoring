@@ -1,6 +1,7 @@
 package com.jenkinsmonitoring.status;
 
 import com.jenkinsmonitoring.collector.Collector;
+import com.jenkinsmonitoring.common.Threads;
 import com.jenkinsmonitoring.config.AppProperties;
 import com.jenkinsmonitoring.config.JenkinsProperties;
 import com.jenkinsmonitoring.jenkins.JenkinsException;
@@ -116,11 +117,15 @@ public class StatusService {
             return;
         }
         List<ServerResult> results;
-        try (ExecutorService executor = Executors.newVirtualThreadPerTaskExecutor()) {
+        // One thread per server, so a server that is slow to answer does not delay the others
+        ExecutorService executor = Executors.newFixedThreadPool(usable.size(), Threads.daemonFactory("status-check"));
+        try {
             List<CompletableFuture<ServerResult>> futures = usable.stream()
                     .map(server -> CompletableFuture.supplyAsync(() -> checkServer(server), executor))
                     .toList();
             results = futures.stream().map(CompletableFuture::join).toList();
+        } finally {
+            executor.shutdown();
         }
         results.forEach(result -> checks.addAll(result.checks()));
         long unavailable = results.stream().filter(result -> !result.available()).count();
@@ -206,7 +211,7 @@ public class StatusService {
      */
     private static boolean resolves(String host) {
         CompletableFuture<InetAddress> lookup = new CompletableFuture<>();
-        Thread.startVirtualThread(() -> {
+        Threads.startDaemon("dns-lookup", () -> {
             try {
                 lookup.complete(InetAddress.getByName(host));
             } catch (java.net.UnknownHostException | RuntimeException e) {
