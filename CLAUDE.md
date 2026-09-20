@@ -46,7 +46,7 @@ Java (17+), Spring Boot, Maven, JUnit 5, AI/LLM integrations.
 
 ## Commands Java
 
-- Run program: `java -jar target/application.jar` or use full path to the jar file
+- Run program: `java -jar target/mcp-jenkins-monitoring.jar` or use full path to the jar file
 
 ## Command Maven
 

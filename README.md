@@ -6,25 +6,26 @@ The full design is in [REQUIREMENTS.md](REQUIREMENTS.md). This page is the short
 
 ## Build and run
 
-Build with JDK 25. The default build produces `target/application.jar` for Java 25. To also get a jar for a machine that only has Java 17, build with the `java17` profile; it compiles for Java 17 (the compiler rejects any newer API) and writes `target/java17/application-java17.jar`, so both jars can exist side by side:
+Build with JDK 25. There are two builds, made from the same source:
+
+| Command | Jar | Runs on |
+|---|---|---|
+| `./mvnw clean package` | `target/mcp-jenkins-monitoring.jar` | Java 25 |
+| `./mvnw package -Pjava17` | `target/java17/mcp-jenkins-monitoring-java17.jar` | Java 17 or newer |
+
+The `java17` profile compiles for Java 17 (the compiler rejects any newer API) and writes to its own folder, so both jars can exist side by side. On Windows PowerShell use `.\mvnw`. Each build runs the tests; `./mvnw test` runs only the tests.
+
+Run it:
 
 ```bash
-./mvnw clean package                # target/application.jar, needs Java 25 to run
-./mvnw package -Pjava17             # target/java17/application-java17.jar, runs on Java 17 or newer
-```
-
-Both are built from the same source and behave the same.
-
-```bash
-./mvnw test                       # Windows PowerShell: .\mvnw test
-./mvnw package
-java -jar target/application.jar
+java -jar target/mcp-jenkins-monitoring.jar                       # Java 25
+java -jar target/java17/mcp-jenkins-monitoring-java17.jar         # a machine with Java 17
 ```
 
 It listens on `http://127.0.0.1:2026/mcp` (Streamable HTTP, local only, no authentication). To see every MCP call and its full response in a log file, start it with the debug profile:
 
 ```bash
-java -jar target/application.jar --spring.profiles.active=debug
+java -jar target/mcp-jenkins-monitoring.jar --spring.profiles.active=debug   # same for the Java 17 jar
 ```
 
 Data and logs go to a `jenkins-monitoring-mcp` folder **next to the jar**: `db/` holds the JSON files (`rules.json`, `jobs.json`, `latest_jobs.json`, `notification_<rule id>.json`), `logs/` holds the debug log. Records older than 30 days are deleted (`retention.policy.days`).

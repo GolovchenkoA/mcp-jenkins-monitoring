@@ -58,8 +58,8 @@
     </dependencies>
 
     <build>
-        <!-- CLAUDE.md runs the program as target/application.jar -->
-        <finalName>application</finalName>
+        <!-- The jar is target/mcp-jenkins-monitoring.jar -->
+        <finalName>mcp-jenkins-monitoring</finalName>
         <plugins>
             <plugin>
                 <groupId>org.springframework.boot</groupId>
@@ -70,7 +70,7 @@
 
     <profiles>
         <!--
-            The default build targets Java 25 and produces target/application.jar.
+            The default build targets Java 25 and produces target/mcp-jenkins-monitoring.jar.
             Build with JDK 25 and -Pjava17 to get a second jar that also runs on Java 17:
             the compiler is told to produce Java 17 class files and rejects any newer API.
             Its output goes to a separate folder, so both jars can exist side by side.
@@ -82,7 +82,7 @@
             </properties>
             <build>
                 <directory>${project.basedir}/target/java17</directory>
-                <finalName>application-java17</finalName>
+                <finalName>mcp-jenkins-monitoring-java17</finalName>
             </build>
         </profile>
     </profiles>

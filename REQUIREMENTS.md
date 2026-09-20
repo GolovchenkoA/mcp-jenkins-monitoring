@@ -25,7 +25,7 @@ Key properties:
 - Connection settings and secrets for the Jenkins servers are externalized (section 4).
 - Notification channels and the LTM storage must be replaceable.
 
-Stack: **Java 25, Spring Boot 4.1, Maven, JUnit 5**, with Spring AI 2.0 for the MCP server (`@McpTool` annotations) and the MCP Java SDK for the client that talks to Jenkins. (Decided by you; `CLAUDE.md` says "Java (17+)", which this satisfies.) It is built with JDK 25. The default build targets Java 25 (`target/application.jar`); the Maven profile `java17` builds a second jar for machines with only Java 17 (`target/java17/application-java17.jar`). Both come from the same source, which therefore uses only Java 17 APIs (no virtual threads).
+Stack: **Java 25, Spring Boot 4.1, Maven, JUnit 5**, with Spring AI 2.0 for the MCP server (`@McpTool` annotations) and the MCP Java SDK for the client that talks to Jenkins. (Decided by you; `CLAUDE.md` says "Java (17+)", which this satisfies.) It is built with JDK 25. The default build targets Java 25 (`target/mcp-jenkins-monitoring.jar`); the Maven profile `java17` builds a second jar for machines with only Java 17 (`target/java17/mcp-jenkins-monitoring-java17.jar`). Both come from the same source, which therefore uses only Java 17 APIs (no virtual threads).
 
 "Startup error" in this document means: the problem is logged as an ERROR, the affected server is not used, and `status` reports it as CRITICAL. The application itself keeps running, because it must be able to say what is wrong. The only exception is a second instance on the same storage folder, which refuses to start.
 
