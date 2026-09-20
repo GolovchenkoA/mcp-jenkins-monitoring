@@ -1,0 +1,524 @@
+{
+  "status": {
+    "status": "COMPLETED",
+    "message": "Data retrieved successfully.",
+    "result": {
+      "Quiet Mode": false,
+      "Active administrative monitors": [],
+      "Full Queue Size": 0,
+      "Root URL Status": "OK",
+      "Buildable Queue Size": 0,
+      "Available executors (any label)": 28
+    }
+  },
+  "whoAmI": {
+    "status": "COMPLETED",
+    "message": "Data retrieved successfully.",
+    "result": {
+      "fullName": "Artem"
+    }
+  },
+  "getJobScm": {
+    "status": "COMPLETED",
+    "message": "Data retrieved successfully.",
+    "result": [
+      {
+        "uris": [
+          "ssh://git@my.gitserver.com:5555/cloudops/IaaC/iot-platform-iac.git"
+        ],
+        "branches": [
+          "develop"
+        ],
+        "commit": null,
+        "name": "Git"
+      },
+      {
+        "uris": [
+          "ssh://git@my.gitserver.com:5555/produce-recognition/jenkinspipeline.git"
+        ],
+        "branches": [
+          "master"
+        ],
+        "commit": null,
+        "name": "Git"
+      },
+      {
+        "uris": [
+          "ssh://git@my.gitserver.com:5555/selfservice/JenkinsPipeline.git"
+        ],
+        "branches": [
+          "master"
+        ],
+        "commit": null,
+        "name": "Git"
+      },
+      {
+        "uris": [
+          "ssh://git@my.gitserver.com:5555/vuepos/JenkinsPipeline.git"
+        ],
+        "branches": [
+          "master"
+        ],
+        "commit": null,
+        "name": "Git"
+      },
+      {
+        "uris": [
+          "ssh://git@my.gitserver.com:5555/cloudops/IaaC/shared-jenkins-library.git"
+        ],
+        "branches": [
+          "master"
+        ],
+        "commit": null,
+        "name": "Git"
+      },
+      {
+        "uris": [
+          "ssh://git@my.gitserver.com:5555/cloudops/IaaC/shared-modules.git"
+        ],
+        "branches": [
+          "*/develop"
+        ],
+        "commit": null,
+        "name": "Git"
+      }
+    ]
+  },
+  "getJob": {
+    "status": "COMPLETED",
+    "message": "Data retrieved successfully.",
+    "result": {
+      "_class": "org.jenkinsci.plugins.workflow.job.WorkflowJob",
+      "description": "SaaS IoT Platform Deployed into Azure cloud - DEV",
+      "displayName": "iot-platform-deploy-dev",
+      "fullName": "iot-platform-deploy-dev",
+      "name": "iot-platform-deploy-dev",
+      "url": "https://my-jenkins-server.com/job/iot-platform-deploy-dev/",
+      "buildable": true,
+      "color": "blue",
+      "lastBuild": {
+        "_class": "org.jenkinsci.plugins.workflow.job.WorkflowRun",
+        "number": 1035,
+        "result": "SUCCESS",
+        "timestamp": 1789727713343,
+        "url": "https://my-jenkins-server.com/job/iot-platform-deploy-dev/1035/"
+      },
+      "lastCompletedBuild": {
+        "_class": "org.jenkinsci.plugins.workflow.job.WorkflowRun",
+        "number": 1035,
+        "result": "SUCCESS",
+        "timestamp": 1789727713343,
+        "url": "https://my-jenkins-server.com/job/iot-platform-deploy-dev/1035/"
+      },
+      "lastFailedBuild": {
+        "_class": "org.jenkinsci.plugins.workflow.job.WorkflowRun",
+        "number": 1018,
+        "result": "FAILURE",
+        "timestamp": 1789133991865,
+        "url": "https://my-jenkins-server.com/job/iot-platform-deploy-dev/1018/"
+      },
+      "nextBuildNumber": 1036,
+      "disabled": false,
+      "inQueue": false
+    }
+  },
+  "getBuild": {
+    "status": "COMPLETED",
+    "message": "Data retrieved successfully.",
+    "result": {
+      "_class": "org.jenkinsci.plugins.workflow.job.WorkflowRun",
+      "actions": [
+        {
+          "_class": "hudson.model.CauseAction",
+          "causes": [
+            {
+              "_class": "com.dabsquared.gitlabjenkins.cause.GitLabWebHookCause",
+              "shortDescription": "Triggered by GitLab Merge Request #166: IaaC/ESAAS-6931 => develop"
+            }
+          ]
+        },
+        {},
+        {},
+        {},
+        {
+          "_class": "hudson.model.ParametersAction",
+          "parameters": [
+            {
+              "_class": "hudson.model.StringParameterValue",
+              "name": "ENVIRONMENT",
+              "value": "DEV"
+            },
+            {
+              "_class": "hudson.model.StringParameterValue",
+              "name": "BRANCH",
+              "value": ""
+            },
+            {
+              "_class": "hudson.model.StringParameterValue",
+              "name": "Playbook",
+              "value": ""
+            },
+            {
+              "_class": "hudson.model.StringParameterValue",
+              "name": "Parameters",
+              "value": ""
+            },
+            {
+              "_class": "hudson.model.StringParameterValue",
+              "name": "RESOURCE_GROUP",
+              "value": ""
+            },
+            {
+              "_class": "hudson.model.StringParameterValue",
+              "name": "REGION_NAME",
+              "value": "eastus"
+            },
+            {
+              "_class": "hudson.model.TextParameterValue",
+              "name": "APP_SETTINGS_JSON",
+              "value": "{\n  \"API_USERNAME\": \"apiapp\",\n  \"API_PASSWORD\": \"\",\n  \"CAMERA_HEALTHCHECK_SCHEDULE\": \"0 10 12 * * *\",\n  \"EMAIL_SENDER\": \"DoNotReply@4b91465e-ca73-4113-b214-b1188a352fdf.azurecomm.net\",\n  \"NOTIFICATION_API_USERNAME\": \"tgcs-admin\",\n  \"NOTIFICATION_API_PASSWORD\": \"\",\n  \"NOTIFICATIONS_SCHEDULE\": \"0 10 12 * * *\"\n}"
+            },
+            {
+              "_class": "hudson.model.TextParameterValue",
+              "name": "MARKUP_IMAGE_VERSIONS",
+              "value": "{\n    \"iot-markups-inference\": \"\"\n}"
+            }
+          ]
+        },
+        {},
+        {
+          "_class": "jenkins.metrics.impl.TimeInQueueAction"
+        },
+        {},
+        {
+          "_class": "hudson.plugins.git.util.BuildData"
+        },
+        {},
+        {
+          "_class": "org.jenkinsci.plugins.workflow.libs.LibrariesAction"
+        },
+        {
+          "_class": "hudson.plugins.git.util.BuildData"
+        },
+        {
+          "_class": "hudson.plugins.git.util.BuildData"
+        },
+        {
+          "_class": "hudson.plugins.git.util.BuildData"
+        },
+        {
+          "_class": "hudson.plugins.git.util.BuildData"
+        },
+        {},
+        {
+          "_class": "org.jenkinsci.plugins.workflow.cps.EnvActionImpl"
+        },
+        {
+          "_class": "hudson.plugins.git.util.BuildData"
+        },
+        {
+          "_class": "org.jenkinsci.plugins.workflow.cps.view.InterpolatedSecretsAction"
+        },
+        {},
+        {},
+        {},
+        {},
+        {},
+        {},
+        {},
+        {
+          "_class": "org.jenkinsci.plugins.displayurlapi.actions.RunDisplayAction"
+        },
+        {
+          "_class": "org.jenkinsci.plugins.pipeline.modeldefinition.actions.RestartDeclarativePipelineAction"
+        },
+        {},
+        {
+          "_class": "org.jenkinsci.plugins.workflow.job.views.FlowGraphAction"
+        },
+        {},
+        {},
+        {}
+      ],
+      "artifacts": [
+        {
+          "displayPath": "tfplan.txt",
+          "fileName": "tfplan.txt",
+          "relativePath": "terraform/tf/tfplan.txt"
+        }
+      ],
+      "building": false,
+      "description": "Triggered by GitLab Merge Request #166: IaaC/ESAAS-6931 => develop",
+      "displayName": "#1035",
+      "duration": 56432,
+      "estimatedDuration": 54387,
+      "executor": null,
+      "fullDisplayName": "iot-platform-deploy-dev #1035",
+      "id": "1035",
+      "keepLog": false,
+      "number": 1035,
+      "queueId": 30742,
+      "result": "SUCCESS",
+      "timestamp": 1789727713343,
+      "url": "https://my-jenkins-server.com/job/iot-platform-deploy-dev/1035/",
+      "changeSets": [],
+      "culprits": [],
+      "inProgress": false,
+      "nextBuild": null,
+      "previousBuild": {
+        "number": 1034,
+        "url": "https://my-jenkins-server.com/job/iot-platform-deploy-dev/1034/"
+      }
+    }
+  },
+  "getBuildChangeSets": {
+    "status": "COMPLETED",
+    "message": "Search completed, but no results were found for the specified criteria."
+  },
+  "getBuildScm": {
+    "status": "COMPLETED",
+    "message": "Data retrieved successfully.",
+    "result": [
+      {
+        "uris": [
+          "ssh://git@my.gitserver.com:5555/cloudops/IaaC/iot-platform-iac.git"
+        ],
+        "branches": [
+          "origin/ESAAS-6931"
+        ],
+        "commit": "AnyObjectId[a2773870d55bd9bfd720555eb3fc194905cf7881]",
+        "name": "Git"
+      }
+    ]
+  },
+  "getFlakyFailures": {
+    "status": "COMPLETED",
+    "message": "Search completed, but no results were found for the specified criteria."
+  },
+  "getTestResults": {
+    "status": "COMPLETED",
+    "message": "Search completed, but no results were found for the specified criteria."
+  },
+  "getReplayScripts": {
+    "status": "COMPLETED",
+    "message": "Data retrieved successfully.",
+    "result": {
+      "mainScript": "@Library('shared-jenkins-library@master') _\n\nproperties([\n    parameters(getJenkinsJobParameters())\n])\n\npipeline {\n    agent any\n    tools {\n        maven 'Maven-3.5.0'\n    }\n    options {\n        gitLabConnection('Gitlab')\n    }\n\n    environment {\n        SHARED_MODULES_GIT_URL = 'ssh://git@my.gitserver.com:5555/cloudops/IaaC/shared-modules.git'\n        NOTIFICATION_RECIPIENT = 'IoT Platform Deployments - TGCS-SaaS <04a66bd9.tecglobal.onmicrosoft.com@amer.teams.ms>'\n    }\n\n    stages {\n        stage('Azure Resources MR Validation') { \n            when {\n                expression {\n                    return isAzureValidationBuild() && envUtils.hasTerraformChanges()\n                }\n            }\n            steps {\n                script {\n                    updateGitlabCommitStatus name: 'azure-mr-validation', state: 'running'\n                    echo \"within stage(Azure Resources MR Validation)\"\n\n                    def validationEnvironment = getMrValidationEnvironment()\n                    def validationBranch = getMrValidationBranch()\n\n                    withCredentials([azureServicePrincipal(get_service_principal(validationEnvironment))]) {\n                        catchError(buildResult: 'FAILURE', stageResult: 'FAILURE') {\n                            def shared_target = 'shared-modules'\n                            def target = 'terraform'\n\n                            sshagent(['jenkins-gitlab-ssh']) {\n                                def sharedModulesBranch = resolveSharedModulesBranch(validationBranch)\n                                checkout_code(env.SHARED_MODULES_GIT_URL, sharedModulesBranch, shared_target)\n                                checkout_code('ssh://git@my.gitserver.com:5555/cloudops/IaaC/iot-platform-iac.git', validationBranch, target)\n                            }\n\n                            withCredentials([string(credentialsId: 'CERT_PWD', variable: 'test')]) {\n                                def tfEnvironment = validationEnvironment.toLowerCase()\n                                def appSettings = readJSON text: params.APP_SETTINGS_JSON\n                                appSettings = [:] + appSettings\n                                def appSettingsJson = '{' + appSettings.collect { key, value -> \"\\\"${key}\\\":\\\"${value}\\\"\" }.join(',') + '}'\n                                def iotFunctionAppJson = '{\"ftp_state\":\"FtpsOnly\",\"enabled_builtin_logging\":true,\"python_version\":\"3.12\",\"identity_type\":\"SystemAssigned\",\"container_use_managed_identity\":false,\"client_certificate_mode\":\"Optional\",\"enable_vnet_integration\":true,\"app_settings\":' + appSettingsJson + '}'\n                                def vars = [\n                                    \"iot_function_app\": iotFunctionAppJson\n                                ]\n                                def co_var = ''\n                                vars.each { entry ->\n                                    co_var = co_var + \"-var '\" + entry.key + \"=\" + entry.value + \"' \"\n                                }\n                                writeFile file: 'markup_image_versions.json', text: params.MARKUP_IMAGE_VERSIONS\n                                def tfVarImageVersions = sh(\n                                    script: 'python3 -c \"import json,sys; print(json.dumps(json.load(sys.stdin)))\" < markup_image_versions.json',\n                                    returnStdout: true\n                                ).trim()\n                                def tagsJson = \"\"\"\n                                {\n                                    \"git_commit\": \"${env.GIT_COMMIT}\",\n                                    \"git_branch\": \"${env.GIT_BRANCH}\"\n                                }\n                                \"\"\".stripIndent().trim().replace('\\n', ' ')\n                                try {\n                                    tagsJsonValid = readJSON text: tagsJson\n                                } catch (e) {\n                                    echo \"Caught: ${e} '${tagsJson}' not valid JSON.\"\n                                    currentBuild.result = 'FAILURE'\n                                }\n\n                                withEnv([\n                                    \"ARM_CLIENT_ID=${env.AZURE_CLIENT_ID}\",\n                                    \"ARM_CLIENT_SECRET=${env.AZURE_CLIENT_SECRET}\",\n                                    \"ARM_TENANT_ID=${env.AZURE_TENANT_ID}\",\n                                    \"ARM_SUBSCRIPTION_ID=${env.AZURE_SUBSCRIPTION_ID}\",\n                                    \"TF_VAR_image_versions=${tfVarImageVersions}\",\n                                    \"TF_VAR_optional_tags=${tagsJson}\"\n                                ]) {\n                                    sh '''\n                                    set -eu\n                                    az login --service-principal -u \"${AZURE_CLIENT_ID}\" -p \"${AZURE_CLIENT_SECRET}\" -t \"${AZURE_TENANT_ID}\" -o table\n                                    az account set -s \"${AZURE_SUBSCRIPTION_ID}\"\n\n                                    az provider register --namespace Microsoft.AppPlatform\n                                    az provider register --namespace Microsoft.ContainerService\n                                    '''\n\n                                    dir(\"${target}/tf\") {\n                                        sh '''\n                                        set -eu\n                                        pwd\n                                        terraform --version\n                                        terraform fmt -check -recursive -no-color\n                                        rm -f tf.plan tfplan.txt\n                                        terraform init -input=false -reconfigure -backend-config=environments/''' + tfEnvironment + '''/backend.conf\n                                        terraform validate -no-color\n                                        set +e\n                                        terraform plan -detailed-exitcode -no-color -input=false --var-file=environments/''' + tfEnvironment + '''/terraform.tfvars ''' + co_var + ''' -out tf.plan > tfplan.txt 2>&1\n                                        rc=$?\n                                        set -e\n                                        if [ \"$rc\" -ne 0 ] && [ \"$rc\" -ne 2 ]; then\n                                            cat tfplan.txt\n                                            exit \"$rc\"\n                                        fi\n                                        cat tfplan.txt\n                                        '''\n                                    }\n\n                                    archiveArtifacts artifacts: \"${target}/tf/tfplan.txt\", fingerprint: true\n                                }\n                            }\n                        }\n                    }\n                }\n            }\n            post {\n                success {\n                    updateGitlabCommitStatus name: 'azure-mr-validation', state: 'success'\n                }\n                failure {\n                    updateGitlabCommitStatus name: 'azure-mr-validation', state: 'failed'\n                }\n                always {\n                    script {\n                        safeNotifyMgr(env.STAGE_NAME)\n                    }\n                }\n            }\n        }\n        stage('Credentials Service') {\n            when {\n                expression {\n                    return !isAzureValidationBuild() && params.Playbook?.equals('Credentials Service');\n                }\n            }\n            steps {\n                script {\n                    catchError(buildResult: 'FAILURE', stageResult: 'FAILURE') {\n                        deploy_service()\n                    }\n                }\n            }\n            post {\n                always {\n                    script {\n                        safeNotifyMgr(env.STAGE_NAME)\n                    }\n                }\n            }\n        }\n        stage('Device Management Service') {\n            when {\n                expression {\n                    return !isAzureValidationBuild() && params.Playbook?.equals('Device Management Service');\n                }\n            }\n            steps {\n                script {\n                    catchError(buildResult: 'FAILURE', stageResult: 'FAILURE') {\n                        deploy_service()\n                    }\n                }\n            }\n            post {\n                always {\n                    script {\n                        safeNotifyMgr(env.STAGE_NAME)\n                    }\n                }\n            }\n        }\n        stage('Firmware Service') {\n            when {\n                expression {\n                    return !isAzureValidationBuild() && params.Playbook?.equals('Firmware Service');\n                }\n            }\n            steps {\n                script {\n                    catchError(buildResult: 'FAILURE', stageResult: 'FAILURE') {\n                        deploy_service()\n                    }\n                }\n            }\n            post {\n                always {\n                    script {\n                        safeNotifyMgr(env.STAGE_NAME)\n                    }\n                }\n            }\n        }\n        stage('Key Rotation Service') {\n            when {\n                expression {\n                    return !isAzureValidationBuild() && params.Playbook?.equals('Key Rotation Service');\n                }\n            }\n            steps {\n                script {\n                    catchError(buildResult: 'FAILURE', stageResult: 'FAILURE') {\n                        deploy_service()\n                    }\n                }\n            }\n            post {\n                always {\n                    script {\n                        safeNotifyMgr(env.STAGE_NAME)\n                    }\n                }\n            }\n        }\n        stage('Locations Service') {\n            when {\n                expression {\n                    return !isAzureValidationBuild() && params.Playbook?.equals('Locations Service');\n                }\n            }\n            steps {\n                script {\n                    catchError(buildResult: 'FAILURE', stageResult: 'FAILURE') {\n                        deploy_service()\n                    }\n                }\n            }\n            post {\n                always {\n                    script {\n                        safeNotifyMgr(env.STAGE_NAME)\n                    }\n                }\n            }\n        }\n        stage('Remote Control Service') {\n            when {\n                expression {\n                    return !isAzureValidationBuild() && params.Playbook?.equals('Remote Control Service');\n                }\n            }\n            steps {\n                script {\n                    catchError(buildResult: 'FAILURE', stageResult: 'FAILURE') {\n                        deploy_service()\n                    }\n                }\n            }\n            post {\n                always {\n                    script {\n                        safeNotifyMgr(env.STAGE_NAME)\n                    }\n                }\n            }\n        }\n        stage('Telemetry Service') {\n            when {\n                expression {\n                    return !isAzureValidationBuild() && params.Playbook?.equals('Telemetry Service');\n                }\n            }\n            steps {\n                script {\n                    catchError(buildResult: 'FAILURE', stageResult: 'FAILURE') {\n                        deploy_service()\n                    }\n                }\n            }\n            post {\n                always {\n                    script {\n                        safeNotifyMgr(env.STAGE_NAME)\n                    }\n                }\n            }\n        }\n        stage('Azure Resources') {\n            when {\n                expression {\n                    return !isAzureValidationBuild() && params.Playbook?.equals('Azure Resources');\n                }\n            }\n            steps {\n                script {\n                    echo \"within stage(Azure Resources)\"\n                    withCredentials([azureServicePrincipal(get_service_principal(ENVIRONMENT))]) {\n                        catchError(buildResult: 'FAILURE', stageResult: 'FAILURE') {\n                                def shared_target = 'shared-modules';\n                                def target = 'terraform';\n                                sshagent(['jenkins-gitlab-ssh']) {\n                                    def sharedModulesBranch = resolveSharedModulesBranch();\n                                    checkout_code(env.SHARED_MODULES_GIT_URL, sharedModulesBranch, shared_target);\n                                    checkout_code('ssh://git@my.gitserver.com:5555/cloudops/IaaC/iot-platform-iac.git', params.BRANCH, target);\n                                }\n\n                            withCredentials([string(credentialsId: 'CERT_PWD', variable: 'test')]) {\n                                def tfEnvironment = ENVIRONMENT.toLowerCase()\n                                def region_code = get_region_code(REGION_NAME)\n                                def appSettings = readJSON text: params.APP_SETTINGS_JSON\n                                appSettings = [:] + appSettings\n                                def appSettingsJson = '{' + appSettings.collect { key, value -> \"\\\"${key}\\\":\\\"${value}\\\"\" }.join(',') + '}'\n                                def iotFunctionAppJson = '{\"ftp_state\":\"FtpsOnly\",\"enabled_builtin_logging\":true,\"python_version\":\"3.12\",\"identity_type\":\"SystemAssigned\",\"container_use_managed_identity\":false,\"client_certificate_mode\":\"Optional\",\"enable_vnet_integration\":true,\"app_settings\":' + appSettingsJson + '}'\n                                def vars = [\n                                            \"iot_function_app\" : iotFunctionAppJson\n                                        ]\n                                def co_var = ''\n                                vars.each{entry ->\n                                    co_var = co_var + \"-var '\" + entry.key + \"=\" + entry.value + \"' \"\n                                }\n                                writeFile file: 'markup_image_versions.json', text: params.MARKUP_IMAGE_VERSIONS\n                                def tfVarImageVersions = sh(\n                                    script: 'python3 -c \"import json,sys; print(json.dumps(json.load(sys.stdin)))\" < markup_image_versions.json',\n                                    returnStdout: true\n                                ).trim()\n                                def tagsJson = \"\"\"\n                                {\n                                    \"git_commit\": \"${env.GIT_COMMIT}\",\n                                    \"git_branch\": \"${env.GIT_BRANCH}\"\n                                }\n                                \"\"\".stripIndent().trim().replace('\\n', ' ')\n                                try {\n                                    tagsJsonValid = readJSON text: tagsJson\n                                } catch (e) {\n                                    echo \"Caught: ${e} '${tagsJson}' not valid JSON.\"\n                                    currentBuild.result = 'FAILURE'\n                                }\n                                withEnv([\n                                    \"ARM_CLIENT_ID=${env.AZURE_CLIENT_ID}\",\n                                    \"ARM_CLIENT_SECRET=${env.AZURE_CLIENT_SECRET}\",\n                                    \"ARM_TENANT_ID=${env.AZURE_TENANT_ID}\",\n                                    \"ARM_SUBSCRIPTION_ID=${env.AZURE_SUBSCRIPTION_ID}\",\n                                    \"TF_VAR_image_versions=${tfVarImageVersions}\",\n                                    \"TF_VAR_optional_tags=${tagsJson}\"\n                                ]) {\n                                    sh '''\n                                    set -eu\n                                    az login --service-principal -u \"${AZURE_CLIENT_ID}\" -p \"${AZURE_CLIENT_SECRET}\" -t \"${AZURE_TENANT_ID}\" -o table\n                                    az account set -s \"${AZURE_SUBSCRIPTION_ID}\"\n\n                                    az provider register --namespace Microsoft.AppPlatform\n                                    az provider register --namespace Microsoft.ContainerService\n                                    '''\n                                    dir(\"${target}/tf\") {\n                                        sh '''\n                                        set -eu\n                                        pwd\n                                        terraform --version\n                                        rm -f tf.plan\n                                        terraform init -input=false -reconfigure -backend-config=environments/''' + tfEnvironment + '''/backend.conf\n                                        terraform plan -no-color -input=false --var-file=environments/''' + tfEnvironment + '''/terraform.tfvars ''' + co_var + ''' -out tf.plan\n                                        '''\n                                    }\n\n                                    input message: \"Terraform plan complete for environment ${ENVIRONMENT}. Approve apply?\", ok: 'Apply'\n\n                                    dir(\"${target}/tf\") {\n                                        sh '''\n                                        set -eu\n                                        terraform apply -no-color -input=false -auto-approve tf.plan\n                                        '''\n                                    }\n                                }\n                            }\n                        }\n                    }\n                }\n            }\n            post {\n                always {\n                    script {\n                        safeNotifyMgr(env.STAGE_NAME)\n                    }\n                }\n            }\n        }\n        stage('Notification Service') {\n            when {\n                expression {\n                    return !isAzureValidationBuild() && params.Playbook?.equals('Notification Service');\n                }\n            }\n            steps {\n                script {\n                    catchError(buildResult: 'FAILURE', stageResult: 'FAILURE') {\n                        deploy_to_azure_function()\n                    }\n                }\n            }\n            post {\n                always {\n                    script {\n                        safeNotifyMgr(env.STAGE_NAME)\n                    }\n                }\n            }\n        }\n        stage('Markups Function App') {\n            when {\n                expression {\n                    return !isAzureValidationBuild() && params.Playbook?.equals('Markups Function App');\n                }\n            }\n            steps {\n                script {\n                    catchError(buildResult: 'FAILURE', stageResult: 'FAILURE') {\n                        deploy_markups_function_app()\n                    }\n                }\n            }\n            post {\n                always {\n                    script {\n                        safeNotifyMgr(env.STAGE_NAME)\n                    }\n                }\n            }\n        }\n        stage('IoT Portal') {\n            when {\n                expression {\n                    return !isAzureValidationBuild() && params.Playbook?.equals('IoT Portal');\n                }\n            }\n            steps {\n                script {\n                    catchError(buildResult: 'FAILURE', stageResult: 'FAILURE') {\n                        deploy_iot_web_portal()\n                    }\n                }\n            }\n            post {\n                always {\n                    script {\n                        safeNotifyMgr(env.STAGE_NAME)\n                    }\n                }\n            }\n        }\n    }\n    post {\n        success {\n            updateGitlabCommitStatus name: 'build', state: 'success'\n        }\n        failure {\n            updateGitlabCommitStatus name: 'build', state: 'failed'\n        }\n    }\n}\n\ndef safeNotifyMgr(String stageName) {\n    try {\n        notifyMgr(stageName)\n    } catch(e) {\n        println \"Email notification failed for stage '${stageName}': ${e}\"\n    }\n}\n\ndef getJenkinsJobParameters() {\n    return [\n        choice(name: 'ENVIRONMENT', choices: ['DEV', 'QA', 'STAGE', 'PROD'], description: 'Select the environment to run on'),\n        [\n            $class: 'DynamicReferenceParameter',\n            choiceType: 'ET_FORMATTED_HTML',\n            name: 'BRANCH',\n            description: 'Git branch name of the components to build and deploy, derived from the selected environment.',\n            omitValueField: true,\n            referencedParameters: 'ENVIRONMENT',\n            script: [\n                $class: 'GroovyScript',\n                fallbackScript: [\n                    classpath: [],\n                    sandbox: true,\n                    script: 'return \"Unable to resolve branch for the selected environment.\"'\n                ],\n                script: [\n                    classpath: [],\n                    sandbox: true,\n                    script: getBranchGroovyScript()\n                ]\n            ]\n        ],\n        choice(name: 'Playbook', choices: [\n            '',\n            'Credentials Service',\n            'Device Management Service',\n            'Firmware Service',\n            'Key Rotation Service',\n            'Locations Service',\n            'Telemetry Service',\n            'Remote Control Service',\n            'Azure Resources',\n            'Notification Service',\n            'Markups Function App',\n            'IoT Portal'\n        ], description: 'Choose a service to deploy'),\n        [\n            $class: 'DynamicReferenceParameter',\n            choiceType: 'ET_FORMATTED_HTML',\n            name: 'Parameters',\n            description: 'Service-specific deployment parameters generated from the selected environment and service.',\n            omitValueField: true,\n            referencedParameters: 'Playbook,ENVIRONMENT,REGION_NAME',\n            script: [\n                $class: 'GroovyScript',\n                fallbackScript: [\n                    classpath: [],\n                    sandbox: true,\n                    script: 'return \"Unable to render deployment parameters.\"'\n                ],\n                script: [\n                    classpath: [],\n                    sandbox: true,\n                    script: getParametersGroovyScript()\n                ]\n            ]\n        ],\n        [\n            $class: 'DynamicReferenceParameter',\n            choiceType: 'ET_FORMATTED_HTML',\n            name: 'RESOURCE_GROUP',\n            description: 'The resource group under which the IoT azure resources were created, derived from the selected environment and region.',\n            omitValueField: true,\n            referencedParameters: 'ENVIRONMENT,REGION_NAME',\n            script: [\n                $class: 'GroovyScript',\n                fallbackScript: [\n                    classpath: [],\n                    sandbox: true,\n                    script: 'return \"Unable to resolve resource group for the selected environment/region.\"'\n                ],\n                script: [\n                    classpath: [],\n                    sandbox: true,\n                    script: getResourceGroupGroovyScript()\n                ]\n            ]\n        ],\n        choice(name: 'REGION_NAME', choices: ['eastus', 'westus', 'centralus', 'northcentralus', 'southcentralus'], description: 'The azure region for the resource group'),\n        text(name: 'APP_SETTINGS_JSON', defaultValue: '''{\n  \"API_USERNAME\": \"apiapp\",\n  \"API_PASSWORD\": \"\",\n  \"CAMERA_HEALTHCHECK_SCHEDULE\": \"0 10 12 * * *\",\n  \"EMAIL_SENDER\": \"DoNotReply@4b91465e-ca73-4113-b214-b1188a352fdf.azurecomm.net\",\n  \"NOTIFICATION_API_USERNAME\": \"tgcs-admin\",\n  \"NOTIFICATION_API_PASSWORD\": \"\",\n  \"NOTIFICATIONS_SCHEDULE\": \"0 10 12 * * *\"\n}''', description: 'JSON object for Function App health check service settings'),\n        text(name: 'MARKUP_IMAGE_VERSIONS',\n        defaultValue: '''{\n    \"iot-markups-inference\": \"\"\n}''',\n        description: 'JSON string containing markup image version for deployment.')\n    ]\n}\n\ndef getParametersGroovyScript() {\n    return '''\ndef envName = (ENVIRONMENT ?: 'QA').toUpperCase()\ndef regionName = (REGION_NAME ?: 'eastus').toLowerCase()\ndef regionCodes = [\n    'eastus': 'eus',\n    'westus': 'wus',\n    'centralus': 'cus',\n    'northcentralus': 'ncus',\n    'southcentralus': 'scus'\n]\ndef regionCode = regionCodes.get(regionName, 'eus')\ndef envCode = envName.toLowerCase()\ndef knownEnv = (envName == 'DEV' || envName == 'QA')\n\ndef devicemgmt_version = 'Please select an environment and service'\ndef locations_version = 'Choose service version'\ndef firmware_version = 'Please select an environment and service'\ndef keyrotation_version = 'Please select an environment and service'\ndef telemetry_version = 'Please select an environment and service'\ndef remotecontrol_version = 'Choose service version'\ndef credentials_version = 'Please select an environment and service'\ndef portal_version = 'Please select an environment and service'\ndef notification_version = 'Please select an environment and service'\ndef markups_version = 'Choose artifact version'\ndef markups_image_version = 'Choose artifact version'\n\ndef devicemgmt_name = knownEnv ? \"ase-devicemgmt-iot-${envCode}-${regionCode}\" : ''\ndef firmware_name = knownEnv ? \"ase-firmware-iot-${envCode}-${regionCode}\" : ''\ndef keyrotation_name = knownEnv ? \"ase-keyrotation-iot-${envCode}-${regionCode}\" : ''\ndef locations_name = knownEnv ? \"ase-locations-iot-${envCode}-${regionCode}\" : ''\ndef telemetry_name = knownEnv ? \"ase-telemetry-iot-${envCode}-${regionCode}\" : ''\ndef remotecontrol_name = knownEnv ? \"ase-remotecontrol-iot-${envCode}-${regionCode}\" : ''\ndef portal_name = knownEnv ? \"sapp-iot-${envCode}-${regionCode}\" : ''\ndef credentials_name = knownEnv ? \"ase-credentials-iot-${envCode}-${regionCode}\" : ''\ndef markups_function_app_name = knownEnv ? \"func-iot-${envCode}-${regionCode}-markups\" : ''\ndef notification_function_app_name = knownEnv ? \"func-iot-${envCode}-${regionCode}-notificationservice\" : ''\ndef keyvault_url = knownEnv ? \"https://kv-iot-${envCode}-${regionCode}.vault.azure.net/\" : ''\n\nif (envName.equals('DEV')) {\n    devicemgmt_version = 'https://nexus.commerce.myserver.com/repository/tgcs-maven-staging/com/tgcs/iot/device-mgmt-service/1.2405.15-2024-11-14-f8f3f75/device-mgmt-service-1.2405.15-2024-11-14-f8f3f75.jar'\n    firmware_version = 'https://nexus.commerce.myserver.com/repository/tgcs-maven-staging/com/tgcs/iot/firmware-service/1.2405.10-2024-11-13-d6a284a/firmware-service-1.2405.10-2024-11-13-d6a284a.jar'\n    keyrotation_version = 'https://nexus.commerce.myserver.com/repository/tgcs-maven-staging/com/tgcs/iot/key-rotation-service/1.2405.9-2024-10-30-6a7c156/key-rotation-service-1.2405.9-2024-10-30-6a7c156.jar'\n    telemetry_version = 'https://nexus.commerce.myserver.com/repository/tgcs-maven-staging/com/tgcs/iot/telemetry-service/1.2405.9-2024-10-30-142547e/telemetry-service-1.2405.9-2024-10-30-142547e.jar'\n    credentials_version = 'https://nexus.commerce.myserver.com/repository/tgcs-maven-staging/com/tgcs/iot/credentials-service/1.2405.14-2024-11-13-2e3aa30/credentials-service-1.2405.14-2024-11-13-2e3aa30.jar'\n    portal_version = 'https://nexus.commerce.myserver.com/repository/tgcs-maven-staging/com/tgcs/tgcp/iot-web-portal/1.2601.2/iot-web-portal-1.2601.2-dev.zip'\n    notification_version = 'https://nexus.commerce.myserver.com/repository/tgcs-maven-staging/com/tgcs/tgcp/notifications/1.2601.12-20260326-4567125/notifications-1.2601.12-20260326-4567125.zip'\n} else if (envName.equals('QA')) {\n    portal_version = 'https://nexus.commerce.myserver.com/repository/tgcs-maven-staging/com/tgcs/tgcp/iot-web-portal/1.2601.2/iot-web-portal-1.2601.2-qa.zip'\n    notification_version = 'https://nexus.commerce.myserver.com/repository/tgcs-maven-staging/com/tgcs/tgcp/notifications/1.2601.12-20260326-4567125/notifications-1.2601.12-20260326-4567125.zip'\n}\n\ndef renderThreeFieldForm = { firstLabel, firstValue, secondLabel, secondValue, thirdLabel, thirdValue ->\n    return \"Take the default value or enter a new value<br><br>\" +\n           \"${firstLabel}: <input name='value' value='${firstValue}' class='setting-input' type='text'>\" +\n           \"<br><br>${secondLabel}: <input name='value' value='${secondValue}' class='setting-input' type='text'>\" +\n           \"<br><br>${thirdLabel}: <input name='value' value='${thirdValue}' class='setting-input' type='text'>\"\n}\n\ndef renderTwoFieldForm = { firstLabel, firstValue, secondLabel, secondValue ->\n    return \"Take the default value or enter a new value<br><br>\" +\n           \"${firstLabel}: <input name='value' value='${firstValue}' class='setting-input' type='text'>\" +\n           \"<br><br>${secondLabel}: <input name='value' value='${secondValue}' class='setting-input' type='text'>\"\n}\n\nif (Playbook.equals('Device Management Service')) {\n    return renderThreeFieldForm(\"Service Name\", devicemgmt_name, \"Jar File Link\", devicemgmt_version, \"Keyvault URL\", keyvault_url)\n} else if (Playbook.equals('Azure Resources')) {\n    return ' '\n} else if (Playbook.equals('Notification Service')) {\n    return renderTwoFieldForm(\"Zip File Link\", notification_version, \"Function App Service Name\", notification_function_app_name)\n} else if (Playbook.equals('Firmware Service')) {\n    return renderThreeFieldForm(\"Service Name\", firmware_name, \"Jar File Link\", firmware_version, \"Keyvault URL\", keyvault_url)\n} else if (Playbook.equals('Key Rotation Service')) {\n    return renderThreeFieldForm(\"Service Name\", keyrotation_name, \"Jar File Link\", keyrotation_version, \"Keyvault URL\", keyvault_url)\n} else if (Playbook.equals('Locations Service')) {\n    return renderThreeFieldForm(\"Service Name\", locations_name, \"Jar File Link\", locations_version, \"Keyvault URL\", keyvault_url)\n} else if (Playbook.equals('Telemetry Service')) {\n    return renderThreeFieldForm(\"Service Name\", telemetry_name, \"Jar File Link\", telemetry_version, \"Keyvault URL\", keyvault_url)\n} else if (Playbook.equals('Remote Control Service')) {\n    return renderThreeFieldForm(\"Service Name\", remotecontrol_name, \"Jar File Link\", remotecontrol_version, \"Keyvault URL\", keyvault_url)\n} else if (Playbook.equals('IoT Portal')) {\n    return renderThreeFieldForm(\"Service Name\", portal_name, \"Zip File Link\", portal_version, \"Keyvault URL\", keyvault_url)\n} else if (Playbook.equals('Credentials Service')) {\n    return renderThreeFieldForm(\"Service Name\", credentials_name, \"Jar File Link\", credentials_version, \"Keyvault URL\", keyvault_url)\n} else if (Playbook.equals('Markups Function App')) {\n    return renderThreeFieldForm(\"Image Version\", markups_image_version, \"Zip File Link\", markups_version, \"Function App Name\", markups_function_app_name)\n}\n\nreturn 'Select a service to populate deployment parameters.'\n'''\n}\n\ndef getBranchGroovyScript() {\n    return '''\ndef envName = (ENVIRONMENT ?: 'QA').toUpperCase()\ndef branchByEnv = [\n    'DEV'  : 'develop',\n    'QA'   : 'qa',\n    'STAGE': 'master',\n    'PROD' : 'master'\n]\ndef branchName = branchByEnv.get(envName, '')\n\nreturn \"Take the default value or enter a new value<br><br>\" +\n       \"Branch: <input name='value' value='${branchName}' class='setting-input' type='text'>\"\n'''\n}\n\ndef getResourceGroupGroovyScript() {\n    return '''\ndef envName = (ENVIRONMENT ?: 'QA').toUpperCase()\ndef envCode = envName.toLowerCase()\ndef knownEnv = (envName == 'DEV' || envName == 'QA')\ndef regionName = (REGION_NAME ?: 'eastus').toLowerCase()\ndef regionCodes = [\n    'eastus': 'eus',\n    'westus': 'wus',\n    'centralus': 'cus',\n    'northcentralus': 'ncus',\n    'southcentralus': 'scus'\n]\ndef regionCode = regionCodes.get(regionName, 'eus')\ndef resourceGroup = knownEnv ? \"rg-iot-${envCode}-${regionCode}\" : ''\n\nreturn \"Take the default value or enter a new value<br><br>\" +\n       \"Resource Group: <input name='value' value='${resourceGroup}' class='setting-input' type='text'>\"\n'''\n}\n\ndef notifyMgr(String stageName) {\n    def subject = \"${currentBuild.projectName} ${currentBuild.displayName} [${stageName}]: ${currentBuild.currentResult}\"\n    def body = \"\"\"\\\nProject: ${currentBuild.projectName}\nBuild: ${currentBuild.displayName}\nStage: ${stageName}\nStatus: ${currentBuild.currentResult}\nTriggered By: ${initiator_name()}\nTriggered By Email: ${initiator_email()}\nBranch: ${params.BRANCH}\nPlaybook: ${params.Playbook}\nRESOURCE_GROUP: ${params.RESOURCE_GROUP}\nREGION_NAME: ${params.REGION_NAME}\nENVIRONMENT: ${params.ENVIRONMENT}\nBuild URL: ${env.BUILD_URL}\n\"\"\".stripIndent()\n\n    mail(to: env.NOTIFICATION_RECIPIENT, subject: subject, body: body)\n}\n\ndef getManualTriggerUserCause() {\n    def userCauses = currentBuild.getBuildCauses('hudson.model.Cause$UserIdCause')\n    if (userCauses && !userCauses.isEmpty()) {\n        return userCauses[0]\n    }\n\n    return null\n}\n\ndef initiator_name() {\n    if (env.gitlabUserName?.trim()) {\n        return env.gitlabUserName.trim()\n    }\n\n    if (env.BUILD_USER?.trim()) {\n        return env.BUILD_USER.trim()\n    }\n\n    if (env.gitlabUserUsername?.trim()) {\n        return env.gitlabUserUsername.trim()\n    }\n\n    if (env.BUILD_USER_ID?.trim()) {\n        return env.BUILD_USER_ID.trim()\n    }\n\n    if (env.gitlabUserEmail?.trim()) {\n        return env.gitlabUserEmail.trim().split('@')[0]\n    }\n\n    def userCause = getManualTriggerUserCause()\n    if (userCause?.userName?.trim()) {\n        return userCause.userName.trim()\n    }\n\n    if (userCause?.userId?.trim()) {\n        return userCause.userId.trim()\n    }\n\n    return \"jenkins\"\n}\n\ndef initiator_email() {\n    if (env.gitlabUserEmail?.trim()) {\n        return env.gitlabUserEmail.trim()\n    }\n\n    if (env.BUILD_USER_EMAIL?.trim()) {\n        return env.BUILD_USER_EMAIL.trim()\n    }\n\n    if (env.gitlabUserUsername?.trim()) {\n        return \"${env.gitlabUserUsername.trim().replaceAll(/\\s+/, '.').toLowerCase()}@myserver.com\"\n    }\n\n    if (env.BUILD_USER_ID?.trim()) {\n        return \"${env.BUILD_USER_ID.trim().replaceAll(/\\s+/, '.').toLowerCase()}@myserver.com\"\n    }\n\n    def userCause = getManualTriggerUserCause()\n    if (userCause?.userId?.trim()) {\n        return \"${userCause.userId.trim().replaceAll(/\\s+/, '.').toLowerCase()}@myserver.com\"\n    }\n\n    def baseName = initiator_name()\n        .replaceAll('\\\\s+', '.')\n        .toLowerCase()\n\n    return \"${baseName}@myserver.com\"\n}\n\ndef trimToNull(value) {\n    def trimmed = value?.trim()\n    return trimmed ? trimmed : null\n}\n\ndef isMergeRequestValidationBuild() {\n    def mrState = trimToNull(env.gitlabMergeRequestState)?.toLowerCase()\n    def hasMrContext = trimToNull(env.gitlabMergeRequestIid) ||\n        (trimToNull(env.gitlabSourceBranch) && trimToNull(env.gitlabTargetBranch))\n\n    if (hasMrContext) {\n        return true\n    }\n\n    return mrState && !['merged', 'closed'].contains(mrState)\n}\n\ndef isGitlabPushBuild() {\n    return trimToNull(env.gitlabActionType)?.toUpperCase() == 'PUSH'\n}\n\ndef isAzureValidationBuild() {\n    return isMergeRequestValidationBuild() || isGitlabPushBuild()\n}\n\ndef getMrValidationBranch() {\n    return trimToNull(env.gitlabSourceBranch) ?:\n        trimToNull(env.gitlabBranch) ?:\n        trimToNull(params.BRANCH) ?:\n        error('Unable to resolve branch for merge request validation build.')\n}\n\ndef getMrValidationEnvironment() {\n    def targetBranch = trimToNull(env.gitlabTargetBranch)?.toLowerCase()\n\n    switch (targetBranch) {\n        case 'develop':\n            return 'DEV'\n        case 'qa':\n            return 'QA'\n        case 'master':\n        case 'main':\n            return 'STAGE'\n        default:\n            return (params.ENVIRONMENT ?: 'DEV').trim().toUpperCase()\n    }\n}\n\ndef isUnsetParameterValue(value) {\n    def normalized = trimToNull(value?.toString())\n    if (!normalized) {\n        return true\n    }\n\n    def placeholders = [\n        'Choose service version',\n        'Choose artifact version',\n        'Please select an environment and service',\n        'Please select an environment and service;'\n    ]\n\n    return placeholders.contains(normalized)\n}\n\ndef getServicePlaybooks() {\n    return [\n        'Credentials Service',\n        'Device Management Service',\n        'Firmware Service',\n        'Key Rotation Service',\n        'Locations Service',\n        'Telemetry Service',\n        'Remote Control Service',\n        'IoT Portal'\n    ]\n}\n\ndef parseConfiguredDeploymentParameters(playbook) {\n    def configuredParameters = trimToNull(params.Parameters)\n    if (!configuredParameters) {\n        return [:]\n    }\n\n    def values = configuredParameters.split(',', -1).collect { it.trim() }\n    if (values && values[-1] == '') {\n        values = values[0..-2]\n    }\n\n    if (getServicePlaybooks().contains(playbook)) {\n        if (values.size() != 3) {\n            error(\"Parameters for '${playbook}' must contain 3 values: service name, artifact URL, keyvault URL.\")\n        }\n        return [\n            serviceName: values[0],\n            artifactUrl: values[1],\n            keyvaultUrl: values[2]\n        ]\n    }\n\n    if (playbook == 'Notification Service') {\n        if (values.size() != 2) {\n            error(\"Parameters for 'Notification Service' must contain 2 values: artifact URL, function app name.\")\n        }\n        return [\n            artifactUrl: values[0],\n            functionAppName: values[1]\n        ]\n    }\n\n    if (playbook == 'Markups Function App') {\n        if (values.size() != 3) {\n            error(\"Parameters for 'Markups Function App' must contain 3 values: image version, artifact URL, function app name.\")\n        }\n        return [\n            imageVersion: values[0],\n            artifactUrl: values[1],\n            functionAppName: values[2]\n        ]\n    }\n\n    return [:]\n}\n\ndef getDefaultDeploymentConfig(playbook) {\n    def environmentName = (params.ENVIRONMENT ?: 'dev').trim().toLowerCase()\n    def regionCode = get_region_code(params.REGION_NAME ?: 'eastus')\n    def knownEnv = (environmentName == 'dev' || environmentName == 'qa')\n    def keyvaultUrl = knownEnv ? \"https://kv-iot-${environmentName}-${regionCode}.vault.azure.net/\" : ''\n\n    def defaults = [\n        'Credentials Service'     : [\n            serviceName: knownEnv ? \"ase-credentials-iot-${environmentName}-${regionCode}\" : '',\n            artifactUrl: 'https://nexus.commerce.myserver.com/repository/tgcs-maven-staging/com/tgcs/iot/credentials-service/1.2405.14-2024-11-13-2e3aa30/credentials-service-1.2405.14-2024-11-13-2e3aa30.jar',\n            keyvaultUrl: keyvaultUrl\n        ],\n        'Device Management Service': [\n            serviceName: knownEnv ? \"ase-devicemgmt-iot-${environmentName}-${regionCode}\" : '',\n            artifactUrl: 'https://nexus.commerce.myserver.com/repository/tgcs-maven-staging/com/tgcs/iot/device-mgmt-service/1.2405.15-2024-11-14-f8f3f75/device-mgmt-service-1.2405.15-2024-11-14-f8f3f75.jar',\n            keyvaultUrl: keyvaultUrl\n        ],\n        'Firmware Service'        : [\n            serviceName: knownEnv ? \"ase-firmware-iot-${environmentName}-${regionCode}\" : '',\n            artifactUrl: 'https://nexus.commerce.myserver.com/repository/tgcs-maven-staging/com/tgcs/iot/firmware-service/1.2405.10-2024-11-13-d6a284a/firmware-service-1.2405.10-2024-11-13-d6a284a.jar',\n            keyvaultUrl: keyvaultUrl\n        ],\n        'Key Rotation Service'    : [\n            serviceName: knownEnv ? \"ase-keyrotation-iot-${environmentName}-${regionCode}\" : '',\n            artifactUrl: 'https://nexus.commerce.myserver.com/repository/tgcs-maven-staging/com/tgcs/iot/key-rotation-service/1.2405.9-2024-10-30-6a7c156/key-rotation-service-1.2405.9-2024-10-30-6a7c156.jar',\n            keyvaultUrl: keyvaultUrl\n        ],\n        'Locations Service'       : [\n            serviceName: knownEnv ? \"ase-locations-iot-${environmentName}-${regionCode}\" : '',\n            artifactUrl: 'Choose service version',\n            keyvaultUrl: keyvaultUrl\n        ],\n        'Telemetry Service'       : [\n            serviceName: knownEnv ? \"ase-telemetry-iot-${environmentName}-${regionCode}\" : '',\n            artifactUrl: 'https://nexus.commerce.myserver.com/repository/tgcs-maven-staging/com/tgcs/iot/telemetry-service/1.2405.9-2024-10-30-142547e/telemetry-service-1.2405.9-2024-10-30-142547e.jar',\n            keyvaultUrl: keyvaultUrl\n        ],\n        'Remote Control Service'  : [\n            serviceName: knownEnv ? \"ase-remotecontrol-iot-${environmentName}-${regionCode}\" : '',\n            artifactUrl: 'Choose service version',\n            keyvaultUrl: keyvaultUrl\n        ],\n        'IoT Portal'              : [\n            serviceName: knownEnv ? \"sapp-iot-${environmentName}-${regionCode}\" : '',\n            artifactUrl: 'https://nexus.commerce.myserver.com/repository/tgcs-maven-staging/com/tgcs/tgcp/iot-web-portal/1.2601.2/iot-web-portal-1.2601.2-dev.zip',\n            keyvaultUrl: keyvaultUrl\n        ],\n        'Notification Service'    : [\n            artifactUrl: 'https://nexus.commerce.myserver.com/repository/tgcs-maven-staging/com/tgcs/tgcp/notifications/1.2601.12-20260326-4567125/notifications-1.2601.12-20260326-4567125.zip',\n            functionAppName: knownEnv ? \"func-iot-${environmentName}-${regionCode}-notificationservice\" : ''\n        ],\n        'Markups Function App'    : [\n            imageVersion: 'Choose artifact version',\n            artifactUrl: 'Choose artifact version',\n            functionAppName: knownEnv ? \"func-iot-${environmentName}-${regionCode}-markups\" : ''\n        ]\n    ]\n\n    return defaults[playbook] ?: [:]\n}\n\ndef validateDeploymentConfig(playbook, config) {\n    def requiredFieldsByPlaybook = [\n        'Credentials Service'     : ['serviceName', 'artifactUrl', 'keyvaultUrl'],\n        'Device Management Service': ['serviceName', 'artifactUrl', 'keyvaultUrl'],\n        'Firmware Service'        : ['serviceName', 'artifactUrl', 'keyvaultUrl'],\n        'Key Rotation Service'    : ['serviceName', 'artifactUrl', 'keyvaultUrl'],\n        'Locations Service'       : ['serviceName', 'artifactUrl', 'keyvaultUrl'],\n        'Telemetry Service'       : ['serviceName', 'artifactUrl', 'keyvaultUrl'],\n        'Remote Control Service'  : ['serviceName', 'artifactUrl', 'keyvaultUrl'],\n        'IoT Portal'              : ['serviceName', 'artifactUrl', 'keyvaultUrl'],\n        'Notification Service'    : ['artifactUrl', 'functionAppName'],\n        'Markups Function App'    : ['imageVersion', 'artifactUrl', 'functionAppName']\n    ]\n\n    def missingFields = (requiredFieldsByPlaybook[playbook] ?: []).findAll { fieldName ->\n        isUnsetParameterValue(config[fieldName])\n    }\n\n    if (!missingFields.isEmpty()) {\n        error(\"Missing deployment parameters for '${playbook}': ${missingFields.join(', ')}\")\n    }\n}\n\ndef getResolvedDeploymentConfig() {\n    def playbook = params.Playbook\n    def defaults = getDefaultDeploymentConfig(playbook)\n    def configured = parseConfiguredDeploymentParameters(playbook)\n    def config = [:] + defaults + configured\n\n    validateDeploymentConfig(playbook, config)\n    return config\n}\n\ndef checkout_code(project_url, project_branch, target) {\n    echo 'Checking out ' + target + '...'\n    checkout changelog: false,\n    poll: false,\n    scm: [\n        $class: 'GitSCM',\n        branches: [[name: '*/' + project_branch]],\n        extensions: [[$class: 'RelativeTargetDirectory', relativeTargetDir: target]],\n        userRemoteConfigs: [[\n        credentialsId: 'jenkins-gitlab-ssh',\n        url: project_url]]]\n    echo 'Checkout ' + target + ' completed.'\n}\n\ndef resolveSharedModulesBranch(String requestedBranch = params.BRANCH?.trim()) {\n    def availableBranchesOutput = sh(\n        script: \"git ls-remote --heads '${env.SHARED_MODULES_GIT_URL}'\",\n        returnStdout: true\n    ).trim()\n\n    def availableBranches = availableBranchesOutput\n        .split('\\n')\n        .findAll { it?.trim() }\n        .collect { line ->\n            def parts = line.tokenize()\n            def ref = parts.size() > 1 ? parts[1] : ''\n            return ref.replaceFirst('^refs/heads/', '')\n        }\n\n    if (requestedBranch && availableBranches.contains(requestedBranch)) {\n        return requestedBranch\n    }\n\n    if (requestedBranch?.equalsIgnoreCase('QA')) {\n        if (availableBranches.contains('QA')) {\n            return 'QA'\n        }\n        if (availableBranches.contains('qa')) {\n            return 'qa'\n        }\n        if (availableBranches.contains('master')) {\n            return 'master'\n        }\n        error('QA fallback branch master not found in shared-modules repo')\n    }\n\n    if (requestedBranch == 'master') {\n        if (availableBranches.contains('master')) {\n            return 'master'\n        }\n        error('master branch not found in shared-modules repo')\n    }\n\n    if (requestedBranch?.startsWith('release-')) {\n        if (availableBranches.contains(requestedBranch)) {\n            return requestedBranch\n        }\n        if (availableBranches.contains('master')) {\n            return 'master'\n        }\n        error('release fallback branch master not found in shared-modules repo')\n    }\n\n    if (availableBranches.contains('develop')) {\n        return 'develop'\n    }\n\n    error('develop branch not found in shared-modules repo')\n}\n\n\ndef get_region_code(region) {\n    switch(region) {\n        case 'eastus':\n            return 'eus'\n        case 'westus':\n            return 'wus'\n        case 'centralus':\n            return 'cus'\n        case 'northcentralus':\n            return 'ncus'\n        case 'southcentralus':\n            return 'scus'\n        default:\n            return 'us'\n    }\n}\n\ndef deploy_service() {\n    def config = getResolvedDeploymentConfig()\n    def SERVICE_NAME = config.serviceName\n    def SRC_URL = config.artifactUrl\n    def KEYVAULT_URL = config.keyvaultUrl\n    println 'Deploying service to Azure -> ' + SERVICE_NAME + '...'\n    def file_name = SRC_URL.substring(SRC_URL.lastIndexOf('/') + 1, SRC_URL.length())\n    def buildId = file_name.lastIndexOf('.') > 0 ? file_name.substring(0, file_name.lastIndexOf('.')) : file_name\n    println 'file_name: ' + file_name\n    withCredentials([azureServicePrincipal(get_service_principal(ENVIRONMENT))]) {\n        withCredentials([string(credentialsId: 'CERT_PWD', variable: 'test')]) {\n\n        sh '''#!/usr/bin/env bash\n        curl -k -O '''+SRC_URL+'''\n        az login --service-principal -u \"${AZURE_CLIENT_ID}\" -p \"${AZURE_CLIENT_SECRET}\" -t \"${AZURE_TENANT_ID}\"\n        az account set -s \"${AZURE_SUBSCRIPTION_ID}\"\n        az config set defaults.group=${RESOURCE_GROUP}\n        az webapp deploy --resource-group \"${RESOURCE_GROUP}\" --name '''+SERVICE_NAME+''' --src-path '''+file_name+''' --type jar --track-status false\n        az webapp update --resource-group \"${RESOURCE_GROUP}\" --name '''+SERVICE_NAME+''' --set tags.build_id='''+buildId+'''\n# status tracking commented because it requires tuning healthchecks on the Azure side, otherwise fails\n#        DEPLOY_STATE=\"\"\n#        iterator=0\n#        while [ \"$((iterator+=1))\" -lt 30 ] && [ \"$DEPLOY_STATE\" != \"READY\" ]; do\n#          sleep 20\n#          DEPLOY_STATE=`az webapp list-instances -g \"${RESOURCE_GROUP}\" --name '''+SERVICE_NAME+''' | grep -oP '\"state\"\\\\\\\\s*:\\\\\\\\s*\"\\\\\\\\K[^\"]*'`\n#          echo \"Checking deploy state: ${DEPLOY_STATE}\"\n#        done\n#        az logout\n#        if [ \"$DEPLOY_STATE\" != \"READY\" ]; then\n#          echo \"Deployment failed with status: ${DEPLOY_STATE}\"\n#          exit 1\n#        fi\n        '''\n        }\n    }\n    println 'Deploy service to Azure -> ' + SERVICE_NAME + ' completed.'\n}\n\ndef get_service_principal(env) {\n    prefix = 'iot-service-principal-'\n    switch(env) {\n        case 'dev':\n            return prefix+'DEV'\n        case 'DEV':\n            return prefix+'DEV'\n        case 'qa':\n            return prefix+'QA'\n        case 'QA':\n            return prefix+'QA'\n        case 'stage':\n            return prefix+'STAGE'\n        case 'STAGE':\n            return prefix+'STAGE'\n        case 'prod':\n            return prefix+'PROD'\n        case 'PROD':\n            return prefix+'PROD'\n        default:\n            return prefix+'DEV'\n    }\n}\n\ndef deploy_iot_web_portal() {\n    def config = getResolvedDeploymentConfig()\n    def SERVICE_NAME = config.serviceName\n    def SRC_URL = config.artifactUrl\n    def KEYVAULT_URL = config.keyvaultUrl\n    println 'Deploying iot-web-portal to Azure -> ' + SERVICE_NAME + '...'\n    def file_name = SRC_URL.substring(SRC_URL.lastIndexOf('/') + 1, SRC_URL.length())\n    def buildId = file_name.lastIndexOf('.') > 0 ? file_name.substring(0, file_name.lastIndexOf('.')) : file_name\n    println 'file_name: ' + file_name\n\n    withCredentials([azureServicePrincipal(get_service_principal(ENVIRONMENT))]) {\n\n        def env = ENVIRONMENT.toLowerCase()\n        def region_code = get_region_code(REGION_NAME)\n        def vars = [\n                        \"client_secret\" : '\"' + AZURE_CLIENT_SECRET + '\"'\n                    ]\n        def co_var = ''\n        vars.each{entry -> co_var = co_var + '-var=\"' + entry.key + '=' + entry.value + '\" '}\n\n        sh '''#!/usr/bin/env bash\n            set -e\n            set -x\n            rm -rf ${WORKSPACE}/iot-web-portal*\n            curl -k -O '''+SRC_URL+'''\n            unzip ./'''+file_name+''' -d ${WORKSPACE}/\n\n            az login --service-principal -u \"${AZURE_CLIENT_ID}\" -p \"${AZURE_CLIENT_SECRET}\" -t \"${AZURE_TENANT_ID}\"\n            az account set -s \"${AZURE_SUBSCRIPTION_ID}\"\n            az config set defaults.group=${RESOURCE_GROUP}\n\n            az provider register --namespace Microsoft.AppPlatform\n            az provider register --namespace Microsoft.ContainerService\n\n            token=`az staticwebapp secrets list --name '''+SERVICE_NAME+''' -g ${RESOURCE_GROUP} | grep 'apiKey' | sed -e 's/\\\\s*\\\\\"apiKey\\\\\":\\\\s*\\\"//' -e 's/\\\\\"//g'`\n            npx swa deploy ${WORKSPACE}/iot-web-portal --deployment-token ${token} --env production\n\n            echo \"Tagging ''' + SERVICE_NAME + ''' with build_id=''' + buildId + '''\"\n            az tag update --resource-id $(az staticwebapp show --name '''+SERVICE_NAME+''' -g ${RESOURCE_GROUP} --query id -o tsv) --operation merge --tags build_id='''+buildId+'''\n            az logout\n        '''\n\n    }\n    println 'Deploy iot-web-portal to Azure -> ' + SERVICE_NAME + ' completed.'\n}\n\ndef deploy_markups_function_app() {\n    // Parameters format: \"IMAGE_VERSION,SRC_URL,FUNCTION_APP_NAME\"\n    // IMAGE_VERSION: tag to pull from eleracicdacr and push to target ACR, e.g. \"1.2.3\"\n    // SRC_URL:       download URL for the function app zip artifact\n    // FUNCTION_APP_NAME: name of the Azure Function App to deploy the zip to\n    def config = getResolvedDeploymentConfig()\n    def image_version = config.imageVersion\n    def src_url = config.artifactUrl\n    def function_app_name = config.functionAppName\n\n    def file_name = src_url.substring(src_url.lastIndexOf('/') + 1)\n    def buildId = file_name.lastIndexOf('.') > 0 ? file_name.substring(0, file_name.lastIndexOf('.')) : file_name\n    println \"Deploying Markups Function App: image=${image_version}, zip=${file_name}, app=${function_app_name}\"\n\n    withCredentials([azureServicePrincipal(get_service_principal(ENVIRONMENT))]) {\n        withCredentials([\n            usernamePassword(credentialsId: 'ELERA_CICD_ACR',\n                             usernameVariable: 'SRC_ACR_USERNAME',\n                             passwordVariable: 'SRC_ACR_PASSWORD')\n        ]) {\n            sh '''#!/usr/bin/env bash\n                set -e\n\n                echo \"Logging in to Azure...\"\n                az login --service-principal \\\n                    -u \"${AZURE_CLIENT_ID}\" \\\n                    -p \"${AZURE_CLIENT_SECRET}\" \\\n                    -t \"${AZURE_TENANT_ID}\"\n                az account set -s \"${AZURE_SUBSCRIPTION_ID}\"\n\n                echo \"Resolving target ACR...\"\n                TARGET_ACR=$(az acr list \\\n                    --resource-group \"${RESOURCE_GROUP}\" \\\n                    --subscription \"${AZURE_SUBSCRIPTION_ID}\" \\\n                    --query \"[0].name\" -o tsv)\n                TARGET_ACR_SERVER=$(az acr show --name \"${TARGET_ACR}\" --resource-group \"${RESOURCE_GROUP}\" --subscription \"${AZURE_SUBSCRIPTION_ID}\" --query \"loginServer\" -o tsv)\n                echo \"Target ACR: ${TARGET_ACR} (${TARGET_ACR_SERVER})\"\n\n                echo \"Pulling iot-markups-inference:''' + image_version + ''' from eleracicdacr\"\n                docker login eleracicd.azurecr.io \\\n                    --username \"${SRC_ACR_USERNAME}\" \\\n                    --password \"${SRC_ACR_PASSWORD}\"\n                docker pull \"eleracicd.azurecr.io/iot-markups-inference:''' + image_version + '''\"\n\n                echo \"Tagging and pushing iot-markups-inference:''' + image_version + ''' to ${TARGET_ACR_SERVER}\"\n                az acr login --name \"${TARGET_ACR}\" --resource-group \"${RESOURCE_GROUP}\" --subscription \"${AZURE_SUBSCRIPTION_ID}\"\n                docker tag \"eleracicd.azurecr.io/iot-markups-inference:''' + image_version + '''\" \\\n                    \"${TARGET_ACR_SERVER}/iot-markups-inference:''' + image_version + '''\"\n                docker push \"${TARGET_ACR_SERVER}/iot-markups-inference:''' + image_version + '''\"\n\n                echo \"Cleaning up local images...\"\n                docker rmi \"eleracicd.azurecr.io/iot-markups-inference:''' + image_version + '''\" \\\n                    \"${TARGET_ACR_SERVER}/iot-markups-inference:''' + image_version + '''\" || true\n\n                echo \"Updating BATCH_CONTAINER_IMAGE app setting on ''' + function_app_name + '''\"\n                az functionapp config appsettings set \\\n                    --resource-group \"${RESOURCE_GROUP}\" \\\n                    --name ''' + function_app_name + ''' \\\n                    --settings \"BATCH_CONTAINER_IMAGE=iot-markups-inference:''' + image_version + '''\"\n\n                echo \"Deploying ''' + file_name + ''' to ''' + function_app_name + '''\"\n                curl -k -O ''' + src_url + '''\n                az functionapp deployment source config-zip \\\n                    --resource-group \"${RESOURCE_GROUP}\" \\\n                    --name ''' + function_app_name + ''' \\\n                    --src ''' + file_name + '''\n\n                echo \"Tagging ''' + function_app_name + ''' with build_id=''' + buildId + '''\"\n                az functionapp update \\\n                    --resource-group \"${RESOURCE_GROUP}\" \\\n                    --name ''' + function_app_name + ''' \\\n                    --set tags.build_id=''' + buildId + '''\n\n                echo \"Cleaning up zip artifact...\"\n                rm -f ''' + file_name + '''\n                az logout\n                echo \"Markups inference deployment complete.\"\n            '''\n        }\n    }\n\n    println \"Markups Function App deployment completed: ${function_app_name}\"\n}\n\ndef deploy_to_azure_function() {\n    def config = getResolvedDeploymentConfig()\n    def SRC_URL = config.artifactUrl\n    def FUNCTION_APP_NAME = config.functionAppName\n    println 'Deploying notification service zip to Azure Function App'\n    def file_name = SRC_URL.substring(SRC_URL.lastIndexOf('/') + 1)\n    def buildId = file_name.lastIndexOf('.') > 0 ? file_name.substring(0, file_name.lastIndexOf('.')) : file_name\n    println 'file_name: ' + file_name\n\n    withCredentials([azureServicePrincipal(get_service_principal(ENVIRONMENT))]) {\n        sh '''#!/usr/bin/env bash\n            set -e\n            curl -k -O ''' + SRC_URL + '''\n\n            az login --service-principal -u \"${AZURE_CLIENT_ID}\" -p \"${AZURE_CLIENT_SECRET}\" -t \"${AZURE_TENANT_ID}\"\n            az account set -s \"${AZURE_SUBSCRIPTION_ID}\"\n\n            echo \"Deploy ''' + file_name + ''' to ''' + FUNCTION_APP_NAME + '''\"\n            az functionapp deployment source config-zip \\\n                --resource-group ${RESOURCE_GROUP} \\\n                --name ''' + FUNCTION_APP_NAME + ''' \\\n                --src ''' + file_name + '''\n\n            az functionapp update \\\n                --resource-group \"${RESOURCE_GROUP}\" \\\n                --name ''' + FUNCTION_APP_NAME + ''' \\\n                --set tags.build_id=''' + buildId + '''\n\n            rm -f ''' + file_name + '''\n            az logout\n        '''\n    }\n\n    println 'Deploy notification service to Azure -> ' + FUNCTION_APP_NAME + ' completed.'\n} \n",
+      "loadedScripts": {}
+    }
+  },
+  "getBuildLog": {
+    "status": "COMPLETED",
+    "message": "Data retrieved successfully.",
+    "result": {
+      "lines": [
+        "Triggered by GitLab Merge Request #166: IaaC/ESAAS-6931 => develop",
+        "Checking out git ssh://git@my.gitserver.com:5555/cloudops/IaaC/iot-platform-iac.git into /var/jenkins_home/workspace/iot-platform-deploy-dev@script/3fa80ed16cc3dcd7510f6779412ff07190b36749114ef8fdb673fb68fa4532cc to read tf/Jenkinsfile",
+        "Selected Git installation does not exist. Using Default",
+        "The recommended git tool is: NONE",
+        "using credential jenkins-gitlab-ssh",
+        " > git rev-parse --resolve-git-dir /var/jenkins_home/workspace/iot-platform-deploy-dev@script/3fa80ed16cc3dcd7510f6779412ff07190b36749114ef8fdb673fb68fa4532cc/.git # timeout=10",
+        "Fetching changes from the remote Git repository",
+        " > git config remote.origin.url ssh://git@my.gitserver.com:5555/cloudops/IaaC/iot-platform-iac.git # timeout=10",
+        "Fetching upstream changes from ssh://git@my.gitserver.com:5555/cloudops/IaaC/iot-platform-iac.git",
+        " > git --version # timeout=10",
+        " > git --version # 'git version 2.30.2'",
+        "using GIT_SSH to set credentials jenkins-gitlab-ssh",
+        "Verifying host key using known hosts file",
+        " > git fetch --tags --force --progress -- ssh://git@my.gitserver.com:5555/cloudops/IaaC/iot-platform-iac.git +refs/heads/*:refs/remotes/origin/* # timeout=10",
+        " > git rev-parse a2773870d55bd9bfd720555eb3fc194905cf7881^{commit} # timeout=10",
+        " > git branch -a -v --no-abbrev --contains a2773870d55bd9bfd720555eb3fc194905cf7881 # timeout=10",
+        "Checking out Revision a2773870d55bd9bfd720555eb3fc194905cf7881 (origin/ESAAS-6931)",
+        " > git config core.sparsecheckout # timeout=10",
+        " > git checkout -f a2773870d55bd9bfd720555eb3fc194905cf7881 # timeout=10",
+        "Commit message: \"feat(iot): add remote control service deployment\"",
+        " > git rev-list --no-walk a2773870d55bd9bfd720555eb3fc194905cf7881 # timeout=10",
+        "Loading library retailVisionPipeline@master",
+        "Attempting to resolve master from remote references...",
+        " > git --version # timeout=10",
+        " > git --version # 'git version 2.30.2'",
+        "using GIT_SSH to set credentials jenkins-gitlab-ssh",
+        "Verifying host key using known hosts file",
+        " > git ls-remote -h -- ssh://git@my.gitserver.com:5555/produce-recognition/jenkinspipeline.git # timeout=10",
+        "Found match: refs/heads/master revision efc46e9217f9bbbad9f2fbb0a99ae264a52fd031",
+        "Selected Git installation does not exist. Using Default",
+        "The recommended git tool is: NONE",
+        "using credential jenkins-gitlab-ssh",
+        " > git rev-parse --resolve-git-dir /var/jenkins_home/workspace/iot-platform-deploy-dev@libs/a2f593cc5e7208a8c905f136dd558cbacef5ff0dcaf93d9d8c67a6b07f9acb6a/.git # timeout=10",
+        "Fetching changes from the remote Git repository",
+        " > git config remote.origin.url ssh://git@my.gitserver.com:5555/produce-recognition/jenkinspipeline.git # timeout=10",
+        "Fetching without tags",
+        "Fetching upstream changes from ssh://git@my.gitserver.com:5555/produce-recognition/jenkinspipeline.git",
+        " > git --version # timeout=10",
+        " > git --version # 'git version 2.30.2'",
+        "using GIT_SSH to set credentials jenkins-gitlab-ssh",
+        "Verifying host key using known hosts file",
+        " > git fetch --no-tags --force --progress -- ssh://git@my.gitserver.com:5555/produce-recognition/jenkinspipeline.git +refs/heads/*:refs/remotes/origin/* # timeout=10",
+        "skipping resolution of commit a2773870d55bd9bfd720555eb3fc194905cf7881, since it originates from another repository",
+        "Checking out Revision efc46e9217f9bbbad9f2fbb0a99ae264a52fd031 (master)",
+        " > git config core.sparsecheckout # timeout=10",
+        " > git checkout -f efc46e9217f9bbbad9f2fbb0a99ae264a52fd031 # timeout=10",
+        "Commit message: \"update maven\"",
+        " > git rev-list --no-walk efc46e9217f9bbbad9f2fbb0a99ae264a52fd031 # timeout=10",
+        "Loading library selfservicePipeline@master",
+        "Attempting to resolve master from remote references...",
+        " > git --version # timeout=10",
+        " > git --version # 'git version 2.30.2'",
+        "using GIT_SSH to set credentials jenkins-gitlab-ssh",
+        "Verifying host key using known hosts file",
+        " > git ls-remote -h -- ssh://git@my.gitserver.com:5555/selfservice/JenkinsPipeline.git # timeout=10",
+        "Found match: refs/heads/master revision 3ba54ae1848ed8d07d2669807dc596fd45885e0b",
+        "The recommended git tool is: NONE",
+        "using credential jenkins-gitlab-ssh",
+        " > git rev-parse --resolve-git-dir /var/jenkins_home/workspace/iot-platform-deploy-dev@libs/956fe6e68180202ab6e43113b24c36f6a443b974d8799fb07b1286be78169c7a/.git # timeout=10",
+        "Fetching changes from the remote Git repository",
+        " > git config remote.origin.url ssh://git@my.gitserver.com:5555/selfservice/JenkinsPipeline.git # timeout=10",
+        "Fetching without tags",
+        "Fetching upstream changes from ssh://git@my.gitserver.com:5555/selfservice/JenkinsPipeline.git",
+        " > git --version # timeout=10",
+        " > git --version # 'git version 2.30.2'",
+        "using GIT_SSH to set credentials jenkins-gitlab-ssh",
+        "Verifying host key using known hosts file",
+        " > git fetch --no-tags --force --progress -- ssh://git@my.gitserver.com:5555/selfservice/JenkinsPipeline.git +refs/heads/*:refs/remotes/origin/* # timeout=10",
+        "skipping resolution of commit a2773870d55bd9bfd720555eb3fc194905cf7881, since it originates from another repository",
+        "Checking out Revision 3ba54ae1848ed8d07d2669807dc596fd45885e0b (master)",
+        " > git config core.sparsecheckout # timeout=10",
+        " > git checkout -f 3ba54ae1848ed8d07d2669807dc596fd45885e0b # timeout=10",
+        "Commit message: \"[ETI-2695] replace legacy Nexus URL\"",
+        " > git rev-list --no-walk 3ba54ae1848ed8d07d2669807dc596fd45885e0b # timeout=10",
+        "Loading library nguiPipeline@master",
+        "Attempting to resolve master from remote references...",
+        " > git --version # timeout=10",
+        " > git --version # 'git version 2.30.2'",
+        "using GIT_SSH to set credentials jenkins-gitlab-ssh",
+        "Verifying host key using known hosts file",
+        " > git ls-remote -h -- ssh://git@my.gitserver.com:5555/vuepos/JenkinsPipeline.git # timeout=10",
+        "Found match: refs/heads/master revision 439cb54e3b4e065e983fa5af21034d8ebb915271",
+        "The recommended git tool is: NONE",
+        "using credential jenkins-gitlab-ssh",
+        " > git rev-parse --resolve-git-dir /var/jenkins_home/workspace/iot-platform-deploy-dev@libs/d6422e34ccc2cb6d95c69ed543882aa3e08429ccbd62480dcc10ff5713067c09/.git # timeout=10",
+        "Fetching changes from the remote Git repository",
+        " > git config remote.origin.url ssh://git@my.gitserver.com:5555/vuepos/JenkinsPipeline.git # timeout=10",
+        "Fetching without tags",
+        "Fetching upstream changes from ssh://git@my.gitserver.com:5555/vuepos/JenkinsPipeline.git",
+        " > git --version # timeout=10",
+        " > git --version # 'git version 2.30.2'",
+        "using GIT_SSH to set credentials jenkins-gitlab-ssh",
+        "Verifying host key using known hosts file",
+        " > git fetch --no-tags --force --progress -- ssh://git@my.gitserver.com:5555/vuepos/JenkinsPipeline.git +refs/heads/*:refs/remotes/origin/* # timeout=10",
+        "skipping resolution of commit a2773870d55bd9bfd720555eb3fc194905cf7881, since it originates from another repository",
+        "Checking out Revision 439cb54e3b4e065e983fa5af21034d8ebb915271 (master)",
+        " > git config core.sparsecheckout # timeout=10",
+        " > git checkout -f 439cb54e3b4e065e983fa5af21034d8ebb915271 # timeout=10",
+        "Commit message: \"[ETI-2750] fix runner sync BDD priority default\"",
+        " > git rev-list --no-walk 439cb54e3b4e065e983fa5af21034d8ebb915271 # timeout=10"
+      ],
+      "hasMoreContent": true,
+      "startLine": 1,
+      "endLine": 100,
+      "totalLines": -1,
+      "nextCursor": "MTAzNTo3MDU0"
+    }
+  },
+  "searchBuildLog": {
+    "status": "COMPLETED",
+    "message": "Data retrieved successfully.",
+    "result": {
+      "pattern": "ERROR",
+      "useRegex": false,
+      "ignoreCase": false,
+      "matchCount": 0,
+      "hasMoreMatches": false,
+      "totalLines": 2773,
+      "matches": []
+    }
+  },
+  "getJobs": {
+    "status": "COMPLETED",
+    "message": "Data retrieved successfully.",
+    "result": [
+      {
+        "_class": "org.jenkinsci.plugins.workflow.job.WorkflowJob",
+        "fullName": "Build Produce Recognition Docs",
+        "name": "Build Produce Recognition Docs",
+        "url": "https://my-jenkins-server.com/job/Build%20Produce%20Recognition%20Docs/"
+      },
+      {
+        "_class": "org.jenkinsci.plugins.workflow.job.WorkflowJob",
+        "fullName": "Build_all_release-dev",
+        "name": "Build_all_release-dev",
+        "url": "https://my-jenkins-server.com/job/Build_all_release-dev/"
+      },
+      {
+        "_class": "org.jenkinsci.plugins.workflow.job.WorkflowJob",
+        "fullName": "Build_all_snapshot-dev",
+        "name": "Build_all_snapshot-dev",
+        "url": "https://my-jenkins-server.com/job/Build_all_snapshot-dev/"
+      },
+      {
+        "_class": "org.jenkinsci.plugins.workflow.job.WorkflowJob",
+        "fullName": "CEK_TEST_DOCKER",
+        "name": "CEK_TEST_DOCKER",
+        "url": "https://my-jenkins-server.com/job/CEK_TEST_DOCKER/"
+      },
+      {
+        "_class": "org.jenkinsci.plugins.workflow.job.WorkflowJob",
+        "fullName": "CVService_Windows",
+        "name": "CVService_Windows",
+        "url": "https://my-jenkins-server.com/job/CVService_Windows/"
+      },
+      {
+        "_class": "org.jenkinsci.plugins.workflow.job.WorkflowJob",
+        "fullName": "Databricks DAB",
+        "name": "Databricks DAB",
+        "url": "https://my-jenkins-server.com/job/Databricks%20DAB/"
+      },
+      {
+        "_class": "org.jenkinsci.plugins.workflow.job.WorkflowJob",
+        "fullName": "IoT Authorization",
+        "name": "IoT Authorization",
+        "url": "https://my-jenkins-server.com/job/IoT%20Authorization/"
+      },
+      {
+        "_class": "hudson.maven.MavenModuleSet",
+        "fullName": "MAVEN_TEST",
+        "name": "MAVEN_TEST",
+        "url": "https://my-jenkins-server.com/job/MAVEN_TEST/"
+      },
+      {
+        "_class": "org.jenkinsci.plugins.workflow.job.WorkflowJob",
+        "fullName": "Mail_Test",
+        "name": "Mail_Test",
+        "url": "https://my-jenkins-server.com/job/Mail_Test/"
+      },
+      {
+        "_class": "org.jenkinsci.plugins.workflow.job.WorkflowJob",
+        "fullName": "Nexus_Download_Upload_Test",
+        "name": "Nexus_Download_Upload_Test",
+        "url": "https://my-jenkins-server.com/job/Nexus_Download_Upload_Test/"
+      }
+    ]
+  },
+  "getQueueItem": {
+    "status": "COMPLETED",
+    "message": "Search completed, but no results were found for the specified criteria."
+  },
+  "findJobsWithScmUrl": {
+    "status": "COMPLETED",
+    "message": "Data retrieved successfully.",
+    "result": [
+      {
+        "_class": "org.jenkinsci.plugins.workflow.job.WorkflowJob",
+        "fullName": "iot-platform-deploy-dev",
+        "name": "iot-platform-deploy-dev",
+        "url": "https://my-jenkins-server.com/job/iot-platform-deploy-dev/"
+      },
+      {
+        "_class": "org.jenkinsci.plugins.workflow.job.WorkflowJob",
+        "fullName": "iot-platform-deploy-dev_copy",
+        "name": "iot-platform-deploy-dev_copy",
+        "url": "https://my-jenkins-server.com/job/iot-platform-deploy-dev_copy/"
+      }
+    ]
+  }
+}

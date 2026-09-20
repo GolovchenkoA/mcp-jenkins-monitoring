@@ -1,0 +1,21 @@
+  - findJobsWithScmUrl
+  - getBuild
+  - getBuildChangeSets
+  - getBuildLog
+  - getBuildScm
+  - getFlakyFailures
+  - getJob
+  - getJobScm
+  - getJobs
+  - getQueueItem
+  - getReplayScripts
+  - getStatus
+  - getTestResults
+  - rebuildBuild
+  - replayBuild
+  - searchBuildLog
+  - triggerBuild
+  - updateBuild
+  - whoAmI
+
+The build-changing tools are rebuildBuild, replayBuild, triggerBuild, and updateBuild; the rest are read-only.
