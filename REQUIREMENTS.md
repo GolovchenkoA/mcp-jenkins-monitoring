@@ -81,7 +81,7 @@ Note: the project `CLAUDE.md` says `application.yml`. Your requirement (`applica
 | `jenkins.allowed-tools` | `getBuild,getJob,whoAmI,getStatus` | Allowlist, see 8.1 [proposed] |
 | `jenkins.server[n].url` | — | MCP endpoint of a Jenkins server; the server's identity is derived from it (see 4.3, 4.4) |
 | `jenkins.server[n].protocol` | `STREAMABLE` | Uppercase (see 4.3) |
-| `jenkins.server[n].auth` | — | **Name of the environment variable** that holds the Basic auth header value (see 4.3) |
+| `jenkins.server[n].auth` | — | The credentials, `Basic <base64 of user:apiToken>`, when given as the environment variable `JENKINS_SERVER_n_AUTH`; or the **name of an environment variable** that holds them (see 4.3) |
 | `logging.mask-parameter-pattern` | `(?i).*(password\|token\|secret\|key).*` | Parameter names whose values are masked [proposed] |
 | `notifications.max-attempts` | `5` | Phase 2 [proposed] |
 
@@ -109,7 +109,7 @@ Each server has exactly three settings:
 |---|---|
 | `url` | Full MCP endpoint, e.g. `https://jenkins-server1.com/mcp-server/mcp` |
 | `protocol` | `STREAMABLE`. Written in uppercase; the application also normalizes to uppercase when reading. Any other value is a startup error for that server [proposed] |
-| `auth` | The **name of an environment variable**, e.g. `JENKINS_SERVER1_AUTH`. The variable is always an environment variable, for security reasons, and always holds Basic auth in the form `Basic <base64 secret>` |
+| `auth` | The Basic auth header value, `Basic <base64 of user:apiToken>`. Given as the environment variable `JENKINS_SERVER_n_AUTH` it holds the credentials **directly**. In any other place (a properties file) it must be the **name of an environment variable** that holds them, for security reasons. Either way the credentials only ever live in an environment variable |
 
 Servers are numbered blocks, bound as a map keyed by the number (see the environment-variable note below). A server has no separate name; its identity is its URL (section 4.4).
 
@@ -133,10 +133,10 @@ JENKINS_SERVER1_AUTH=Basic dXNlcjp0b2tlbg==
 
 Rules:
 
-- The application reads the variable named in `auth` from the environment and sends its value **verbatim** as the `Authorization` header of every call to that server.
-- Startup validation: the variable exists and matches `Basic <valid Base64>`. If not, that server is reported as CRITICAL (naming the variable, not its value) [proposed].
+- The application takes the credentials from `auth` itself when they came from an environment variable, or reads the variable named in `auth`, and sends the value **verbatim** as the `Authorization` header of every call to that server.
+- Startup validation: the credentials exist and match `Basic <valid Base64>` (the scheme is case-insensitive, extra spaces are fine). If not, that server is reported as CRITICAL, naming the variable and never its value [proposed].
 - The value is read from the **real operating-system environment** only (`System.getenv`). A property with the same name in `application.properties` or a `-D` option is not accepted, so the secret can neither sit in a file nor show in the process list.
-- A literal value such as `Basic dXNl...` written in `auth` is **rejected** at startup, so plaintext secrets cannot be committed to the file [proposed].
+- A literal value such as `Basic dXNl...` in `auth` is accepted only when it was read from an environment variable (Spring Boot's property origin tells where a value came from); written in a properties file it is **rejected** at startup, with a message that says so and never shows the value, so plaintext secrets cannot be committed to a file. The name form works from either place.
 - No servers configured is reported as CRITICAL [proposed].
 - **The same settings can come from environment variables.** Spring Boot maps `jenkins.server[0].url` to `JENKINS_SERVER_0_URL`, `jenkins.server[0].auth` to `JENKINS_SERVER_0_AUTH`, and so on. The servers are bound as a map keyed by the number, not as a list, so the numbers only have to be unique (gaps are fine) and servers from a file and from environment variables are **combined**; for the same number and setting the environment variable wins. A different naming scheme such as `JENKINS_<NAME>_URL` is not supported. A setting without a number, such as `JENKINS_SERVER_URL` or `jenkins.server.url`, cannot be bound and stops the startup with Spring Boot's message `failed to convert java.lang.String to java.lang.Integer`, naming the property. The property is `jenkins.server[n]` (singular) so the variables read `JENKINS_SERVER_0_URL`; the earlier plural name `jenkins.servers[n]` is ignored, and the startup report warns when it is found.
 - **Startup report.** Before anything connects, the application logs every configured `jenkins.server[n]` block: the canonical URL, the MCP endpoint, the protocol, the name of the credentials variable, and **where the URL was read from** (file, line and column of an `application.properties`, or the name of the environment variable). A block that cannot be used is logged at ERROR with the reason; an empty configuration is logged as a WARN that explains how to add a server. Credentials are never logged. The origin comes from Spring Boot's own property tracking, so it is exact [proposed].
@@ -373,9 +373,9 @@ All calls to any Jenkins MCP server go through **one gateway class**. The collec
 
 - **Allowlist** of read-only tools: `getBuild`, `getJob`, `whoAmI`, `getStatus`. Any other tool name is refused. The four build-changing tools (`triggerBuild`, `rebuildBuild`, `replayBuild`, `updateBuild`) can never be called: they are refused by a fixed deny-list in the gateway even if someone adds them to `jenkins.allowed-tools`, and an error is logged at startup when that happens.
 - **Mandatory `tree`** on `getBuild` and `getJob`. A call without it is refused. An unfiltered build response is about 190 KB.
-- **Credentials**: the `Authorization` header value of each server (from the environment variable named in its `auth` setting, section 4.3), held only in the gateway. Never logged.
+- **Credentials**: the `Authorization` header value of each server (from `JENKINS_SERVER_n_AUTH` itself or from the environment variable it names, section 4.3), held only in the gateway. Never logged.
 - **No passthrough**: Jenkins tools are not re-exposed to end users.
-- Each Jenkins server should have a dedicated read-only service account (Overall/Read, Job/Read) whose Basic auth (user + API token) is supplied through the environment variable named in `auth`. Jenkins permissions are the real enforcement.
+- Each Jenkins server should have a dedicated read-only service account (Overall/Read, Job/Read) whose Basic auth (user + API token) is supplied through an environment variable (see section 4.3). Jenkins permissions are the real enforcement.
 
 ### 8.2 Robustness
 
@@ -430,7 +430,7 @@ Overall status: **OK** ("everything ok"), **PROBLEMS** ("some problems"), **CRIT
 | Credentials accepted (`whoAmI`) | Rejected → PROBLEMS, per server [proposed] |
 | Jenkins `getStatus` | Quiet Mode on, non-empty administrative monitors, or Root URL Status not OK → PROBLEMS [proposed] |
 | Storage files readable, writable and valid JSON | Failure → CRITICAL [proposed] |
-| Each server's `auth` environment variable exists and has the form `Basic <base64>` | Missing or malformed → CRITICAL for that server [proposed] |
+| Each server's credentials exist and have the form `Basic <base64>` | Missing or malformed → CRITICAL for that server [proposed] |
 | Scheduler heartbeat | Collector has not completed a run within twice its interval → PROBLEMS [proposed] |
 | Rules | Invalid rule skipped, tracked job not resolving, cursor re-bootstrapped → PROBLEMS [proposed] |
 | Notification Azure authentication (Phase 2) | Cannot authenticate → **PROBLEMS**, not critical; the user can still read events by asking this application |
@@ -514,7 +514,7 @@ Everything tagged [proposed] stands unless you object. The main ones:
 23. Server input is matched by host and port, ignoring scheme and path; the canonical URL of the matching configured server is what gets saved.
 24. Two configured servers with the same canonical URL are a startup error; servers that differ only by context path are not supported.
 25. The canonical URL comes from the configuration, not from build URLs in Jenkins responses. Build URLs themselves are stored as returned, never truncated.
-26. `auth` holds the environment variable's **name**; a literal `Basic ...` value in the file is rejected at startup.
+26. `auth` holds either the credentials, only when they come from an environment variable such as `JENKINS_SERVER_0_AUTH`, or the environment variable's **name**; credentials written in a file are rejected at startup.
 27. `protocol` is normalized to uppercase; anything other than `STREAMABLE` is a startup error for that server.
 28. Configuration is read at startup, so server changes need a restart; the external `application.properties` is loaded from beside the jar.
 29. Zero configured servers is CRITICAL.

@@ -40,7 +40,7 @@ jenkins.server[0].protocol=STREAMABLE
 jenkins.server[0].auth=JENKINS_SERVER1_AUTH
 ```
 
-`auth` is the **name of an environment variable**, never the credentials. The variable holds the Basic auth header value, `Basic <base64 of user:apiToken>`:
+`auth` says where the credentials are. They are `Basic <base64 of user:apiToken>`, and they are never written in a file, so in a properties file `auth` is the **name of an environment variable** that holds them:
 
 ```bash
 export JENKINS_SERVER1_AUTH="Basic $(printf 'user:apiToken' | base64)"
@@ -48,14 +48,16 @@ export JENKINS_SERVER1_AUTH="Basic $(printf 'user:apiToken' | base64)"
 
 ### Servers from environment variables instead
 
-Instead of a file, the same settings can come from environment variables. Spring Boot turns `jenkins.server[0].url` into `JENKINS_SERVER_0_URL`, and so on:
+Instead of a file, the same settings can come from environment variables. Here the credentials can go straight into `..._AUTH`. Spring Boot turns `jenkins.server[0].url` into `JENKINS_SERVER_0_URL`, and so on:
 
 ```bash
 export JENKINS_SERVER_0_URL=https://jenkins-server1.com/mcp-server/mcp
-export JENKINS_SERVER_0_AUTH=JENKINS_SERVER1_AUTH          # the NAME of the variable that holds the credentials
+export JENKINS_SERVER_0_AUTH="Basic $(printf 'user:apiToken' | base64)"   # the credentials themselves
 export JENKINS_SERVER_1_URL=https://jenkins-server2.com/mcp-server/mcp
-export JENKINS_SERVER_1_AUTH=JENKINS_SERVER2_AUTH
+export JENKINS_SERVER_1_AUTH="Basic $(printf 'user2:apiToken2' | base64)"
 ```
+
+`JENKINS_SERVER_n_AUTH` may hold the credentials directly, as above, or the name of another variable that holds them (`JENKINS_SERVER_0_AUTH=JENKINS0_CREDENTIALS` and `JENKINS0_CREDENTIALS="Basic ..."`). The credentials themselves are accepted only when they come from an environment variable: `jenkins.server[0].auth=Basic ...` in a properties file is refused, so a secret cannot be committed by mistake. The error never shows the value.
 
 Note the singular `server`. The numbers only have to be different from each other; gaps are fine. Servers from a file and from environment variables are combined, so some can be in the file and others in the environment. If the same number is given in both, the environment variable wins for that setting.
 

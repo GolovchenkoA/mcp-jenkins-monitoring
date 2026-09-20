@@ -24,5 +24,10 @@ public record JenkinsProperties(
 
     /** One Jenkins MCP server. {@code auth} is the name of an environment variable, never the secret itself. */
     public record Server(String url, @DefaultValue("STREAMABLE") String protocol, String auth) {
+        /** Without the credentials, so that logging a Server never shows them. */
+        @Override
+        public String toString() {
+            return "Server[url=" + url + ", protocol=" + protocol + ", auth=***]";
+        }
     }
 }

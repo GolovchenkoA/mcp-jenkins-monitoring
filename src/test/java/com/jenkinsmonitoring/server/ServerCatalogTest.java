@@ -71,7 +71,7 @@ class ServerCatalogTest {
         ServerCatalog catalog = catalog(environment, TestServers.server("https://jenkins-server1.com/mcp-server/mcp"));
 
         assertThat(catalog.servers()).isEmpty();
-        assertThat(catalog.problems().get(0).message()).contains("Basic <base64>");
+        assertThat(catalog.problems().get(0).message()).contains("Basic <base64 of user:apiToken>");
     }
 
     @Test
