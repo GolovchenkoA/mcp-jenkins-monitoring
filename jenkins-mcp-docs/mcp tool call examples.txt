@@ -1,0 +1,58 @@
+securitysuitejenkins.getBuild({
+      "jobFullName": "iot-platform-deploy-dev",
+      "buildNumber": 1018,
+      "tree": "number,result,displayName,fullDisplayName,timestamp,duration,url,building,previousBuild[number,url],nextBuild[number,url],actions[causes[shortDescripti
+      on,userId,userName],lastBuiltRevision[branch[name]]]"
+    })
+	
+	
+	response:
+	
+	{
+    "status": "COMPLETED",
+    "message": "Data retrieved successfully.",
+    "result": {
+      "number": 1018,
+      "result": "FAILURE",
+      "displayName": "#1018",
+      "fullDisplayName": "iot-platform-deploy-dev #1018",
+      "timestamp": 1789133991865,
+      "duration": 185071,
+      "url": "https://my-jenkins-server.com/job/iot-platform-deploy-dev/1018/",
+      "building": false,
+      "previousBuild": {
+        "number": 1017,
+        "url": "https://my-jenkins-server.com/job/iot-platform-deploy-dev/1017/"
+      },
+      "nextBuild": {
+        "number": 1019,
+        "url": "https://my-jenkins-server.com/job/iot-platform-deploy-dev/1019/"
+      },
+      "actions": [
+        {
+          "causes": [
+            {
+              "shortDescription": "Started by user Artem Holovchenko",
+              "userId": "artem.holovchenko",
+              "userName": "Artem Holovchenko"
+            }
+          ]
+        },
+        {
+          "lastBuiltRevision": {
+            "branch": [{"name": "origin/develop"}]
+          }
+        },
+        {
+          "lastBuiltRevision": {
+            "branch": [{"name": "master"}]
+          }
+        },
+        {
+          "lastBuiltRevision": {
+            "branch": [{"name": "refs/remotes/origin/develop"}]
+          }
+        }
+      ]
+    }
+  }
