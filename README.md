@@ -35,9 +35,9 @@ Data and logs go to a `jenkins-monitoring-mcp` folder **next to the jar**: `db/`
 Put an `application.properties` next to the jar. Add one block per server:
 
 ```properties
-jenkins.servers[0].url=https://jenkins-server1.com/mcp-server/mcp
-jenkins.servers[0].protocol=STREAMABLE
-jenkins.servers[0].auth=JENKINS_SERVER1_AUTH
+jenkins.server[0].url=https://jenkins-server1.com/mcp-server/mcp
+jenkins.server[0].protocol=STREAMABLE
+jenkins.server[0].auth=JENKINS_SERVER1_AUTH
 ```
 
 `auth` is the **name of an environment variable**, never the credentials. The variable holds the Basic auth header value, `Basic <base64 of user:apiToken>`:
@@ -45,6 +45,33 @@ jenkins.servers[0].auth=JENKINS_SERVER1_AUTH
 ```bash
 export JENKINS_SERVER1_AUTH="Basic $(printf 'user:apiToken' | base64)"
 ```
+
+### Servers from environment variables instead
+
+Instead of a file, the same settings can come from environment variables. Spring Boot turns `jenkins.server[0].url` into `JENKINS_SERVER_0_URL`, and so on:
+
+```bash
+export JENKINS_SERVER_0_URL=https://jenkins-server1.com/mcp-server/mcp
+export JENKINS_SERVER_0_AUTH=JENKINS_SERVER1_AUTH          # the NAME of the variable that holds the credentials
+export JENKINS_SERVER_1_URL=https://jenkins-server2.com/mcp-server/mcp
+export JENKINS_SERVER_1_AUTH=JENKINS_SERVER2_AUTH
+```
+
+Note the singular `server`. The numbers only have to be different from each other; gaps are fine. Servers from a file and from environment variables are combined, so some can be in the file and others in the environment. If the same number is given in both, the environment variable wins for that setting.
+
+Every server setting needs its number: `JENKINS_SERVER_0_URL`, not `JENKINS_SERVER_URL`. A setting without a number (`jenkins.server.url`) stops the application at startup with `failed to convert java.lang.String to java.lang.Integer ... "url"`; add the number.
+
+### What the startup log says
+
+At startup the application logs every server it found and where each came from, before it connects to anything. Credentials are never logged, only the name of the variable that holds them:
+
+```
+Jenkins servers in the configuration: 2 (1 in use, 1 not usable)
+  jenkins.server[0] = https://jenkins-server1.com (MCP endpoint /mcp-server/mcp, protocol STREAMABLE), url from URL [file:C:/app/application.properties] - 1:23, credentials from environment variable JENKINS_SERVER1_AUTH
+  jenkins.server[1] = https://jenkins-server2.com is NOT USED: environment variable JENKINS_SERVER2_AUTH is not set (url from System Environment Property "JENKINS_SERVER_1_URL")
+```
+
+If nothing is configured, it logs a warning that explains how to add a server. The `status` tool shows the same problems.
 
 Use a Jenkins account that can only read (Overall/Read, Job/Read). The application only ever calls the read-only tools `getBuild`, `getJob`, `whoAmI` and `getStatus`.
 

@@ -113,6 +113,6 @@ class ServerCatalogTest {
         ServerCatalog catalog = catalog(TestServers.environment(), TestServers.server("jenkins-server1.com"));
 
         assertThat(catalog.servers()).isEmpty();
-        assertThat(catalog.problems().get(0).server()).isEqualTo("jenkins.servers[0]");
+        assertThat(catalog.problems().get(0).server()).isEqualTo("jenkins.server[0]");
     }
 }

@@ -6,6 +6,7 @@ import com.jenkinsmonitoring.server.ServerCatalog;
 
 import java.nio.file.Path;
 import java.time.Duration;
+import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.function.Function;
@@ -20,7 +21,11 @@ public final class TestServers {
     }
 
     public static JenkinsProperties properties(JenkinsProperties.Server... servers) {
-        return new JenkinsProperties(List.of(servers), List.of("getBuild", "getJob", "whoAmI", "getStatus"),
+        Map<Integer, JenkinsProperties.Server> byNumber = new LinkedHashMap<>();
+        for (int i = 0; i < servers.length; i++) {
+            byNumber.put(i, servers[i]);
+        }
+        return new JenkinsProperties(byNumber, List.of("getBuild", "getJob", "whoAmI", "getStatus"),
                 "number,result", Duration.ofSeconds(5));
     }
 

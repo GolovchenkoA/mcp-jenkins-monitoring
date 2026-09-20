@@ -73,9 +73,9 @@ class EndToEndTest {
         registry.add("server.port", () -> PORT);
         registry.add("files.root.folder", DATA::toString);
         registry.add("files.storage.path", () -> DATA.resolve("db").toString());
-        registry.add("jenkins.servers[0].url", () -> "http://localhost:" + PORT + "/mcp");
-        registry.add("jenkins.servers[0].protocol", () -> "STREAMABLE");
-        registry.add("jenkins.servers[0].auth", () -> "E2E_AUTH");
+        registry.add("jenkins.server[0].url", () -> "http://localhost:" + PORT + "/mcp");
+        registry.add("jenkins.server[0].protocol", () -> "STREAMABLE");
+        registry.add("jenkins.server[0].auth", () -> "E2E_AUTH");
         registry.add("scheduling.jenkins-job-check.cron", () -> "0 0 0 1 1 *");
         registry.add("scheduling.retention-cleanup.cron", () -> "0 0 0 1 1 *");
     }

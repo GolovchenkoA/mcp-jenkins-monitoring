@@ -105,7 +105,7 @@ class StatusServiceTest {
         Report report = status.report();
 
         assertThat(report.status()).isEqualTo(Level.CRITICAL);
-        assertThat(check(report, "servers configured").message()).contains("jenkins.servers");
+        assertThat(check(report, "servers configured").message()).contains("jenkins.server[");
     }
 
     @Test

@@ -79,9 +79,9 @@ Note: the project `CLAUDE.md` says `application.yml`. Your requirement (`applica
 | `jenkins.build-tree` | see 8.3 | `tree` used for `getBuild` [proposed] |
 | `jenkins.request-timeout` | `10s` | [proposed] |
 | `jenkins.allowed-tools` | `getBuild,getJob,whoAmI,getStatus` | Allowlist, see 8.1 [proposed] |
-| `jenkins.servers[n].url` | — | MCP endpoint of a Jenkins server; the server's identity is derived from it (see 4.3, 4.4) |
-| `jenkins.servers[n].protocol` | `STREAMABLE` | Uppercase (see 4.3) |
-| `jenkins.servers[n].auth` | — | **Name of the environment variable** that holds the Basic auth header value (see 4.3) |
+| `jenkins.server[n].url` | — | MCP endpoint of a Jenkins server; the server's identity is derived from it (see 4.3, 4.4) |
+| `jenkins.server[n].protocol` | `STREAMABLE` | Uppercase (see 4.3) |
+| `jenkins.server[n].auth` | — | **Name of the environment variable** that holds the Basic auth header value (see 4.3) |
 | `logging.mask-parameter-pattern` | `(?i).*(password\|token\|secret\|key).*` | Parameter names whose values are masked [proposed] |
 | `notifications.max-attempts` | `5` | Phase 2 [proposed] |
 
@@ -111,18 +111,18 @@ Each server has exactly three settings:
 | `protocol` | `STREAMABLE`. Written in uppercase; the application also normalizes to uppercase when reading. Any other value is a startup error for that server [proposed] |
 | `auth` | The **name of an environment variable**, e.g. `JENKINS_SERVER1_AUTH`. The variable is always an environment variable, for security reasons, and always holds Basic auth in the form `Basic <base64 secret>` |
 
-Servers are a numbered list. A server has no separate name; its identity is its URL (section 4.4).
+Servers are numbered blocks, bound as a map keyed by the number (see the environment-variable note below). A server has no separate name; its identity is its URL (section 4.4).
 
 Example:
 
 ```properties
-jenkins.servers[0].url=https://jenkins-server1.com/mcp-server/mcp
-jenkins.servers[0].protocol=STREAMABLE
-jenkins.servers[0].auth=JENKINS_SERVER1_AUTH
+jenkins.server[0].url=https://jenkins-server1.com/mcp-server/mcp
+jenkins.server[0].protocol=STREAMABLE
+jenkins.server[0].auth=JENKINS_SERVER1_AUTH
 
-jenkins.servers[1].url=https://jenkins-server2.com/mcp-server/mcp
-jenkins.servers[1].protocol=STREAMABLE
-jenkins.servers[1].auth=JENKINS_SERVER2_AUTH
+jenkins.server[1].url=https://jenkins-server2.com/mcp-server/mcp
+jenkins.server[1].protocol=STREAMABLE
+jenkins.server[1].auth=JENKINS_SERVER2_AUTH
 ```
 
 and, in the environment (the value is the complete `Authorization` header value; here `user:token` encoded in Base64):
@@ -138,6 +138,8 @@ Rules:
 - The value is read from the **real operating-system environment** only (`System.getenv`). A property with the same name in `application.properties` or a `-D` option is not accepted, so the secret can neither sit in a file nor show in the process list.
 - A literal value such as `Basic dXNl...` written in `auth` is **rejected** at startup, so plaintext secrets cannot be committed to the file [proposed].
 - No servers configured is reported as CRITICAL [proposed].
+- **The same settings can come from environment variables.** Spring Boot maps `jenkins.server[0].url` to `JENKINS_SERVER_0_URL`, `jenkins.server[0].auth` to `JENKINS_SERVER_0_AUTH`, and so on. The servers are bound as a map keyed by the number, not as a list, so the numbers only have to be unique (gaps are fine) and servers from a file and from environment variables are **combined**; for the same number and setting the environment variable wins. A different naming scheme such as `JENKINS_<NAME>_URL` is not supported. A setting without a number, such as `JENKINS_SERVER_URL` or `jenkins.server.url`, cannot be bound and stops the startup with Spring Boot's message `failed to convert java.lang.String to java.lang.Integer`, naming the property. The property is `jenkins.server[n]` (singular) so the variables read `JENKINS_SERVER_0_URL`; the earlier plural name `jenkins.servers[n]` is ignored, and the startup report warns when it is found.
+- **Startup report.** Before anything connects, the application logs every configured `jenkins.server[n]` block: the canonical URL, the MCP endpoint, the protocol, the name of the credentials variable, and **where the URL was read from** (file, line and column of an `application.properties`, or the name of the environment variable). A block that cannot be used is logged at ERROR with the reason; an empty configuration is logged as a WARN that explains how to add a server. Credentials are never logged. The origin comes from Spring Boot's own property tracking, so it is exact [proposed].
 
 ### 4.4 Server identity
 
@@ -508,7 +510,7 @@ Everything tagged [proposed] stands unless you object. The main ones:
 19. `getRecentJobs` returns the newest N in chronological order.
 20. Debug logging covers both directions.
 21. Rotation via `total-size-cap=100MB`.
-22. Servers are configured as a numbered list, `jenkins.servers[n].url|protocol|auth`, with no separate server name. A server's identity is its canonical URL (`scheme://host[:port]`).
+22. Servers are configured as numbered blocks (a map keyed by the number), `jenkins.server[n].url|protocol|auth`, with no separate server name. A server's identity is its canonical URL (`scheme://host[:port]`).
 23. Server input is matched by host and port, ignoring scheme and path; the canonical URL of the matching configured server is what gets saved.
 24. Two configured servers with the same canonical URL are a startup error; servers that differ only by context path are not supported.
 25. The canonical URL comes from the configuration, not from build URLs in Jenkins responses. Build URLs themselves are stored as returned, never truncated.

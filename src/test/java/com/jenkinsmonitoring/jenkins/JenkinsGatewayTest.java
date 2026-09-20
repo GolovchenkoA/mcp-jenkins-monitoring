@@ -34,7 +34,7 @@ class JenkinsGatewayTest {
     private static final JenkinsServer SERVER = TestServers.catalog().servers().get(0);
 
     private static JenkinsGateway gateway(String... allowedTools) {
-        JenkinsProperties properties = new JenkinsProperties(List.of(), List.of(allowedTools), "number,result", Duration.ofSeconds(2));
+        JenkinsProperties properties = new JenkinsProperties(Map.of(), List.of(allowedTools), "number,result", Duration.ofSeconds(2));
         McpCallLogger logger = new McpCallLogger(new ParameterMasker(new AppProperties.Masking("(?i).*(password|token|secret|key).*")));
         return new JenkinsGateway(properties, logger, new ToolCatalog());
     }
@@ -101,7 +101,7 @@ class JenkinsGatewayTest {
     @Test
     void aFailedCallIsPassedToTheCallLoggerWithoutTheCredentials() {
         McpCallLogger callLogger = mock(McpCallLogger.class);
-        JenkinsProperties properties = new JenkinsProperties(List.of(), List.of("whoAmI"), "number,result", Duration.ofSeconds(2));
+        JenkinsProperties properties = new JenkinsProperties(Map.of(), List.of("whoAmI"), "number,result", Duration.ofSeconds(2));
         JenkinsGateway gateway = new JenkinsGateway(properties, callLogger, new ToolCatalog());
         JenkinsServer nobodyListens = new JenkinsServer("http://127.0.0.1:1", "/mcp", "X", new Secret("Basic c2VjcmV0"));
 

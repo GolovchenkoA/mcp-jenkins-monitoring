@@ -104,7 +104,7 @@ public class StatusService {
     private void configurationChecks(List<Check> checks) {
         if (servers.configuredCount() == 0) {
             checks.add(new Check("servers configured", Level.CRITICAL,
-                    "No Jenkins server is configured. Add jenkins.servers[n].url, protocol and auth to application.properties."));
+                    "No Jenkins server is configured. Add jenkins.server[n].url, protocol and auth to application.properties."));
         }
         servers.problems().forEach(problem ->
                 checks.add(new Check("server " + problem.server(), Level.CRITICAL, problem.message())));

@@ -38,7 +38,7 @@ public class FakeJenkins extends JenkinsGateway {
     public int buildCalls;
 
     public FakeJenkins() {
-        super(new JenkinsProperties(List.of(), List.of(), "", Duration.ofSeconds(1)), null, null);
+        super(new JenkinsProperties(Map.of(), List.of(), "", Duration.ofSeconds(1)), null, null);
     }
 
     /** A build started by a person. A null result means the build is still running. */

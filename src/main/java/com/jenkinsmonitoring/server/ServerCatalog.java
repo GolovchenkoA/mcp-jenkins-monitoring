@@ -1,8 +1,6 @@
 package com.jenkinsmonitoring.server;
 
 import com.jenkinsmonitoring.config.JenkinsProperties;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
@@ -14,6 +12,7 @@ import java.util.List;
 import java.util.Map;
 import java.util.Optional;
 import java.util.Set;
+import java.util.TreeMap;
 import java.util.function.Function;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
@@ -25,12 +24,12 @@ import java.util.regex.Pattern;
 @Component
 public class ServerCatalog {
 
-    private static final Logger log = LoggerFactory.getLogger(ServerCatalog.class);
     private static final Pattern ENV_VAR_NAME = Pattern.compile("[A-Za-z_][A-Za-z0-9_]*");
     private static final Pattern BASIC_HEADER = Pattern.compile("^Basic\\s+(\\S+)$");
 
     private final List<JenkinsServer> usable = new ArrayList<>();
     private final List<ServerProblem> problems = new ArrayList<>();
+    private final List<ServerEntry> entries = new ArrayList<>();
     private final Map<String, String> configuredByKey = new HashMap<>();
 
     /** Credentials are read from the real environment variables, never from configuration files. */
@@ -42,12 +41,18 @@ public class ServerCatalog {
     /** {@code environment} looks up an environment variable by name; tests pass their own. */
     public ServerCatalog(JenkinsProperties properties, Function<String, String> environment) {
         Set<String> seen = new HashSet<>();
-        List<JenkinsProperties.Server> servers = properties.servers();
-        for (int i = 0; i < servers.size(); i++) {
-            validate(i, servers.get(i), environment, seen);
-        }
-        problems.forEach(p -> log.error("Jenkins server {} is not usable: {}", p.server(), p.message()));
-        log.info("Configured Jenkins servers: {} usable, {} with problems", usable.size(), problems.size());
+        // In the order of the numbers in jenkins.server[n]; the numbers only have to be unique
+        new TreeMap<>(properties.servers()).forEach((index, config) -> {
+            Optional<ServerProblem> problem = validate(index, config, environment, seen);
+            problem.ifPresent(problems::add);
+            entries.add(new ServerEntry(index, config.url(), config.protocol(),
+                    problem.isEmpty() ? config.auth().trim() : null, problem.map(ServerProblem::message).orElse(null)));
+        });
+    }
+
+    /** Every configured block, usable or not, in configuration order. The startup report is built from it. */
+    public List<ServerEntry> entries() {
+        return List.copyOf(entries);
     }
 
     public List<JenkinsServer> servers() {
@@ -85,47 +90,44 @@ public class ServerCatalog {
         return ServerUrls.hostKey(input).map(configuredByKey::get);
     }
 
-    private void validate(int index, JenkinsProperties.Server config, Function<String, String> environment, Set<String> seen) {
-        String label = "jenkins.servers[" + index + "]";
+    /** Adds the server to the usable ones, or says what is wrong with it. */
+    private Optional<ServerProblem> validate(int index, JenkinsProperties.Server config,
+                                             Function<String, String> environment, Set<String> seen) {
         Optional<String> canonical = ServerUrls.canonicalOf(config.url());
         if (canonical.isEmpty() || config.url() == null || !config.url().contains("://")) {
-            problems.add(new ServerProblem(label, "url must be a full http(s) URL such as https://host/mcp-server/mcp"));
-            return;
+            return problem("jenkins.server[" + index + "]", "url must be a full http(s) URL such as https://host/mcp-server/mcp");
         }
         String server = canonical.get();
         ServerUrls.hostKey(server).ifPresent(key -> configuredByKey.putIfAbsent(key, server));
 
         if (!"STREAMABLE".equalsIgnoreCase(config.protocol())) {
-            problems.add(new ServerProblem(server, "protocol must be STREAMABLE, found '" + config.protocol() + "'"));
-            return;
+            return problem(server, "protocol must be STREAMABLE, found '" + config.protocol() + "'");
         }
         if (!seen.add(server)) {
-            problems.add(new ServerProblem(server, "another configured server has the same canonical URL"));
-            return;
+            return problem(server, "another configured server has the same canonical URL");
         }
         String authEnvVar = config.auth() == null ? "" : config.auth().trim();
         if (authEnvVar.isEmpty()) {
-            problems.add(new ServerProblem(server, "auth is not set; it must name an environment variable"));
-            return;
+            return problem(server, "auth is not set; it must name an environment variable");
         }
         if (!ENV_VAR_NAME.matcher(authEnvVar).matches()) {
             // Never echo the value: it may be a credential someone pasted into the file by mistake
-            problems.add(new ServerProblem(server,
-                    "auth must be the NAME of an environment variable, not the credentials themselves"));
-            return;
+            return problem(server, "auth must be the NAME of an environment variable, not the credentials themselves");
         }
         String header = environment.apply(authEnvVar);
         if (header == null || header.isBlank()) {
-            problems.add(new ServerProblem(server, "environment variable " + authEnvVar + " is not set"));
-            return;
+            return problem(server, "environment variable " + authEnvVar + " is not set");
         }
         if (!isBasicHeader(header.trim())) {
-            problems.add(new ServerProblem(server,
-                    "environment variable " + authEnvVar + " must have the form 'Basic <base64>'"));
-            return;
+            return problem(server, "environment variable " + authEnvVar + " must have the form 'Basic <base64>'");
         }
         String endpoint = ServerUrls.endpointOf(config.url()).orElse("/mcp");
         usable.add(new JenkinsServer(server, endpoint, authEnvVar, new Secret(header.trim())));
+        return Optional.empty();
+    }
+
+    private static Optional<ServerProblem> problem(String server, String message) {
+        return Optional.of(new ServerProblem(server, message));
     }
 
     private static boolean isBasicHeader(String header) {
