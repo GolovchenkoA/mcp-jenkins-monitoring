@@ -1,6 +1,6 @@
 # Jenkins Monitoring MCP — Requirements
 
-Status: **Draft v1**, 2026-09-20. Written from the design discussion; no code exists yet.
+Status: **v1.1**, 2026-09-20. Written from the design discussion; Phase 1 is implemented (see section 18).
 
 Conventions used in this document:
 
@@ -25,7 +25,9 @@ Key properties:
 - Connection settings and secrets for the Jenkins servers are externalized (section 4).
 - Notification channels and the LTM storage must be replaceable.
 
-Stack (from the project `CLAUDE.md`): Java 17+, Spring Boot, Maven, JUnit 5. Spring AI MCP for the MCP server and client [proposed].
+Stack: **Java 25, Spring Boot 4.1, Maven, JUnit 5**, with Spring AI 2.0 for the MCP server (`@McpTool` annotations) and the MCP Java SDK for the client that talks to Jenkins. (Decided by you; `CLAUDE.md` says "Java (17+)", which this satisfies.)
+
+"Startup error" in this document means: the problem is logged as an ERROR, the affected server is not used, and `status` reports it as CRITICAL. The application itself keeps running, because it must be able to say what is wrong. The only exception is a second instance on the same storage folder, which refuses to start.
 
 ## 2. Phases
 
@@ -63,6 +65,7 @@ Note: the project `CLAUDE.md` says `application.yml`. Your requirement (`applica
 |---|---|---|
 | `server.address` | `127.0.0.1` | |
 | `server.port` | `2026` | |
+| `server.shutdown` | `immediate` | Do not wait for connected MCP clients when stopping [proposed] |
 | `files.root.folder` | `jenkins-monitoring-mcp` | Resolved **next to the jar file** (see 13.4) |
 | `files.storage.path` | `${files.root.folder}/db` | |
 | `retention.policy.days` | `30` | |
@@ -106,7 +109,7 @@ Each server has exactly three settings:
 |---|---|
 | `url` | Full MCP endpoint, e.g. `https://jenkins-server1.com/mcp-server/mcp` |
 | `protocol` | `STREAMABLE`. Written in uppercase; the application also normalizes to uppercase when reading. Any other value is a startup error for that server [proposed] |
-| `auth` | The **name of an environment variable**, e.g. `JENKINS_SERVER1_AUTH_ENV_VARIABLE`. The variable is always an environment variable, for security reasons, and always holds Basic auth in the form `Basic <base64 secret>` |
+| `auth` | The **name of an environment variable**, e.g. `JENKINS_SERVER1_AUTH`. The variable is always an environment variable, for security reasons, and always holds Basic auth in the form `Basic <base64 secret>` |
 
 Servers are a numbered list. A server has no separate name; its identity is its URL (section 4.4).
 
@@ -115,23 +118,24 @@ Example:
 ```properties
 jenkins.servers[0].url=https://jenkins-server1.com/mcp-server/mcp
 jenkins.servers[0].protocol=STREAMABLE
-jenkins.servers[0].auth=JENKINS_SERVER1_AUTH_ENV_VARIABLE
+jenkins.servers[0].auth=JENKINS_SERVER1_AUTH
 
 jenkins.servers[1].url=https://jenkins-server2.com/mcp-server/mcp
 jenkins.servers[1].protocol=STREAMABLE
-jenkins.servers[1].auth=JENKINS_SERVER2_AUTH_ENV_VARIABLE
+jenkins.servers[1].auth=JENKINS_SERVER2_AUTH
 ```
 
 and, in the environment (the value is the complete `Authorization` header value; here `user:token` encoded in Base64):
 
 ```
-JENKINS_SERVER1_AUTH_ENV_VARIABLE=Basic dXNlcjp0b2tlbg==
+JENKINS_SERVER1_AUTH=Basic dXNlcjp0b2tlbg==
 ```
 
 Rules:
 
 - The application reads the variable named in `auth` from the environment and sends its value **verbatim** as the `Authorization` header of every call to that server.
 - Startup validation: the variable exists and matches `Basic <valid Base64>`. If not, that server is reported as CRITICAL (naming the variable, not its value) [proposed].
+- The value is read from the **real operating-system environment** only (`System.getenv`). A property with the same name in `application.properties` or a `-D` option is not accepted, so the secret can neither sit in a file nor show in the process list.
 - A literal value such as `Basic dXNl...` written in `auth` is **rejected** at startup, so plaintext secrets cannot be committed to the file [proposed].
 - No servers configured is reported as CRITICAL [proposed].
 
@@ -298,7 +302,8 @@ One record per tracked (server, job), i.e. one per rule.
 - Rules are read from `rules.json` **at startup** and held in memory.
 - `addRule` and `removeRule` update memory and the file. Hand edits of the file require a restart. Before writing, the file is re-read if it changed on disk, so hand edits are not lost [proposed].
 - On load, each rule's `server` is normalized to the canonical URL (section 4.4); the file is rewritten in that form on the next write [proposed].
-- Invalid entries (missing `server` or `job`, a `server` that matches no configured server, malformed JSON entries) are skipped with a WARN and reported by `status` as PROBLEMS [proposed].
+- Invalid entries (missing `server` or `job`, a `server` that matches no configured server, an entry that cannot be read at all) are skipped **one by one** with a WARN and reported by `status` as PROBLEMS; the other rules stay in use. Skipped entries are written back unchanged whenever the file is saved, so `addRule` or `removeRule` never deletes them, and their ids are never handed out again [proposed].
+- If the file as a whole cannot be read (not a JSON array, corrupt), no rule is loaded, `status` reports it, and `addRule` and `removeRule` refuse to run so the user's file is never overwritten. Once the file is fixed the next change reloads it [proposed].
 
 ### 6.4 `addRule` validation
 
@@ -345,7 +350,8 @@ For a tracked job with no cursor row, the collector fetches the job's latest bui
 
 ### 7.4 Failure handling
 
-- **Cursor build no longer exists** (Jenkins discarded it; the response is "no results"): call `getJob`, then scan build numbers from cursor + 1 up to `nextBuildNumber` − 1, bounded by the per-cycle limit, skipping missing numbers. If that fails, re-bootstrap from `lastCompletedBuild` without notifying and report PROBLEMS in `status` [proposed].
+- **Cursor build no longer exists** (Jenkins discarded it; the response is "no results"): call `getJob`, then scan build numbers from cursor + 1 up to `nextBuildNumber` − 1, bounded by the per-cycle limit, skipping missing numbers. This replaces re-bootstrapping in the normal case. Only when `nextBuildNumber` is not above the cursor (the numbers went backwards, so the job was recreated) is the cursor re-bootstrapped from the latest build without notifying; `status` reports that as PROBLEMS until the next pass [proposed].
+- **A rule removed during a pass** cannot get its cursor or records back: everything the collector writes for a rule goes through the rule service, which holds the rule lock and checks the rule still exists [proposed].
 - **Tracked job stops resolving** (deleted or renamed): reported by `status` as PROBLEMS naming the rule [proposed].
 - **Application crash:** acceptable. Recovery relies on the cursor and idempotent inserts.
 - **Catch-up after downtime:** builds missed while the application was off are processed and produce notifications, throttled by the per-cycle limit [proposed].
@@ -363,7 +369,7 @@ All calls to any Jenkins MCP server go through **one gateway class**. The collec
 
 ### 8.1 Safety
 
-- **Allowlist** of read-only tools: `getBuild`, `getJob`, `whoAmI`, `getStatus`. Any other tool name is refused. The four build-changing tools (`triggerBuild`, `rebuildBuild`, `replayBuild`, `updateBuild`) can never be called.
+- **Allowlist** of read-only tools: `getBuild`, `getJob`, `whoAmI`, `getStatus`. Any other tool name is refused. The four build-changing tools (`triggerBuild`, `rebuildBuild`, `replayBuild`, `updateBuild`) can never be called: they are refused by a fixed deny-list in the gateway even if someone adds them to `jenkins.allowed-tools`, and an error is logged at startup when that happens.
 - **Mandatory `tree`** on `getBuild` and `getJob`. A call without it is refused. An unfiltered build response is about 190 KB.
 - **Credentials**: the `Authorization` header value of each server (from the environment variable named in its `auth` setting, section 4.3), held only in the gateway. Never logged.
 - **No passthrough**: Jenkins tools are not re-exposed to end users.
@@ -374,7 +380,7 @@ All calls to any Jenkins MCP server go through **one gateway class**. The collec
 - Timeouts (`jenkins.request-timeout`).
 - Response envelope: every tool returns `{status, message, result}`. `COMPLETED` with no `result` (message "Search completed, but no results were found…") is normalized to **NotFound**, not to an error and not to an empty success.
 - Connection or authentication failures are normalized to **Unavailable**.
-- The last success or failure per server is tracked for `status`.
+- The `status` tool does not rely on remembered results: it probes every server live (`whoAmI`, `getStatus`), so it is always current. (The earlier idea of tracking the last success or failure per server was dropped as unneeded.)
 
 ### 8.3 Default `tree` for `getBuild` [proposed]
 
@@ -413,7 +419,7 @@ Errors are returned as tool error responses with an explanation, not as exceptio
 
 The `status` tool returns an overall status and the list of checks with their statuses.
 
-Overall status: **OK** ("everything ok"), **PROBLEMS** ("some problems"), **CRITICAL** ("critical error"). Implemented with Spring Boot Actuator health indicators with a custom status mapping (UP / PROBLEMS / DOWN) [proposed].
+Overall status: **OK** ("everything ok"), **PROBLEMS** ("some problems"), **CRITICAL** ("critical error"). It is the worst status of all checks. Implemented as a plain service without Spring Boot Actuator, which would only add a dependency for something this small; the Jenkins checks run in parallel so one dead server does not delay the answer.
 
 | Check | Result |
 |---|---|
@@ -443,14 +449,14 @@ Decisions so far, to be revisited once events exist in storage:
 
 - Default profile: console logging only.
 - `debug` profile: log file at `${files.root.folder}/logs/console.log`; rotation 10 MB per file; `max-history=1` day; `total-size-cap=100MB` (section 4.1).
-- In the `debug` profile **every MCP tool call is logged with its parameters and the full response body, untruncated**. By default this covers both directions: calls the collector makes to Jenkins (OUT) and calls users' clients make to this server (IN) [proposed]. Outgoing calls are logged in the gateway; incoming calls by a small hook around the tool methods.
+- In the `debug` profile **every MCP tool call is logged with its parameters and the full response body, untruncated**. By default this covers both directions: calls the collector makes to Jenkins (OUT) and calls users' clients make to this server (IN) [proposed]. A body that is not JSON cannot be masked and is logged as it is; Jenkins answers with JSON, and credentials are never part of a body. Outgoing calls are logged in the gateway; incoming calls by a small hook around the tool methods.
 - Always, in every profile: credentials and Authorization headers are never logged; values of parameters whose names match `logging.mask-parameter-pattern` are masked.
 - Debug logs can contain parameter blobs such as application-settings JSON, so `debug` stays opt-in and the logs stay local next to the jar.
 - Outside `debug`, response bodies are not logged.
 
 ## 13. Security and non-functional requirements
 
-1. **Localhost only**: bind `127.0.0.1`. Validate the `Origin` header on the Streamable HTTP endpoint, as the MCP specification asks, to block DNS-rebinding from web pages. No authentication for the application's own clients (accepted for a local-only tool).
+1. **Localhost only**: bind `127.0.0.1`. Validate the `Origin` header on the Streamable HTTP endpoint, as the MCP specification asks, to block DNS-rebinding from web pages: an `Origin` that is not localhost, 127.0.0.1 or [::1] is refused with 403, and so is a `Host` header that does not name a local address (a rebinding page cannot fake it). Only `localhost`, `127.0.0.1` and `[::1]` are accepted, so a client that reaches the server through another name (for example `host.docker.internal` from a container) is refused. No authentication for the application's own clients (accepted for a local-only tool).
 2. **Least privilege upstream**: read-only Jenkins accounts, tool allowlist, mandatory `tree`, no passthrough (section 8).
 3. **Secrets** only through environment variables; nothing sensitive in files, in `rules.json`, or in logs.
 4. **Root folder next to the jar**: `files.root.folder` is resolved against the directory that contains the jar at startup (working directory when run from an IDE) and used for both storage and logs. Spring resolves relative paths against the working directory by default, so this needs explicit handling. Placeholders use `${...}` syntax. The default folder name is spelled `jenkins-monitoring-mcp` [proposed].
@@ -493,7 +499,7 @@ Everything tagged [proposed] stands unless you object. The main ones:
 10. Health aggregation and the extra health checks in section 10.
 11. Pretty-printed JSON arrays, atomic writes, lock file.
 12. Endpoint path `/mcp`; property and tool names as listed.
-13. Java 17+, Spring Boot, Spring AI MCP, Maven, following `CLAUDE.md`.
+13. Java 25, Spring Boot 4.1, Spring AI 2.0, Maven (your decision).
 14. Extra fields: `open_builds`, `updated_at`, `job` in `latest_jobs`, denormalized fields in notification records.
 15. Parameter value length limit 200; deny-pattern masking.
 16. Request timeout 10 s.
@@ -519,3 +525,26 @@ Everything tagged [proposed] stands unless you object. The main ones:
 - Error responses for unauthorized or unreachable servers are unknown; treated as **Unavailable**.
 - Whether `getBuild` without `buildNumber` can return a running build.
 - Visualization mechanism (Phase 4).
+
+## 18. Implementation status
+
+**Phase 1 is implemented** and covered by unit tests (collector, rules, storage, parsing, server configuration) and by an end-to-end test. The end-to-end test starts the real application and runs a fake Jenkins MCP server inside it, so the real Streamable HTTP client, tool scanning, the `Authorization` header, the Origin check and all six tools are exercised over HTTP. The packaged jar was also started and called with curl.
+
+Decisions taken during implementation:
+
+- `addRule` and `removeRule` do not mark `server` and `job` as required in the tool schema. A request that lacks them must reach the tool and get the explanation with an example, not be rejected by the schema check. The descriptions say REQUIRED.
+- Tool results are JSON text with snake_case names and LF line endings. Errors are tool errors (`isError: true`) with a readable message.
+- The Jenkins gateway reads a tool answer from `structuredContent` if present, otherwise from the first text content, and expects the `{status, message, result}` envelope.
+- At startup the application connects to each Jenkins server in the background to learn its tools; a server that is down at that moment is retried on its first real call.
+- `status` also checks that every allowlisted tool is offered by each server (the tool catalog learned at connection), and repairs a missing storage folder by creating it.
+- The web server shuts down immediately (`server.shutdown=immediate`): a connected MCP client holds a stream open, and waiting for it (the Spring default is 30 seconds) would only delay stopping the application.
+- The gateway distinguishes a protocol error answered by the server (kept connection, reported as a tool error) from a connection failure (connection dropped, reported as unavailable), so one bad request cannot make the whole server look down.
+
+**Not yet verified against a real Jenkins MCP server** (only against the fake and the recorded samples). Check on the first real run:
+
+1. The tool answer really arrives as JSON text in the envelope shape.
+2. `getBuild` accepts the configured `tree`, including `actions[parameters[name,value]]`.
+3. What an unauthorized or unknown-job call returns (mapped to Unavailable / NotFound by assumption).
+4. Whether a running build reports `building: true` with `result: null`.
+
+**Not built yet:** Phase 2 (notification delivery), Phase 3, Phase 4.
