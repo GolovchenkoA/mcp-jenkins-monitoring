@@ -1,0 +1,4949 @@
+{
+  "jobFullName": "iot-platform-deploy-dev",
+  "buildNumber": 1018,
+  "response": {
+    "status": "COMPLETED",
+    "message": "Data retrieved successfully.",
+    "result": {
+      "_class": "org.jenkinsci.plugins.workflow.job.WorkflowRun",
+      "actions": [
+        {
+          "_class": "hudson.model.ParametersAction",
+          "parameters": [
+            {
+              "_class": "hudson.model.StringParameterValue",
+              "name": "ENVIRONMENT",
+              "value": "DEV"
+            },
+            {
+              "_class": "hudson.model.StringParameterValue",
+              "name": "BRANCH",
+              "value": "develop"
+            },
+            {
+              "_class": "hudson.model.StringParameterValue",
+              "name": "Playbook",
+              "value": "Azure Resources"
+            },
+            {
+              "_class": "hudson.model.StringParameterValue",
+              "name": "Parameters",
+              "value": ""
+            },
+            {
+              "_class": "hudson.model.StringParameterValue",
+              "name": "RESOURCE_GROUP",
+              "value": "rg-iot-dev-eus"
+            },
+            {
+              "_class": "hudson.model.StringParameterValue",
+              "name": "REGION_NAME",
+              "value": "eastus"
+            },
+            {
+              "_class": "hudson.model.TextParameterValue",
+              "name": "APP_SETTINGS_JSON",
+              "value": "{\n  \"API_USERNAME\": \"apiapp\",\n  \"API_PASSWORD\": \"\",\n  \"CAMERA_HEALTHCHECK_SCHEDULE\": \"0 10 12 * * *\",\n  \"EMAIL_SENDER\": \"DoNotReply@4b91465e-ca73-4113-b214-b1188a352fdf.azurecomm.net\",\n  \"NOTIFICATION_API_USERNAME\": \"tgcs-admin\",\n  \"NOTIFICATION_API_PASSWORD\": \"\",\n  \"NOTIFICATIONS_SCHEDULE\": \"0 10 12 * * *\"\n}"
+            },
+            {
+              "_class": "hudson.model.TextParameterValue",
+              "name": "MARKUP_IMAGE_VERSIONS",
+              "value": "{\n    \"iot-markups-inference\": \"1.2603.62-develop-2026-09-10-9da6c55\"\n}"
+            }
+          ]
+        },
+        {
+          "_class": "hudson.model.CauseAction",
+          "causes": [
+            {
+              "_class": "hudson.model.Cause$UserIdCause",
+              "shortDescription": "Started by user Artem Holovchenko",
+              "userId": "artem",
+              "userName": "Artem Holovchenko"
+            }
+          ]
+        },
+        {
+          "_class": "jenkins.metrics.impl.TimeInQueueAction",
+          "blockedDurationMillis": 0,
+          "blockedTimeMillis": 0,
+          "buildableDurationMillis": 0,
+          "buildableTimeMillis": 0,
+          "buildingDurationMillis": 185071,
+          "executingTimeMillis": 182514,
+          "executorUtilization": 0.99,
+          "queuingDurationMillis": 1,
+          "queuingTimeMillis": 3,
+          "subTaskCount": 1,
+          "totalDurationMillis": 185072,
+          "waitingDurationMillis": 0,
+          "waitingTimeMillis": 0
+        },
+        {},
+        {
+          "_class": "hudson.plugins.git.util.BuildData",
+          "buildsByBranchName": {
+            "origin/cherry-pick-38b8fa45": {
+              "_class": "hudson.plugins.git.util.Build",
+              "buildNumber": 868,
+              "buildResult": null,
+              "marked": {
+                "SHA1": "0a957fdff68aa993e9b31bc86cacf136f63fa531",
+                "branch": [
+                  {
+                    "SHA1": "0a957fdff68aa993e9b31bc86cacf136f63fa531",
+                    "name": "origin/cherry-pick-38b8fa45"
+                  }
+                ]
+              },
+              "revision": {
+                "SHA1": "0a957fdff68aa993e9b31bc86cacf136f63fa531",
+                "branch": [
+                  {
+                    "SHA1": "0a957fdff68aa993e9b31bc86cacf136f63fa531",
+                    "name": "origin/cherry-pick-38b8fa45"
+                  }
+                ]
+              }
+            },
+            "origin/hotfix-ESAAS-7079": {
+              "_class": "hudson.plugins.git.util.Build",
+              "buildNumber": 948,
+              "buildResult": null,
+              "marked": {
+                "SHA1": "1a3dc4ae351084fe390b0139aaf979b5c425e4cd",
+                "branch": [
+                  {
+                    "SHA1": "1a3dc4ae351084fe390b0139aaf979b5c425e4cd",
+                    "name": "origin/hotfix-ESAAS-7079"
+                  }
+                ]
+              },
+              "revision": {
+                "SHA1": "1a3dc4ae351084fe390b0139aaf979b5c425e4cd",
+                "branch": [
+                  {
+                    "SHA1": "1a3dc4ae351084fe390b0139aaf979b5c425e4cd",
+                    "name": "origin/hotfix-ESAAS-7079"
+                  }
+                ]
+              }
+            },
+            "origin/ESSR-2866": {
+              "_class": "hudson.plugins.git.util.Build",
+              "buildNumber": 851,
+              "buildResult": null,
+              "marked": {
+                "SHA1": "887c6aadc7479374c154a41fb6bc6fe16a529f07",
+                "branch": [
+                  {
+                    "SHA1": "887c6aadc7479374c154a41fb6bc6fe16a529f07",
+                    "name": "origin/ESSR-2866"
+                  }
+                ]
+              },
+              "revision": {
+                "SHA1": "887c6aadc7479374c154a41fb6bc6fe16a529f07",
+                "branch": [
+                  {
+                    "SHA1": "887c6aadc7479374c154a41fb6bc6fe16a529f07",
+                    "name": "origin/ESSR-2866"
+                  }
+                ]
+              }
+            },
+            "origin/qa": {
+              "_class": "hudson.plugins.git.util.Build",
+              "buildNumber": 974,
+              "buildResult": null,
+              "marked": {
+                "SHA1": "48afb9824f54f043d9d784755496e1ab696a2f45",
+                "branch": [
+                  {
+                    "SHA1": "48afb9824f54f043d9d784755496e1ab696a2f45",
+                    "name": "origin/qa"
+                  }
+                ]
+              },
+              "revision": {
+                "SHA1": "48afb9824f54f043d9d784755496e1ab696a2f45",
+                "branch": [
+                  {
+                    "SHA1": "48afb9824f54f043d9d784755496e1ab696a2f45",
+                    "name": "origin/qa"
+                  }
+                ]
+              }
+            },
+            "origin/hotfix-ESSP-10240": {
+              "_class": "hudson.plugins.git.util.Build",
+              "buildNumber": 744,
+              "buildResult": null,
+              "marked": {
+                "SHA1": "40691e1b66fc97b561bb57d4a8126028fea4a88e",
+                "branch": [
+                  {
+                    "SHA1": "40691e1b66fc97b561bb57d4a8126028fea4a88e",
+                    "name": "origin/hotfix-ESSP-10240"
+                  }
+                ]
+              },
+              "revision": {
+                "SHA1": "40691e1b66fc97b561bb57d4a8126028fea4a88e",
+                "branch": [
+                  {
+                    "SHA1": "40691e1b66fc97b561bb57d4a8126028fea4a88e",
+                    "name": "origin/hotfix-ESSP-10240"
+                  }
+                ]
+              }
+            },
+            "origin/develop": {
+              "_class": "hudson.plugins.git.util.Build",
+              "buildNumber": 1018,
+              "buildResult": null,
+              "marked": {
+                "SHA1": "549ccfd0432b682e16b87e22b40f79aefa4c614e",
+                "branch": [
+                  {
+                    "SHA1": "549ccfd0432b682e16b87e22b40f79aefa4c614e",
+                    "name": "origin/develop"
+                  }
+                ]
+              },
+              "revision": {
+                "SHA1": "549ccfd0432b682e16b87e22b40f79aefa4c614e",
+                "branch": [
+                  {
+                    "SHA1": "549ccfd0432b682e16b87e22b40f79aefa4c614e",
+                    "name": "origin/develop"
+                  }
+                ]
+              }
+            },
+            "origin/ESAAS-6934": {
+              "_class": "hudson.plugins.git.util.Build",
+              "buildNumber": 826,
+              "buildResult": null,
+              "marked": {
+                "SHA1": "ea37cb9af19fae476147417bc5be74e25e836bc1",
+                "branch": [
+                  {
+                    "SHA1": "ea37cb9af19fae476147417bc5be74e25e836bc1",
+                    "name": "origin/ESAAS-6934"
+                  }
+                ]
+              },
+              "revision": {
+                "SHA1": "ea37cb9af19fae476147417bc5be74e25e836bc1",
+                "branch": [
+                  {
+                    "SHA1": "ea37cb9af19fae476147417bc5be74e25e836bc1",
+                    "name": "origin/ESAAS-6934"
+                  }
+                ]
+              }
+            },
+            "refs/remotes/origin/ESAAS-6788": {
+              "_class": "hudson.plugins.git.util.Build",
+              "buildNumber": 712,
+              "buildResult": null,
+              "marked": {
+                "SHA1": "d9e7d093fa15499c203eb0fe585637ab083c326f",
+                "branch": [
+                  {
+                    "SHA1": "d9e7d093fa15499c203eb0fe585637ab083c326f",
+                    "name": "refs/remotes/origin/ESAAS-6788"
+                  }
+                ]
+              },
+              "revision": {
+                "SHA1": "d9e7d093fa15499c203eb0fe585637ab083c326f",
+                "branch": [
+                  {
+                    "SHA1": "d9e7d093fa15499c203eb0fe585637ab083c326f",
+                    "name": "refs/remotes/origin/ESAAS-6788"
+                  }
+                ]
+              }
+            },
+            "refs/remotes/origin/ESAAS-6942": {
+              "_class": "hudson.plugins.git.util.Build",
+              "buildNumber": 797,
+              "buildResult": null,
+              "marked": {
+                "SHA1": "cf403a79fa360d35bb80e209de232bd35d9e4907",
+                "branch": [
+                  {
+                    "SHA1": "cf403a79fa360d35bb80e209de232bd35d9e4907",
+                    "name": "refs/remotes/origin/ESAAS-6942"
+                  }
+                ]
+              },
+              "revision": {
+                "SHA1": "cf403a79fa360d35bb80e209de232bd35d9e4907",
+                "branch": [
+                  {
+                    "SHA1": "cf403a79fa360d35bb80e209de232bd35d9e4907",
+                    "name": "refs/remotes/origin/ESAAS-6942"
+                  }
+                ]
+              }
+            },
+            "origin/ESSR-2866_test": {
+              "_class": "hudson.plugins.git.util.Build",
+              "buildNumber": 869,
+              "buildResult": null,
+              "marked": {
+                "SHA1": "958a46cc3f87b833cc68a9a8d8e50d2ab154b0e5",
+                "branch": [
+                  {
+                    "SHA1": "3ef4760aeaaaa0b1d4b90a2766c35d206026bd46",
+                    "name": "origin/ESSR-2866_test"
+                  },
+                  {
+                    "SHA1": "1cf9e8b920a63906b4d0d646e7ad2d2de6e47b77",
+                    "name": "origin/ESAAS-6970"
+                  },
+                  {
+                    "SHA1": "958a46cc3f87b833cc68a9a8d8e50d2ab154b0e5",
+                    "name": "origin/develop"
+                  },
+                  {
+                    "SHA1": "a9221c3505ba74d72ae50ddc9cb112ca45ff344c",
+                    "name": "origin/feature/ESAASR-6186-dev-postgres-reader-writer-groups"
+                  }
+                ]
+              },
+              "revision": {
+                "SHA1": "958a46cc3f87b833cc68a9a8d8e50d2ab154b0e5",
+                "branch": [
+                  {
+                    "SHA1": "3ef4760aeaaaa0b1d4b90a2766c35d206026bd46",
+                    "name": "origin/ESSR-2866_test"
+                  },
+                  {
+                    "SHA1": "1cf9e8b920a63906b4d0d646e7ad2d2de6e47b77",
+                    "name": "origin/ESAAS-6970"
+                  },
+                  {
+                    "SHA1": "958a46cc3f87b833cc68a9a8d8e50d2ab154b0e5",
+                    "name": "origin/develop"
+                  },
+                  {
+                    "SHA1": "a9221c3505ba74d72ae50ddc9cb112ca45ff344c",
+                    "name": "origin/feature/ESAASR-6186-dev-postgres-reader-writer-groups"
+                  }
+                ]
+              }
+            },
+            "origin/ESAAS-6934_qa_conf": {
+              "_class": "hudson.plugins.git.util.Build",
+              "buildNumber": 871,
+              "buildResult": null,
+              "marked": {
+                "SHA1": "91eff704fbea816938489fda9adab9101ec1f0f0",
+                "branch": [
+                  {
+                    "SHA1": "91eff704fbea816938489fda9adab9101ec1f0f0",
+                    "name": "origin/ESAAS-6934_qa_conf"
+                  }
+                ]
+              },
+              "revision": {
+                "SHA1": "91eff704fbea816938489fda9adab9101ec1f0f0",
+                "branch": [
+                  {
+                    "SHA1": "91eff704fbea816938489fda9adab9101ec1f0f0",
+                    "name": "origin/ESAAS-6934_qa_conf"
+                  }
+                ]
+              }
+            },
+            "origin/ESAAS-6970": {
+              "_class": "hudson.plugins.git.util.Build",
+              "buildNumber": 889,
+              "buildResult": null,
+              "marked": {
+                "SHA1": "1cf9e8b920a63906b4d0d646e7ad2d2de6e47b77",
+                "branch": [
+                  {
+                    "SHA1": "1cf9e8b920a63906b4d0d646e7ad2d2de6e47b77",
+                    "name": "origin/ESAAS-6970"
+                  }
+                ]
+              },
+              "revision": {
+                "SHA1": "1cf9e8b920a63906b4d0d646e7ad2d2de6e47b77",
+                "branch": [
+                  {
+                    "SHA1": "1cf9e8b920a63906b4d0d646e7ad2d2de6e47b77",
+                    "name": "origin/ESAAS-6970"
+                  }
+                ]
+              }
+            },
+            "origin/ESSP-10788": {
+              "_class": "hudson.plugins.git.util.Build",
+              "buildNumber": 1009,
+              "buildResult": null,
+              "marked": {
+                "SHA1": "d35c9ea7ac70a859ff9ba6f27448a0d5334a4d06",
+                "branch": [
+                  {
+                    "SHA1": "d35c9ea7ac70a859ff9ba6f27448a0d5334a4d06",
+                    "name": "origin/ESSP-10788"
+                  }
+                ]
+              },
+              "revision": {
+                "SHA1": "d35c9ea7ac70a859ff9ba6f27448a0d5334a4d06",
+                "branch": [
+                  {
+                    "SHA1": "d35c9ea7ac70a859ff9ba6f27448a0d5334a4d06",
+                    "name": "origin/ESSP-10788"
+                  }
+                ]
+              }
+            },
+            "refs/remotes/origin/ESSR-2589": {
+              "_class": "hudson.plugins.git.util.Build",
+              "buildNumber": 670,
+              "buildResult": null,
+              "marked": {
+                "SHA1": "49ef4cd2b1472078a6918dd36f12e3f21415c724",
+                "branch": [
+                  {
+                    "SHA1": "49ef4cd2b1472078a6918dd36f12e3f21415c724",
+                    "name": "refs/remotes/origin/ESSR-2589"
+                  }
+                ]
+              },
+              "revision": {
+                "SHA1": "49ef4cd2b1472078a6918dd36f12e3f21415c724",
+                "branch": [
+                  {
+                    "SHA1": "49ef4cd2b1472078a6918dd36f12e3f21415c724",
+                    "name": "refs/remotes/origin/ESSR-2589"
+                  }
+                ]
+              }
+            },
+            "origin/ESAAS-7103": {
+              "_class": "hudson.plugins.git.util.Build",
+              "buildNumber": 986,
+              "buildResult": null,
+              "marked": {
+                "SHA1": "c667504a738a931af14473c2ca2a99b2c3feb169",
+                "branch": [
+                  {
+                    "SHA1": "c667504a738a931af14473c2ca2a99b2c3feb169",
+                    "name": "origin/ESAAS-7103"
+                  }
+                ]
+              },
+              "revision": {
+                "SHA1": "c667504a738a931af14473c2ca2a99b2c3feb169",
+                "branch": [
+                  {
+                    "SHA1": "c667504a738a931af14473c2ca2a99b2c3feb169",
+                    "name": "origin/ESAAS-7103"
+                  }
+                ]
+              }
+            },
+            "origin/ESSP-10240": {
+              "_class": "hudson.plugins.git.util.Build",
+              "buildNumber": 700,
+              "buildResult": null,
+              "marked": {
+                "SHA1": "f256bd65f871de644892b65aaa527bec28a57d4f",
+                "branch": [
+                  {
+                    "SHA1": "f256bd65f871de644892b65aaa527bec28a57d4f",
+                    "name": "origin/ESSP-10240"
+                  }
+                ]
+              },
+              "revision": {
+                "SHA1": "f256bd65f871de644892b65aaa527bec28a57d4f",
+                "branch": [
+                  {
+                    "SHA1": "f256bd65f871de644892b65aaa527bec28a57d4f",
+                    "name": "origin/ESSP-10240"
+                  }
+                ]
+              }
+            },
+            "origin/ESAAS-6942_typo_fix": {
+              "_class": "hudson.plugins.git.util.Build",
+              "buildNumber": 805,
+              "buildResult": null,
+              "marked": {
+                "SHA1": "aaf63169760f97af1e04640d3d24a2e91b616d38",
+                "branch": [
+                  {
+                    "SHA1": "aaf63169760f97af1e04640d3d24a2e91b616d38",
+                    "name": "origin/ESAAS-6942_typo_fix"
+                  }
+                ]
+              },
+              "revision": {
+                "SHA1": "aaf63169760f97af1e04640d3d24a2e91b616d38",
+                "branch": [
+                  {
+                    "SHA1": "aaf63169760f97af1e04640d3d24a2e91b616d38",
+                    "name": "origin/ESAAS-6942_typo_fix"
+                  }
+                ]
+              }
+            },
+            "refs/remotes/origin/ESSP-10061": {
+              "_class": "hudson.plugins.git.util.Build",
+              "buildNumber": 691,
+              "buildResult": null,
+              "marked": {
+                "SHA1": "b254e47b6b7e7ec56fff05ffb0f6c58a91088539",
+                "branch": [
+                  {
+                    "SHA1": "b254e47b6b7e7ec56fff05ffb0f6c58a91088539",
+                    "name": "refs/remotes/origin/ESSP-10061"
+                  }
+                ]
+              },
+              "revision": {
+                "SHA1": "b254e47b6b7e7ec56fff05ffb0f6c58a91088539",
+                "branch": [
+                  {
+                    "SHA1": "b254e47b6b7e7ec56fff05ffb0f6c58a91088539",
+                    "name": "refs/remotes/origin/ESSP-10061"
+                  }
+                ]
+              }
+            },
+            "origin/ESAAS-6929": {
+              "_class": "hudson.plugins.git.util.Build",
+              "buildNumber": 756,
+              "buildResult": null,
+              "marked": {
+                "SHA1": "876a98ea9baa0f0b7072212ac02bcd777858615b",
+                "branch": [
+                  {
+                    "SHA1": "876a98ea9baa0f0b7072212ac02bcd777858615b",
+                    "name": "origin/ESAAS-6929"
+                  }
+                ]
+              },
+              "revision": {
+                "SHA1": "876a98ea9baa0f0b7072212ac02bcd777858615b",
+                "branch": [
+                  {
+                    "SHA1": "876a98ea9baa0f0b7072212ac02bcd777858615b",
+                    "name": "origin/ESAAS-6929"
+                  }
+                ]
+              }
+            },
+            "origin/feature/ESAASR-6186-dev-postgres-reader-writer-groups": {
+              "_class": "hudson.plugins.git.util.Build",
+              "buildNumber": 920,
+              "buildResult": null,
+              "marked": {
+                "SHA1": "051dc2d72467f414fb16eaf6eb77b9e0474e419c",
+                "branch": [
+                  {
+                    "SHA1": "051dc2d72467f414fb16eaf6eb77b9e0474e419c",
+                    "name": "origin/feature/ESAASR-6186-dev-postgres-reader-writer-groups"
+                  }
+                ]
+              },
+              "revision": {
+                "SHA1": "051dc2d72467f414fb16eaf6eb77b9e0474e419c",
+                "branch": [
+                  {
+                    "SHA1": "051dc2d72467f414fb16eaf6eb77b9e0474e419c",
+                    "name": "origin/feature/ESAASR-6186-dev-postgres-reader-writer-groups"
+                  }
+                ]
+              }
+            },
+            "origin/auto-save/ESSP-10801/4f49078f/ESSP-10801-1d5e219": {
+              "_class": "hudson.plugins.git.util.Build",
+              "buildNumber": 975,
+              "buildResult": null,
+              "marked": {
+                "SHA1": "8b2cee2b07dc68a50a5ad993fb38a825f23c745d",
+                "branch": [
+                  {
+                    "SHA1": "75877e8a082ab7a1416e707f6757563ec4e1b4be",
+                    "name": "origin/ESSP-10801"
+                  },
+                  {
+                    "SHA1": "1d5e219bbff14bec9d8b2d803040eac5d607a791",
+                    "name": "origin/auto-save/ESSP-10801/4f49078f/ESSP-10801-1d5e219"
+                  },
+                  {
+                    "SHA1": "8b2cee2b07dc68a50a5ad993fb38a825f23c745d",
+                    "name": "origin/develop"
+                  },
+                  {
+                    "SHA1": "8b2cee2b07dc68a50a5ad993fb38a825f23c745d",
+                    "name": "origin/ESSP-10801-1"
+                  }
+                ]
+              },
+              "revision": {
+                "SHA1": "8b2cee2b07dc68a50a5ad993fb38a825f23c745d",
+                "branch": [
+                  {
+                    "SHA1": "75877e8a082ab7a1416e707f6757563ec4e1b4be",
+                    "name": "origin/ESSP-10801"
+                  },
+                  {
+                    "SHA1": "1d5e219bbff14bec9d8b2d803040eac5d607a791",
+                    "name": "origin/auto-save/ESSP-10801/4f49078f/ESSP-10801-1d5e219"
+                  },
+                  {
+                    "SHA1": "8b2cee2b07dc68a50a5ad993fb38a825f23c745d",
+                    "name": "origin/develop"
+                  },
+                  {
+                    "SHA1": "8b2cee2b07dc68a50a5ad993fb38a825f23c745d",
+                    "name": "origin/ESSP-10801-1"
+                  }
+                ]
+              }
+            },
+            "origin/ESSP-10801-1": {
+              "_class": "hudson.plugins.git.util.Build",
+              "buildNumber": 978,
+              "buildResult": null,
+              "marked": {
+                "SHA1": "f1216e45ab763aae6dbb9adf8cbd9f2fc5e06dcf",
+                "branch": [
+                  {
+                    "SHA1": "f1216e45ab763aae6dbb9adf8cbd9f2fc5e06dcf",
+                    "name": "origin/ESSP-10801-1"
+                  }
+                ]
+              },
+              "revision": {
+                "SHA1": "f1216e45ab763aae6dbb9adf8cbd9f2fc5e06dcf",
+                "branch": [
+                  {
+                    "SHA1": "f1216e45ab763aae6dbb9adf8cbd9f2fc5e06dcf",
+                    "name": "origin/ESSP-10801-1"
+                  }
+                ]
+              }
+            },
+            "origin/ESSP-10801": {
+              "_class": "hudson.plugins.git.util.Build",
+              "buildNumber": 975,
+              "buildResult": null,
+              "marked": {
+                "SHA1": "8b2cee2b07dc68a50a5ad993fb38a825f23c745d",
+                "branch": [
+                  {
+                    "SHA1": "75877e8a082ab7a1416e707f6757563ec4e1b4be",
+                    "name": "origin/ESSP-10801"
+                  },
+                  {
+                    "SHA1": "1d5e219bbff14bec9d8b2d803040eac5d607a791",
+                    "name": "origin/auto-save/ESSP-10801/4f49078f/ESSP-10801-1d5e219"
+                  },
+                  {
+                    "SHA1": "8b2cee2b07dc68a50a5ad993fb38a825f23c745d",
+                    "name": "origin/develop"
+                  },
+                  {
+                    "SHA1": "8b2cee2b07dc68a50a5ad993fb38a825f23c745d",
+                    "name": "origin/ESSP-10801-1"
+                  }
+                ]
+              },
+              "revision": {
+                "SHA1": "8b2cee2b07dc68a50a5ad993fb38a825f23c745d",
+                "branch": [
+                  {
+                    "SHA1": "75877e8a082ab7a1416e707f6757563ec4e1b4be",
+                    "name": "origin/ESSP-10801"
+                  },
+                  {
+                    "SHA1": "1d5e219bbff14bec9d8b2d803040eac5d607a791",
+                    "name": "origin/auto-save/ESSP-10801/4f49078f/ESSP-10801-1d5e219"
+                  },
+                  {
+                    "SHA1": "8b2cee2b07dc68a50a5ad993fb38a825f23c745d",
+                    "name": "origin/develop"
+                  },
+                  {
+                    "SHA1": "8b2cee2b07dc68a50a5ad993fb38a825f23c745d",
+                    "name": "origin/ESSP-10801-1"
+                  }
+                ]
+              }
+            },
+            "origin/ESAAS-6788": {
+              "_class": "hudson.plugins.git.util.Build",
+              "buildNumber": 713,
+              "buildResult": null,
+              "marked": {
+                "SHA1": "d9e7d093fa15499c203eb0fe585637ab083c326f",
+                "branch": [
+                  {
+                    "SHA1": "d9e7d093fa15499c203eb0fe585637ab083c326f",
+                    "name": "origin/ESAAS-6788"
+                  }
+                ]
+              },
+              "revision": {
+                "SHA1": "d9e7d093fa15499c203eb0fe585637ab083c326f",
+                "branch": [
+                  {
+                    "SHA1": "d9e7d093fa15499c203eb0fe585637ab083c326f",
+                    "name": "origin/ESAAS-6788"
+                  }
+                ]
+              }
+            },
+            "origin/cherry-pick-eed56aaa": {
+              "_class": "hudson.plugins.git.util.Build",
+              "buildNumber": 1014,
+              "buildResult": null,
+              "marked": {
+                "SHA1": "65571283d253fa3fd78e4cba79dcdd5ff1916afb",
+                "branch": [
+                  {
+                    "SHA1": "65571283d253fa3fd78e4cba79dcdd5ff1916afb",
+                    "name": "origin/cherry-pick-eed56aaa"
+                  }
+                ]
+              },
+              "revision": {
+                "SHA1": "65571283d253fa3fd78e4cba79dcdd5ff1916afb",
+                "branch": [
+                  {
+                    "SHA1": "65571283d253fa3fd78e4cba79dcdd5ff1916afb",
+                    "name": "origin/cherry-pick-eed56aaa"
+                  }
+                ]
+              }
+            },
+            "origin/ESSP-10801_WafId": {
+              "_class": "hudson.plugins.git.util.Build",
+              "buildNumber": 970,
+              "buildResult": null,
+              "marked": {
+                "SHA1": "1f6e33c7d76b0983346139cbf8ad77c8706c03ce",
+                "branch": [
+                  {
+                    "SHA1": "1f6e33c7d76b0983346139cbf8ad77c8706c03ce",
+                    "name": "origin/ESSP-10801_WafId"
+                  }
+                ]
+              },
+              "revision": {
+                "SHA1": "1f6e33c7d76b0983346139cbf8ad77c8706c03ce",
+                "branch": [
+                  {
+                    "SHA1": "1f6e33c7d76b0983346139cbf8ad77c8706c03ce",
+                    "name": "origin/ESSP-10801_WafId"
+                  }
+                ]
+              }
+            },
+            "refs/remotes/origin/ESAAS-6856_link": {
+              "_class": "hudson.plugins.git.util.Build",
+              "buildNumber": 692,
+              "buildResult": null,
+              "marked": {
+                "SHA1": "d2bfc3eee35fc0336f42786a8e4c8a14d8472039",
+                "branch": [
+                  {
+                    "SHA1": "d2bfc3eee35fc0336f42786a8e4c8a14d8472039",
+                    "name": "refs/remotes/origin/ESAAS-6856_link"
+                  }
+                ]
+              },
+              "revision": {
+                "SHA1": "d2bfc3eee35fc0336f42786a8e4c8a14d8472039",
+                "branch": [
+                  {
+                    "SHA1": "d2bfc3eee35fc0336f42786a8e4c8a14d8472039",
+                    "name": "refs/remotes/origin/ESAAS-6856_link"
+                  }
+                ]
+              }
+            },
+            "origin/ESAAS-6900": {
+              "_class": "hudson.plugins.git.util.Build",
+              "buildNumber": 762,
+              "buildResult": null,
+              "marked": {
+                "SHA1": "f690be6e806c7fda0453987cbdf573180410f840",
+                "branch": [
+                  {
+                    "SHA1": "f690be6e806c7fda0453987cbdf573180410f840",
+                    "name": "origin/ESAAS-6900"
+                  }
+                ]
+              },
+              "revision": {
+                "SHA1": "f690be6e806c7fda0453987cbdf573180410f840",
+                "branch": [
+                  {
+                    "SHA1": "f690be6e806c7fda0453987cbdf573180410f840",
+                    "name": "origin/ESAAS-6900"
+                  }
+                ]
+              }
+            },
+            "origin/revert-f11800d2": {
+              "_class": "hudson.plugins.git.util.Build",
+              "buildNumber": 927,
+              "buildResult": null,
+              "marked": {
+                "SHA1": "4d3850fad33c88a35a2c1ac78afce75e5e5bbdd6",
+                "branch": [
+                  {
+                    "SHA1": "4d3850fad33c88a35a2c1ac78afce75e5e5bbdd6",
+                    "name": "origin/revert-f11800d2"
+                  }
+                ]
+              },
+              "revision": {
+                "SHA1": "4d3850fad33c88a35a2c1ac78afce75e5e5bbdd6",
+                "branch": [
+                  {
+                    "SHA1": "4d3850fad33c88a35a2c1ac78afce75e5e5bbdd6",
+                    "name": "origin/revert-f11800d2"
+                  }
+                ]
+              }
+            },
+            "origin/ESSP-10386-add-buildId-tag": {
+              "_class": "hudson.plugins.git.util.Build",
+              "buildNumber": 693,
+              "buildResult": null,
+              "marked": {
+                "SHA1": "dc75342f01380a4d5890afce2bb1a1fe16766428",
+                "branch": [
+                  {
+                    "SHA1": "dc75342f01380a4d5890afce2bb1a1fe16766428",
+                    "name": "origin/ESSP-10386-add-buildId-tag"
+                  }
+                ]
+              },
+              "revision": {
+                "SHA1": "dc75342f01380a4d5890afce2bb1a1fe16766428",
+                "branch": [
+                  {
+                    "SHA1": "dc75342f01380a4d5890afce2bb1a1fe16766428",
+                    "name": "origin/ESSP-10386-add-buildId-tag"
+                  }
+                ]
+              }
+            },
+            "refs/remotes/origin/ESAAS-6840": {
+              "_class": "hudson.plugins.git.util.Build",
+              "buildNumber": 895,
+              "buildResult": null,
+              "marked": {
+                "SHA1": "f287b8ec161cee69443072a1204b2f9f3731dd9e",
+                "branch": [
+                  {
+                    "SHA1": "f287b8ec161cee69443072a1204b2f9f3731dd9e",
+                    "name": "refs/remotes/origin/ESAAS-6840"
+                  }
+                ]
+              },
+              "revision": {
+                "SHA1": "f287b8ec161cee69443072a1204b2f9f3731dd9e",
+                "branch": [
+                  {
+                    "SHA1": "f287b8ec161cee69443072a1204b2f9f3731dd9e",
+                    "name": "refs/remotes/origin/ESAAS-6840"
+                  }
+                ]
+              }
+            },
+            "refs/remotes/origin/ESSP-10788": {
+              "_class": "hudson.plugins.git.util.Build",
+              "buildNumber": 1010,
+              "buildResult": null,
+              "marked": {
+                "SHA1": "d35c9ea7ac70a859ff9ba6f27448a0d5334a4d06",
+                "branch": [
+                  {
+                    "SHA1": "d35c9ea7ac70a859ff9ba6f27448a0d5334a4d06",
+                    "name": "refs/remotes/origin/ESSP-10788"
+                  }
+                ]
+              },
+              "revision": {
+                "SHA1": "d35c9ea7ac70a859ff9ba6f27448a0d5334a4d06",
+                "branch": [
+                  {
+                    "SHA1": "d35c9ea7ac70a859ff9ba6f27448a0d5334a4d06",
+                    "name": "refs/remotes/origin/ESSP-10788"
+                  }
+                ]
+              }
+            },
+            "origin/cherry-pick-1152f0a8": {
+              "_class": "hudson.plugins.git.util.Build",
+              "buildNumber": 982,
+              "buildResult": null,
+              "marked": {
+                "SHA1": "1e10adcd1406895a3ef771a2bb0e63e01c50d3c6",
+                "branch": [
+                  {
+                    "SHA1": "1e10adcd1406895a3ef771a2bb0e63e01c50d3c6",
+                    "name": "origin/cherry-pick-1152f0a8"
+                  }
+                ]
+              },
+              "revision": {
+                "SHA1": "1e10adcd1406895a3ef771a2bb0e63e01c50d3c6",
+                "branch": [
+                  {
+                    "SHA1": "1e10adcd1406895a3ef771a2bb0e63e01c50d3c6",
+                    "name": "origin/cherry-pick-1152f0a8"
+                  }
+                ]
+              }
+            },
+            "refs/remotes/origin/PSEC-796": {
+              "_class": "hudson.plugins.git.util.Build",
+              "buildNumber": 607,
+              "buildResult": null,
+              "marked": {
+                "SHA1": "9cd3f9ee9f56dcf5548f3b55c498932a55877154",
+                "branch": [
+                  {
+                    "SHA1": "9cd3f9ee9f56dcf5548f3b55c498932a55877154",
+                    "name": "refs/remotes/origin/PSEC-796"
+                  }
+                ]
+              },
+              "revision": {
+                "SHA1": "9cd3f9ee9f56dcf5548f3b55c498932a55877154",
+                "branch": [
+                  {
+                    "SHA1": "9cd3f9ee9f56dcf5548f3b55c498932a55877154",
+                    "name": "refs/remotes/origin/PSEC-796"
+                  }
+                ]
+              }
+            },
+            "origin/ESAAS-7099": {
+              "_class": "hudson.plugins.git.util.Build",
+              "buildNumber": 954,
+              "buildResult": null,
+              "marked": {
+                "SHA1": "91b93a727ba297b53499f79b4ec3decc612d9046",
+                "branch": [
+                  {
+                    "SHA1": "91b93a727ba297b53499f79b4ec3decc612d9046",
+                    "name": "origin/ESAAS-7099"
+                  }
+                ]
+              },
+              "revision": {
+                "SHA1": "91b93a727ba297b53499f79b4ec3decc612d9046",
+                "branch": [
+                  {
+                    "SHA1": "91b93a727ba297b53499f79b4ec3decc612d9046",
+                    "name": "origin/ESAAS-7099"
+                  }
+                ]
+              }
+            },
+            "refs/remotes/origin/ESAAS-6879": {
+              "_class": "hudson.plugins.git.util.Build",
+              "buildNumber": 718,
+              "buildResult": null,
+              "marked": {
+                "SHA1": "98ed3e15e30a8899fe2d768bb62ce8345eeb0ff5",
+                "branch": [
+                  {
+                    "SHA1": "98ed3e15e30a8899fe2d768bb62ce8345eeb0ff5",
+                    "name": "refs/remotes/origin/ESAAS-6879"
+                  }
+                ]
+              },
+              "revision": {
+                "SHA1": "98ed3e15e30a8899fe2d768bb62ce8345eeb0ff5",
+                "branch": [
+                  {
+                    "SHA1": "98ed3e15e30a8899fe2d768bb62ce8345eeb0ff5",
+                    "name": "refs/remotes/origin/ESAAS-6879"
+                  }
+                ]
+              }
+            },
+            "refs/remotes/origin/ESAAS-6934": {
+              "_class": "hudson.plugins.git.util.Build",
+              "buildNumber": 827,
+              "buildResult": null,
+              "marked": {
+                "SHA1": "ea37cb9af19fae476147417bc5be74e25e836bc1",
+                "branch": [
+                  {
+                    "SHA1": "ea37cb9af19fae476147417bc5be74e25e836bc1",
+                    "name": "refs/remotes/origin/ESAAS-6934"
+                  }
+                ]
+              },
+              "revision": {
+                "SHA1": "ea37cb9af19fae476147417bc5be74e25e836bc1",
+                "branch": [
+                  {
+                    "SHA1": "ea37cb9af19fae476147417bc5be74e25e836bc1",
+                    "name": "refs/remotes/origin/ESAAS-6934"
+                  }
+                ]
+              }
+            },
+            "origin/ESAAS-test": {
+              "_class": "hudson.plugins.git.util.Build",
+              "buildNumber": 846,
+              "buildResult": null,
+              "marked": {
+                "SHA1": "9fa93e06786c38a615307c7b16fdc578b051137e",
+                "branch": [
+                  {
+                    "SHA1": "9fa93e06786c38a615307c7b16fdc578b051137e",
+                    "name": "origin/ESAAS-test"
+                  }
+                ]
+              },
+              "revision": {
+                "SHA1": "9fa93e06786c38a615307c7b16fdc578b051137e",
+                "branch": [
+                  {
+                    "SHA1": "9fa93e06786c38a615307c7b16fdc578b051137e",
+                    "name": "origin/ESAAS-test"
+                  }
+                ]
+              }
+            },
+            "origin/ESAAS-6840": {
+              "_class": "hudson.plugins.git.util.Build",
+              "buildNumber": 907,
+              "buildResult": null,
+              "marked": {
+                "SHA1": "83b28dfea79dc6921bd5b63c7db595eef5446aaf",
+                "branch": [
+                  {
+                    "SHA1": "83b28dfea79dc6921bd5b63c7db595eef5446aaf",
+                    "name": "origin/ESAAS-6840"
+                  }
+                ]
+              },
+              "revision": {
+                "SHA1": "83b28dfea79dc6921bd5b63c7db595eef5446aaf",
+                "branch": [
+                  {
+                    "SHA1": "83b28dfea79dc6921bd5b63c7db595eef5446aaf",
+                    "name": "origin/ESAAS-6840"
+                  }
+                ]
+              }
+            },
+            "origin/cherry-pick-8b2cee2b": {
+              "_class": "hudson.plugins.git.util.Build",
+              "buildNumber": 958,
+              "buildResult": null,
+              "marked": {
+                "SHA1": "c156d325a0b39307f12c6d36be0bbf4047831bae",
+                "branch": [
+                  {
+                    "SHA1": "c156d325a0b39307f12c6d36be0bbf4047831bae",
+                    "name": "origin/cherry-pick-8b2cee2b"
+                  }
+                ]
+              },
+              "revision": {
+                "SHA1": "c156d325a0b39307f12c6d36be0bbf4047831bae",
+                "branch": [
+                  {
+                    "SHA1": "c156d325a0b39307f12c6d36be0bbf4047831bae",
+                    "name": "origin/cherry-pick-8b2cee2b"
+                  }
+                ]
+              }
+            },
+            "refs/remotes/origin/feature/ESSP-9874-immutable-portal-snippet": {
+              "_class": "hudson.plugins.git.util.Build",
+              "buildNumber": 634,
+              "buildResult": null,
+              "marked": {
+                "SHA1": "051a4f25ec15d806b8499f41ee89086774edf079",
+                "branch": [
+                  {
+                    "SHA1": "051a4f25ec15d806b8499f41ee89086774edf079",
+                    "name": "refs/remotes/origin/feature/ESSP-9874-immutable-portal-snippet"
+                  }
+                ]
+              },
+              "revision": {
+                "SHA1": "051a4f25ec15d806b8499f41ee89086774edf079",
+                "branch": [
+                  {
+                    "SHA1": "051a4f25ec15d806b8499f41ee89086774edf079",
+                    "name": "refs/remotes/origin/feature/ESSP-9874-immutable-portal-snippet"
+                  }
+                ]
+              }
+            },
+            "refs/remotes/origin/feature/ESSP-2333-app-config": {
+              "_class": "hudson.plugins.git.util.Build",
+              "buildNumber": 676,
+              "buildResult": null,
+              "marked": {
+                "SHA1": "feff8efc6f334c0239575488160c3514fdb619bc",
+                "branch": [
+                  {
+                    "SHA1": "feff8efc6f334c0239575488160c3514fdb619bc",
+                    "name": "refs/remotes/origin/feature/ESSP-2333-app-config"
+                  }
+                ]
+              },
+              "revision": {
+                "SHA1": "feff8efc6f334c0239575488160c3514fdb619bc",
+                "branch": [
+                  {
+                    "SHA1": "feff8efc6f334c0239575488160c3514fdb619bc",
+                    "name": "refs/remotes/origin/feature/ESSP-2333-app-config"
+                  }
+                ]
+              }
+            },
+            "origin/cherry-pick-db5c7c9c": {
+              "_class": "hudson.plugins.git.util.Build",
+              "buildNumber": 968,
+              "buildResult": null,
+              "marked": {
+                "SHA1": "0fa2ec044ea770a2e883b9eaba0521e5ca089dee",
+                "branch": [
+                  {
+                    "SHA1": "0fa2ec044ea770a2e883b9eaba0521e5ca089dee",
+                    "name": "origin/cherry-pick-db5c7c9c"
+                  }
+                ]
+              },
+              "revision": {
+                "SHA1": "0fa2ec044ea770a2e883b9eaba0521e5ca089dee",
+                "branch": [
+                  {
+                    "SHA1": "0fa2ec044ea770a2e883b9eaba0521e5ca089dee",
+                    "name": "origin/cherry-pick-db5c7c9c"
+                  }
+                ]
+              }
+            },
+            "refs/remotes/origin/feature/ESSP-10121-revert-test": {
+              "_class": "hudson.plugins.git.util.Build",
+              "buildNumber": 681,
+              "buildResult": null,
+              "marked": {
+                "SHA1": "2a396157cac8dd55849d23a6e1dfca75a14e0bd9",
+                "branch": [
+                  {
+                    "SHA1": "2a396157cac8dd55849d23a6e1dfca75a14e0bd9",
+                    "name": "refs/remotes/origin/feature/ESSP-10121-revert-test"
+                  }
+                ]
+              },
+              "revision": {
+                "SHA1": "2a396157cac8dd55849d23a6e1dfca75a14e0bd9",
+                "branch": [
+                  {
+                    "SHA1": "2a396157cac8dd55849d23a6e1dfca75a14e0bd9",
+                    "name": "refs/remotes/origin/feature/ESSP-10121-revert-test"
+                  }
+                ]
+              }
+            },
+            "refs/remotes/origin/develop": {
+              "_class": "hudson.plugins.git.util.Build",
+              "buildNumber": 929,
+              "buildResult": null,
+              "marked": {
+                "SHA1": "d3e2d99031bfc759476fdb723b9a7bde988c33f1",
+                "branch": [
+                  {
+                    "SHA1": "d3e2d99031bfc759476fdb723b9a7bde988c33f1",
+                    "name": "refs/remotes/origin/develop"
+                  }
+                ]
+              },
+              "revision": {
+                "SHA1": "d3e2d99031bfc759476fdb723b9a7bde988c33f1",
+                "branch": [
+                  {
+                    "SHA1": "d3e2d99031bfc759476fdb723b9a7bde988c33f1",
+                    "name": "refs/remotes/origin/develop"
+                  }
+                ]
+              }
+            },
+            "origin/ESAAS-6942_qa_conf": {
+              "_class": "hudson.plugins.git.util.Build",
+              "buildNumber": 878,
+              "buildResult": null,
+              "marked": {
+                "SHA1": "da8f1b074e317e4e90a1cb0e0ec183475ff21305",
+                "branch": [
+                  {
+                    "SHA1": "da8f1b074e317e4e90a1cb0e0ec183475ff21305",
+                    "name": "origin/ESAAS-6942_qa_conf"
+                  }
+                ]
+              },
+              "revision": {
+                "SHA1": "da8f1b074e317e4e90a1cb0e0ec183475ff21305",
+                "branch": [
+                  {
+                    "SHA1": "da8f1b074e317e4e90a1cb0e0ec183475ff21305",
+                    "name": "origin/ESAAS-6942_qa_conf"
+                  }
+                ]
+              }
+            }
+          },
+          "lastBuiltRevision": {
+            "SHA1": "549ccfd0432b682e16b87e22b40f79aefa4c614e",
+            "branch": [
+              {
+                "SHA1": "549ccfd0432b682e16b87e22b40f79aefa4c614e",
+                "name": "origin/develop"
+              }
+            ]
+          },
+          "remoteUrls": [
+            "ssh://git@gitserver.com:5555/cloudops/IaaC/iot-platform-iac.git"
+          ],
+          "scmName": ""
+        },
+        {},
+        {
+          "_class": "org.jenkinsci.plugins.workflow.libs.LibrariesAction",
+          "libraries": [
+            {},
+            {},
+            {},
+            {}
+          ]
+        },
+        {
+          "_class": "hudson.plugins.git.util.BuildData",
+          "buildsByBranchName": {
+            "master": {
+              "_class": "hudson.plugins.git.util.Build",
+              "buildNumber": 1018,
+              "buildResult": null,
+              "marked": {
+                "SHA1": "efc46e9217f9bbbad9f2fbb0a99ae264a52fd031",
+                "branch": [
+                  {
+                    "SHA1": "efc46e9217f9bbbad9f2fbb0a99ae264a52fd031",
+                    "name": "master"
+                  }
+                ]
+              },
+              "revision": {
+                "SHA1": "efc46e9217f9bbbad9f2fbb0a99ae264a52fd031",
+                "branch": [
+                  {
+                    "SHA1": "efc46e9217f9bbbad9f2fbb0a99ae264a52fd031",
+                    "name": "master"
+                  }
+                ]
+              }
+            }
+          },
+          "lastBuiltRevision": {
+            "SHA1": "efc46e9217f9bbbad9f2fbb0a99ae264a52fd031",
+            "branch": [
+              {
+                "SHA1": "efc46e9217f9bbbad9f2fbb0a99ae264a52fd031",
+                "name": "master"
+              }
+            ]
+          },
+          "remoteUrls": [
+            "ssh://git@gitserver.com:5555/produce-recognition/jenkinspipeline.git"
+          ],
+          "scmName": ""
+        },
+        {
+          "_class": "hudson.plugins.git.util.BuildData",
+          "buildsByBranchName": {
+            "master": {
+              "_class": "hudson.plugins.git.util.Build",
+              "buildNumber": 1018,
+              "buildResult": null,
+              "marked": {
+                "SHA1": "3ba54ae1848ed8d07d2669807dc596fd45885e0b",
+                "branch": [
+                  {
+                    "SHA1": "3ba54ae1848ed8d07d2669807dc596fd45885e0b",
+                    "name": "master"
+                  }
+                ]
+              },
+              "revision": {
+                "SHA1": "3ba54ae1848ed8d07d2669807dc596fd45885e0b",
+                "branch": [
+                  {
+                    "SHA1": "3ba54ae1848ed8d07d2669807dc596fd45885e0b",
+                    "name": "master"
+                  }
+                ]
+              }
+            }
+          },
+          "lastBuiltRevision": {
+            "SHA1": "3ba54ae1848ed8d07d2669807dc596fd45885e0b",
+            "branch": [
+              {
+                "SHA1": "3ba54ae1848ed8d07d2669807dc596fd45885e0b",
+                "name": "master"
+              }
+            ]
+          },
+          "remoteUrls": [
+            "ssh://git@gitserver.com:5555/selfservice/JenkinsPipeline.git"
+          ],
+          "scmName": ""
+        },
+        {
+          "_class": "hudson.plugins.git.util.BuildData",
+          "buildsByBranchName": {
+            "master": {
+              "_class": "hudson.plugins.git.util.Build",
+              "buildNumber": 1018,
+              "buildResult": null,
+              "marked": {
+                "SHA1": "2ac0ce2e74c076f697711608d7e1868650ea8d2d",
+                "branch": [
+                  {
+                    "SHA1": "2ac0ce2e74c076f697711608d7e1868650ea8d2d",
+                    "name": "master"
+                  }
+                ]
+              },
+              "revision": {
+                "SHA1": "2ac0ce2e74c076f697711608d7e1868650ea8d2d",
+                "branch": [
+                  {
+                    "SHA1": "2ac0ce2e74c076f697711608d7e1868650ea8d2d",
+                    "name": "master"
+                  }
+                ]
+              }
+            }
+          },
+          "lastBuiltRevision": {
+            "SHA1": "2ac0ce2e74c076f697711608d7e1868650ea8d2d",
+            "branch": [
+              {
+                "SHA1": "2ac0ce2e74c076f697711608d7e1868650ea8d2d",
+                "name": "master"
+              }
+            ]
+          },
+          "remoteUrls": [
+            "ssh://git@gitserver.com:5555/vuepos/JenkinsPipeline.git"
+          ],
+          "scmName": ""
+        },
+        {
+          "_class": "hudson.plugins.git.util.BuildData",
+          "buildsByBranchName": {
+            "master": {
+              "_class": "hudson.plugins.git.util.Build",
+              "buildNumber": 1018,
+              "buildResult": null,
+              "marked": {
+                "SHA1": "6cf06d90778e4ce5213598e37a0a33c92bef963d",
+                "branch": [
+                  {
+                    "SHA1": "6cf06d90778e4ce5213598e37a0a33c92bef963d",
+                    "name": "master"
+                  }
+                ]
+              },
+              "revision": {
+                "SHA1": "6cf06d90778e4ce5213598e37a0a33c92bef963d",
+                "branch": [
+                  {
+                    "SHA1": "6cf06d90778e4ce5213598e37a0a33c92bef963d",
+                    "name": "master"
+                  }
+                ]
+              }
+            }
+          },
+          "lastBuiltRevision": {
+            "SHA1": "6cf06d90778e4ce5213598e37a0a33c92bef963d",
+            "branch": [
+              {
+                "SHA1": "6cf06d90778e4ce5213598e37a0a33c92bef963d",
+                "name": "master"
+              }
+            ]
+          },
+          "remoteUrls": [
+            "ssh://git@gitserver.com:5555/cloudops/IaaC/shared-jenkins-library.git"
+          ],
+          "scmName": ""
+        },
+        {},
+        {
+          "_class": "org.jenkinsci.plugins.workflow.cps.EnvActionImpl",
+          "environment": {}
+        },
+        {
+          "_class": "hudson.plugins.git.util.BuildData",
+          "buildsByBranchName": {
+            "refs/remotes/origin/feature/ESAASR-6186-dev-postgres-reader-writer-groups": {
+              "_class": "hudson.plugins.git.util.Build",
+              "buildNumber": 916,
+              "buildResult": null,
+              "marked": {
+                "SHA1": "e1b4315f7021e0c99d4d9445d2aff4a1a406b4d9",
+                "branch": [
+                  {
+                    "SHA1": "e1b4315f7021e0c99d4d9445d2aff4a1a406b4d9",
+                    "name": "refs/remotes/origin/feature/ESAASR-6186-dev-postgres-reader-writer-groups"
+                  }
+                ]
+              },
+              "revision": {
+                "SHA1": "e1b4315f7021e0c99d4d9445d2aff4a1a406b4d9",
+                "branch": [
+                  {
+                    "SHA1": "e1b4315f7021e0c99d4d9445d2aff4a1a406b4d9",
+                    "name": "refs/remotes/origin/feature/ESAASR-6186-dev-postgres-reader-writer-groups"
+                  }
+                ]
+              }
+            },
+            "refs/remotes/origin/develop": {
+              "_class": "hudson.plugins.git.util.Build",
+              "buildNumber": 1018,
+              "buildResult": null,
+              "marked": {
+                "SHA1": "e7f4e0b302052a0057e7971377e8963246bf0516",
+                "branch": [
+                  {
+                    "SHA1": "e7f4e0b302052a0057e7971377e8963246bf0516",
+                    "name": "refs/remotes/origin/develop"
+                  }
+                ]
+              },
+              "revision": {
+                "SHA1": "e7f4e0b302052a0057e7971377e8963246bf0516",
+                "branch": [
+                  {
+                    "SHA1": "e7f4e0b302052a0057e7971377e8963246bf0516",
+                    "name": "refs/remotes/origin/develop"
+                  }
+                ]
+              }
+            }
+          },
+          "lastBuiltRevision": {
+            "SHA1": "e7f4e0b302052a0057e7971377e8963246bf0516",
+            "branch": [
+              {
+                "SHA1": "e7f4e0b302052a0057e7971377e8963246bf0516",
+                "name": "refs/remotes/origin/develop"
+              }
+            ]
+          },
+          "remoteUrls": [
+            "ssh://git@gitserver.com:5555/cloudops/IaaC/shared-modules.git"
+          ],
+          "scmName": ""
+        },
+        {
+          "_class": "org.jenkinsci.plugins.workflow.cps.view.InterpolatedSecretsAction",
+          "warnings": [
+            {}
+          ]
+        },
+        {
+          "_class": "org.jenkinsci.plugins.workflow.support.steps.input.InputAction",
+          "displayName": null,
+          "executions": [],
+          "waitingForInput": false
+        },
+        {
+          "_class": "org.jenkinsci.plugins.workflow.support.steps.input.ApproverAction",
+          "userId": "artem"
+        },
+        {},
+        {},
+        {},
+        {},
+        {},
+        {},
+        {
+          "_class": "org.jenkinsci.plugins.displayurlapi.actions.RunDisplayAction",
+          "artifactsUrl": "https://my-jenkins-server.com/blue/organizations/jenkins/iot-platform-deploy-dev/detail/iot-platform-deploy-dev/1018/artifacts",
+          "changesUrl": "https://my-jenkins-server.com/blue/organizations/jenkins/iot-platform-deploy-dev/detail/iot-platform-deploy-dev/1018/changes",
+          "displayUrl": "https://my-jenkins-server.com/blue/organizations/jenkins/iot-platform-deploy-dev/detail/iot-platform-deploy-dev/1018/",
+          "testsUrl": "https://my-jenkins-server.com/blue/organizations/jenkins/iot-platform-deploy-dev/detail/iot-platform-deploy-dev/1018/tests"
+        },
+        {
+          "_class": "org.jenkinsci.plugins.pipeline.modeldefinition.actions.RestartDeclarativePipelineAction",
+          "restartEnabled": true,
+          "restartableStages": [
+            "Azure Resources MR Validation",
+            "Credentials Service",
+            "Device Management Service",
+            "Firmware Service",
+            "Key Rotation Service",
+            "Locations Service",
+            "Telemetry Service",
+            "Azure Resources",
+            "Notification Service",
+            "Markups Function App",
+            "IoT Portal"
+          ]
+        },
+        {},
+        {
+          "_class": "org.jenkinsci.plugins.workflow.job.views.FlowGraphAction",
+          "nodes": [
+            {
+              "_class": "org.jenkinsci.plugins.workflow.graph.FlowStartNode"
+            },
+            {
+              "_class": "org.jenkinsci.plugins.workflow.cps.nodes.StepAtomNode"
+            },
+            {
+              "_class": "org.jenkinsci.plugins.workflow.cps.nodes.StepStartNode"
+            },
+            {
+              "_class": "org.jenkinsci.plugins.workflow.cps.nodes.StepStartNode"
+            },
+            {
+              "_class": "org.jenkinsci.plugins.workflow.cps.nodes.StepStartNode"
+            },
+            {
+              "_class": "org.jenkinsci.plugins.workflow.cps.nodes.StepStartNode"
+            },
+            {
+              "_class": "org.jenkinsci.plugins.workflow.cps.nodes.StepAtomNode"
+            },
+            {
+              "_class": "org.jenkinsci.plugins.workflow.cps.nodes.StepEndNode"
+            },
+            {
+              "_class": "org.jenkinsci.plugins.workflow.cps.nodes.StepEndNode"
+            },
+            {
+              "_class": "org.jenkinsci.plugins.workflow.cps.nodes.StepStartNode"
+            },
+            {
+              "_class": "org.jenkinsci.plugins.workflow.cps.nodes.StepStartNode"
+            },
+            {
+              "_class": "org.jenkinsci.plugins.workflow.cps.nodes.StepStartNode"
+            },
+            {
+              "_class": "org.jenkinsci.plugins.workflow.cps.nodes.StepStartNode"
+            },
+            {
+              "_class": "org.jenkinsci.plugins.workflow.cps.nodes.StepStartNode"
+            },
+            {
+              "_class": "org.jenkinsci.plugins.workflow.cps.nodes.StepStartNode"
+            },
+            {
+              "_class": "org.jenkinsci.plugins.workflow.cps.nodes.StepAtomNode"
+            },
+            {
+              "_class": "org.jenkinsci.plugins.workflow.cps.nodes.StepAtomNode"
+            },
+            {
+              "_class": "org.jenkinsci.plugins.workflow.cps.nodes.StepEndNode"
+            },
+            {
+              "_class": "org.jenkinsci.plugins.workflow.cps.nodes.StepEndNode"
+            },
+            {
+              "_class": "org.jenkinsci.plugins.workflow.cps.nodes.StepStartNode"
+            },
+            {
+              "_class": "org.jenkinsci.plugins.workflow.cps.nodes.StepStartNode"
+            },
+            {
+              "_class": "org.jenkinsci.plugins.workflow.cps.nodes.StepStartNode"
+            },
+            {
+              "_class": "org.jenkinsci.plugins.workflow.cps.nodes.StepStartNode"
+            },
+            {
+              "_class": "org.jenkinsci.plugins.workflow.cps.nodes.StepAtomNode"
+            },
+            {
+              "_class": "org.jenkinsci.plugins.workflow.cps.nodes.StepEndNode"
+            },
+            {
+              "_class": "org.jenkinsci.plugins.workflow.cps.nodes.StepEndNode"
+            },
+            {
+              "_class": "org.jenkinsci.plugins.workflow.cps.nodes.StepStartNode"
+            },
+            {
+              "_class": "org.jenkinsci.plugins.workflow.cps.nodes.StepStartNode"
+            },
+            {
+              "_class": "org.jenkinsci.plugins.workflow.cps.nodes.StepAtomNode"
+            },
+            {
+              "_class": "org.jenkinsci.plugins.workflow.cps.nodes.StepEndNode"
+            },
+            {
+              "_class": "org.jenkinsci.plugins.workflow.cps.nodes.StepEndNode"
+            },
+            {
+              "_class": "org.jenkinsci.plugins.workflow.cps.nodes.StepStartNode"
+            },
+            {
+              "_class": "org.jenkinsci.plugins.workflow.cps.nodes.StepStartNode"
+            },
+            {
+              "_class": "org.jenkinsci.plugins.workflow.cps.nodes.StepAtomNode"
+            },
+            {
+              "_class": "org.jenkinsci.plugins.workflow.cps.nodes.StepEndNode"
+            },
+            {
+              "_class": "org.jenkinsci.plugins.workflow.cps.nodes.StepEndNode"
+            },
+            {
+              "_class": "org.jenkinsci.plugins.workflow.cps.nodes.StepStartNode"
+            },
+            {
+              "_class": "org.jenkinsci.plugins.workflow.cps.nodes.StepStartNode"
+            },
+            {
+              "_class": "org.jenkinsci.plugins.workflow.cps.nodes.StepAtomNode"
+            },
+            {
+              "_class": "org.jenkinsci.plugins.workflow.cps.nodes.StepEndNode"
+            },
+            {
+              "_class": "org.jenkinsci.plugins.workflow.cps.nodes.StepEndNode"
+            },
+            {
+              "_class": "org.jenkinsci.plugins.workflow.cps.nodes.StepStartNode"
+            },
+            {
+              "_class": "org.jenkinsci.plugins.workflow.cps.nodes.StepStartNode"
+            },
+            {
+              "_class": "org.jenkinsci.plugins.workflow.cps.nodes.StepAtomNode"
+            },
+            {
+              "_class": "org.jenkinsci.plugins.workflow.cps.nodes.StepEndNode"
+            },
+            {
+              "_class": "org.jenkinsci.plugins.workflow.cps.nodes.StepEndNode"
+            },
+            {
+              "_class": "org.jenkinsci.plugins.workflow.cps.nodes.StepStartNode"
+            },
+            {
+              "_class": "org.jenkinsci.plugins.workflow.cps.nodes.StepStartNode"
+            },
+            {
+              "_class": "org.jenkinsci.plugins.workflow.cps.nodes.StepAtomNode"
+            },
+            {
+              "_class": "org.jenkinsci.plugins.workflow.cps.nodes.StepEndNode"
+            },
+            {
+              "_class": "org.jenkinsci.plugins.workflow.cps.nodes.StepEndNode"
+            },
+            {
+              "_class": "org.jenkinsci.plugins.workflow.cps.nodes.StepStartNode"
+            },
+            {
+              "_class": "org.jenkinsci.plugins.workflow.cps.nodes.StepStartNode"
+            },
+            {
+              "_class": "org.jenkinsci.plugins.workflow.cps.nodes.StepAtomNode"
+            },
+            {
+              "_class": "org.jenkinsci.plugins.workflow.cps.nodes.StepEndNode"
+            },
+            {
+              "_class": "org.jenkinsci.plugins.workflow.cps.nodes.StepEndNode"
+            },
+            {
+              "_class": "org.jenkinsci.plugins.workflow.cps.nodes.StepStartNode"
+            },
+            {
+              "_class": "org.jenkinsci.plugins.workflow.cps.nodes.StepStartNode"
+            },
+            {
+              "_class": "org.jenkinsci.plugins.workflow.cps.nodes.StepAtomNode"
+            },
+            {
+              "_class": "org.jenkinsci.plugins.workflow.cps.nodes.StepAtomNode"
+            },
+            {
+              "_class": "org.jenkinsci.plugins.workflow.cps.nodes.StepStartNode"
+            },
+            {
+              "_class": "org.jenkinsci.plugins.workflow.cps.nodes.StepStartNode"
+            },
+            {
+              "_class": "org.jenkinsci.plugins.workflow.cps.nodes.StepStartNode"
+            },
+            {
+              "_class": "org.jenkinsci.plugins.workflow.cps.nodes.StepStartNode"
+            },
+            {
+              "_class": "org.jenkinsci.plugins.workflow.cps.nodes.StepAtomNode"
+            },
+            {
+              "_class": "org.jenkinsci.plugins.workflow.cps.nodes.StepStartNode"
+            },
+            {
+              "_class": "org.jenkinsci.plugins.workflow.cps.nodes.StepStartNode"
+            },
+            {
+              "_class": "org.jenkinsci.plugins.workflow.cps.nodes.StepStartNode"
+            },
+            {
+              "_class": "org.jenkinsci.plugins.workflow.cps.nodes.StepStartNode"
+            },
+            {
+              "_class": "org.jenkinsci.plugins.workflow.cps.nodes.StepStartNode"
+            },
+            {
+              "_class": "org.jenkinsci.plugins.workflow.cps.nodes.StepStartNode"
+            },
+            {
+              "_class": "org.jenkinsci.plugins.workflow.cps.nodes.StepAtomNode"
+            },
+            {
+              "_class": "org.jenkinsci.plugins.workflow.cps.nodes.StepAtomNode"
+            },
+            {
+              "_class": "org.jenkinsci.plugins.workflow.cps.nodes.StepAtomNode"
+            },
+            {
+              "_class": "org.jenkinsci.plugins.workflow.cps.nodes.StepAtomNode"
+            },
+            {
+              "_class": "org.jenkinsci.plugins.workflow.cps.nodes.StepAtomNode"
+            },
+            {
+              "_class": "org.jenkinsci.plugins.workflow.cps.nodes.StepAtomNode"
+            },
+            {
+              "_class": "org.jenkinsci.plugins.workflow.cps.nodes.StepAtomNode"
+            },
+            {
+              "_class": "org.jenkinsci.plugins.workflow.cps.nodes.StepEndNode"
+            },
+            {
+              "_class": "org.jenkinsci.plugins.workflow.cps.nodes.StepEndNode"
+            },
+            {
+              "_class": "org.jenkinsci.plugins.workflow.cps.nodes.StepStartNode"
+            },
+            {
+              "_class": "org.jenkinsci.plugins.workflow.cps.nodes.StepStartNode"
+            },
+            {
+              "_class": "org.jenkinsci.plugins.workflow.cps.nodes.StepAtomNode"
+            },
+            {
+              "_class": "org.jenkinsci.plugins.workflow.cps.nodes.StepAtomNode"
+            },
+            {
+              "_class": "org.jenkinsci.plugins.workflow.cps.nodes.StepAtomNode"
+            },
+            {
+              "_class": "org.jenkinsci.plugins.workflow.cps.nodes.StepAtomNode"
+            },
+            {
+              "_class": "org.jenkinsci.plugins.workflow.cps.nodes.StepStartNode"
+            },
+            {
+              "_class": "org.jenkinsci.plugins.workflow.cps.nodes.StepStartNode"
+            },
+            {
+              "_class": "org.jenkinsci.plugins.workflow.cps.nodes.StepAtomNode"
+            },
+            {
+              "_class": "org.jenkinsci.plugins.workflow.cps.nodes.StepStartNode"
+            },
+            {
+              "_class": "org.jenkinsci.plugins.workflow.cps.nodes.StepStartNode"
+            },
+            {
+              "_class": "org.jenkinsci.plugins.workflow.cps.nodes.StepAtomNode"
+            },
+            {
+              "_class": "org.jenkinsci.plugins.workflow.cps.nodes.StepEndNode"
+            },
+            {
+              "_class": "org.jenkinsci.plugins.workflow.cps.nodes.StepEndNode"
+            },
+            {
+              "_class": "org.jenkinsci.plugins.workflow.cps.nodes.StepAtomNode"
+            },
+            {
+              "_class": "org.jenkinsci.plugins.workflow.cps.nodes.StepStartNode"
+            },
+            {
+              "_class": "org.jenkinsci.plugins.workflow.cps.nodes.StepStartNode"
+            },
+            {
+              "_class": "org.jenkinsci.plugins.workflow.cps.nodes.StepAtomNode"
+            },
+            {
+              "_class": "org.jenkinsci.plugins.workflow.cps.nodes.StepEndNode"
+            },
+            {
+              "_class": "org.jenkinsci.plugins.workflow.cps.nodes.StepEndNode"
+            },
+            {
+              "_class": "org.jenkinsci.plugins.workflow.cps.nodes.StepEndNode"
+            },
+            {
+              "_class": "org.jenkinsci.plugins.workflow.cps.nodes.StepEndNode"
+            },
+            {
+              "_class": "org.jenkinsci.plugins.workflow.cps.nodes.StepEndNode"
+            },
+            {
+              "_class": "org.jenkinsci.plugins.workflow.cps.nodes.StepEndNode"
+            },
+            {
+              "_class": "org.jenkinsci.plugins.workflow.cps.nodes.StepEndNode"
+            },
+            {
+              "_class": "org.jenkinsci.plugins.workflow.cps.nodes.StepEndNode"
+            },
+            {
+              "_class": "org.jenkinsci.plugins.workflow.cps.nodes.StepEndNode"
+            },
+            {
+              "_class": "org.jenkinsci.plugins.workflow.cps.nodes.StepEndNode"
+            },
+            {
+              "_class": "org.jenkinsci.plugins.workflow.cps.nodes.StepEndNode"
+            },
+            {
+              "_class": "org.jenkinsci.plugins.workflow.cps.nodes.StepEndNode"
+            },
+            {
+              "_class": "org.jenkinsci.plugins.workflow.cps.nodes.StepStartNode"
+            },
+            {
+              "_class": "org.jenkinsci.plugins.workflow.cps.nodes.StepStartNode"
+            },
+            {
+              "_class": "org.jenkinsci.plugins.workflow.cps.nodes.StepAtomNode"
+            },
+            {
+              "_class": "org.jenkinsci.plugins.workflow.cps.nodes.StepAtomNode"
+            },
+            {
+              "_class": "org.jenkinsci.plugins.workflow.cps.nodes.StepEndNode"
+            },
+            {
+              "_class": "org.jenkinsci.plugins.workflow.cps.nodes.StepEndNode"
+            },
+            {
+              "_class": "org.jenkinsci.plugins.workflow.cps.nodes.StepEndNode"
+            },
+            {
+              "_class": "org.jenkinsci.plugins.workflow.cps.nodes.StepEndNode"
+            },
+            {
+              "_class": "org.jenkinsci.plugins.workflow.cps.nodes.StepEndNode"
+            },
+            {
+              "_class": "org.jenkinsci.plugins.workflow.cps.nodes.StepEndNode"
+            },
+            {
+              "_class": "org.jenkinsci.plugins.workflow.cps.nodes.StepStartNode"
+            },
+            {
+              "_class": "org.jenkinsci.plugins.workflow.cps.nodes.StepStartNode"
+            },
+            {
+              "_class": "org.jenkinsci.plugins.workflow.cps.nodes.StepAtomNode"
+            },
+            {
+              "_class": "org.jenkinsci.plugins.workflow.cps.nodes.StepEndNode"
+            },
+            {
+              "_class": "org.jenkinsci.plugins.workflow.cps.nodes.StepEndNode"
+            },
+            {
+              "_class": "org.jenkinsci.plugins.workflow.cps.nodes.StepStartNode"
+            },
+            {
+              "_class": "org.jenkinsci.plugins.workflow.cps.nodes.StepStartNode"
+            },
+            {
+              "_class": "org.jenkinsci.plugins.workflow.cps.nodes.StepAtomNode"
+            },
+            {
+              "_class": "org.jenkinsci.plugins.workflow.cps.nodes.StepEndNode"
+            },
+            {
+              "_class": "org.jenkinsci.plugins.workflow.cps.nodes.StepEndNode"
+            },
+            {
+              "_class": "org.jenkinsci.plugins.workflow.cps.nodes.StepStartNode"
+            },
+            {
+              "_class": "org.jenkinsci.plugins.workflow.cps.nodes.StepStartNode"
+            },
+            {
+              "_class": "org.jenkinsci.plugins.workflow.cps.nodes.StepAtomNode"
+            },
+            {
+              "_class": "org.jenkinsci.plugins.workflow.cps.nodes.StepEndNode"
+            },
+            {
+              "_class": "org.jenkinsci.plugins.workflow.cps.nodes.StepEndNode"
+            },
+            {
+              "_class": "org.jenkinsci.plugins.workflow.cps.nodes.StepStartNode"
+            },
+            {
+              "_class": "org.jenkinsci.plugins.workflow.cps.nodes.StepStartNode"
+            },
+            {
+              "_class": "org.jenkinsci.plugins.workflow.cps.nodes.StepAtomNode"
+            },
+            {
+              "_class": "org.jenkinsci.plugins.workflow.cps.nodes.StepEndNode"
+            },
+            {
+              "_class": "org.jenkinsci.plugins.workflow.cps.nodes.StepEndNode"
+            },
+            {
+              "_class": "org.jenkinsci.plugins.workflow.cps.nodes.StepEndNode"
+            },
+            {
+              "_class": "org.jenkinsci.plugins.workflow.cps.nodes.StepEndNode"
+            },
+            {
+              "_class": "org.jenkinsci.plugins.workflow.cps.nodes.StepEndNode"
+            },
+            {
+              "_class": "org.jenkinsci.plugins.workflow.cps.nodes.StepEndNode"
+            },
+            {
+              "_class": "org.jenkinsci.plugins.workflow.cps.nodes.StepEndNode"
+            },
+            {
+              "_class": "org.jenkinsci.plugins.workflow.cps.nodes.StepEndNode"
+            },
+            {
+              "_class": "org.jenkinsci.plugins.workflow.cps.nodes.StepEndNode"
+            },
+            {
+              "_class": "org.jenkinsci.plugins.workflow.cps.nodes.StepEndNode"
+            },
+            {
+              "_class": "org.jenkinsci.plugins.workflow.graph.FlowEndNode"
+            }
+          ]
+        },
+        {},
+        {},
+        {}
+      ],
+      "artifacts": [],
+      "building": false,
+      "description": null,
+      "displayName": "#1018",
+      "duration": 185071,
+      "estimatedDuration": 54387,
+      "executor": null,
+      "fingerprint": [],
+      "fullDisplayName": "iot-platform-deploy-dev #1018",
+      "id": "1018",
+      "keepLog": false,
+      "number": 1018,
+      "queueId": 16960,
+      "result": "FAILURE",
+      "timestamp": 1789133991865,
+      "url": "https://my-jenkins-server.com/job/iot-platform-deploy-dev/1018/",
+      "changeSets": [],
+      "culprits": [],
+      "inProgress": false,
+      "nextBuild": {
+        "actions": [
+          {
+            "_class": "hudson.model.ParametersAction",
+            "parameters": [
+              {
+                "_class": "hudson.model.StringParameterValue",
+                "name": "ENVIRONMENT",
+                "value": "DEV"
+              },
+              {
+                "_class": "hudson.model.StringParameterValue",
+                "name": "BRANCH",
+                "value": "develop"
+              },
+              {
+                "_class": "hudson.model.StringParameterValue",
+                "name": "Playbook",
+                "value": "Credentials Service"
+              },
+              {
+                "_class": "hudson.model.StringParameterValue",
+                "name": "Parameters",
+                "value": "ase-credentials-iot-dev-eus,https://nexus.commerce.myserver.com/repository/tgcs-maven-staging/com/tgcs/iot/iot-credentials-service/1.2603.4-2026.09.11-bb8474e/iot-credentials-service-1.2603.4-2026.09.11-bb8474e.jar,https://kv-iot-dev-eus.vault.azure.net/"
+              },
+              {
+                "_class": "hudson.model.StringParameterValue",
+                "name": "RESOURCE_GROUP",
+                "value": "rg-iot-dev-eus"
+              },
+              {
+                "_class": "hudson.model.StringParameterValue",
+                "name": "REGION_NAME",
+                "value": "eastus"
+              },
+              {
+                "_class": "hudson.model.TextParameterValue",
+                "name": "APP_SETTINGS_JSON",
+                "value": "{\n  \"API_USERNAME\": \"apiapp\",\n  \"API_PASSWORD\": \"\",\n  \"CAMERA_HEALTHCHECK_SCHEDULE\": \"0 10 12 * * *\",\n  \"EMAIL_SENDER\": \"DoNotReply@4b91465e-ca73-4113-b214-b1188a352fdf.azurecomm.net\",\n  \"NOTIFICATION_API_USERNAME\": \"tgcs-admin\",\n  \"NOTIFICATION_API_PASSWORD\": \"\",\n  \"NOTIFICATIONS_SCHEDULE\": \"0 10 12 * * *\"\n}"
+              },
+              {
+                "_class": "hudson.model.TextParameterValue",
+                "name": "MARKUP_IMAGE_VERSIONS",
+                "value": "{\n    \"iot-markups-inference\": \"\"\n}"
+              }
+            ]
+          },
+          {
+            "_class": "hudson.model.CauseAction",
+            "causes": [
+              {
+                "_class": "hudson.model.Cause$UserIdCause",
+                "shortDescription": "Started by user Artem Trybrat",
+                "userId": "artem.trybrat",
+                "userName": "Artem Trybrat"
+              }
+            ]
+          },
+          {
+            "_class": "jenkins.metrics.impl.TimeInQueueAction",
+            "blockedDurationMillis": 0,
+            "blockedTimeMillis": 0,
+            "buildableDurationMillis": 0,
+            "buildableTimeMillis": 1,
+            "buildingDurationMillis": 41495,
+            "executingTimeMillis": 38421,
+            "executorUtilization": 0.93,
+            "subTaskCount": 1,
+            "waitingDurationMillis": 1,
+            "waitingTimeMillis": 1
+          },
+          {},
+          {
+            "_class": "hudson.plugins.git.util.BuildData",
+            "buildsByBranchName": {
+              "origin/cherry-pick-38b8fa45": {
+                "_class": "hudson.plugins.git.util.Build",
+                "buildNumber": 868,
+                "buildResult": null,
+                "marked": {
+                  "SHA1": "0a957fdff68aa993e9b31bc86cacf136f63fa531",
+                  "branch": [
+                    {
+                      "SHA1": "0a957fdff68aa993e9b31bc86cacf136f63fa531",
+                      "name": "origin/cherry-pick-38b8fa45"
+                    }
+                  ]
+                },
+                "revision": {
+                  "SHA1": "0a957fdff68aa993e9b31bc86cacf136f63fa531",
+                  "branch": [
+                    {
+                      "SHA1": "0a957fdff68aa993e9b31bc86cacf136f63fa531",
+                      "name": "origin/cherry-pick-38b8fa45"
+                    }
+                  ]
+                }
+              },
+              "origin/hotfix-ESAAS-7079": {
+                "_class": "hudson.plugins.git.util.Build",
+                "buildNumber": 948,
+                "buildResult": null,
+                "marked": {
+                  "SHA1": "1a3dc4ae351084fe390b0139aaf979b5c425e4cd",
+                  "branch": [
+                    {
+                      "SHA1": "1a3dc4ae351084fe390b0139aaf979b5c425e4cd",
+                      "name": "origin/hotfix-ESAAS-7079"
+                    }
+                  ]
+                },
+                "revision": {
+                  "SHA1": "1a3dc4ae351084fe390b0139aaf979b5c425e4cd",
+                  "branch": [
+                    {
+                      "SHA1": "1a3dc4ae351084fe390b0139aaf979b5c425e4cd",
+                      "name": "origin/hotfix-ESAAS-7079"
+                    }
+                  ]
+                }
+              },
+              "origin/ESSR-2866": {
+                "_class": "hudson.plugins.git.util.Build",
+                "buildNumber": 851,
+                "buildResult": null,
+                "marked": {
+                  "SHA1": "887c6aadc7479374c154a41fb6bc6fe16a529f07",
+                  "branch": [
+                    {
+                      "SHA1": "887c6aadc7479374c154a41fb6bc6fe16a529f07",
+                      "name": "origin/ESSR-2866"
+                    }
+                  ]
+                },
+                "revision": {
+                  "SHA1": "887c6aadc7479374c154a41fb6bc6fe16a529f07",
+                  "branch": [
+                    {
+                      "SHA1": "887c6aadc7479374c154a41fb6bc6fe16a529f07",
+                      "name": "origin/ESSR-2866"
+                    }
+                  ]
+                }
+              },
+              "origin/qa": {
+                "_class": "hudson.plugins.git.util.Build",
+                "buildNumber": 974,
+                "buildResult": null,
+                "marked": {
+                  "SHA1": "48afb9824f54f043d9d784755496e1ab696a2f45",
+                  "branch": [
+                    {
+                      "SHA1": "48afb9824f54f043d9d784755496e1ab696a2f45",
+                      "name": "origin/qa"
+                    }
+                  ]
+                },
+                "revision": {
+                  "SHA1": "48afb9824f54f043d9d784755496e1ab696a2f45",
+                  "branch": [
+                    {
+                      "SHA1": "48afb9824f54f043d9d784755496e1ab696a2f45",
+                      "name": "origin/qa"
+                    }
+                  ]
+                }
+              },
+              "origin/hotfix-ESSP-10240": {
+                "_class": "hudson.plugins.git.util.Build",
+                "buildNumber": 744,
+                "buildResult": null,
+                "marked": {
+                  "SHA1": "40691e1b66fc97b561bb57d4a8126028fea4a88e",
+                  "branch": [
+                    {
+                      "SHA1": "40691e1b66fc97b561bb57d4a8126028fea4a88e",
+                      "name": "origin/hotfix-ESSP-10240"
+                    }
+                  ]
+                },
+                "revision": {
+                  "SHA1": "40691e1b66fc97b561bb57d4a8126028fea4a88e",
+                  "branch": [
+                    {
+                      "SHA1": "40691e1b66fc97b561bb57d4a8126028fea4a88e",
+                      "name": "origin/hotfix-ESSP-10240"
+                    }
+                  ]
+                }
+              },
+              "origin/develop": {
+                "_class": "hudson.plugins.git.util.Build",
+                "buildNumber": 1019,
+                "buildResult": null,
+                "marked": {
+                  "SHA1": "549ccfd0432b682e16b87e22b40f79aefa4c614e",
+                  "branch": [
+                    {
+                      "SHA1": "549ccfd0432b682e16b87e22b40f79aefa4c614e",
+                      "name": "origin/develop"
+                    }
+                  ]
+                },
+                "revision": {
+                  "SHA1": "549ccfd0432b682e16b87e22b40f79aefa4c614e",
+                  "branch": [
+                    {
+                      "SHA1": "549ccfd0432b682e16b87e22b40f79aefa4c614e",
+                      "name": "origin/develop"
+                    }
+                  ]
+                }
+              },
+              "origin/ESAAS-6934": {
+                "_class": "hudson.plugins.git.util.Build",
+                "buildNumber": 826,
+                "buildResult": null,
+                "marked": {
+                  "SHA1": "ea37cb9af19fae476147417bc5be74e25e836bc1",
+                  "branch": [
+                    {
+                      "SHA1": "ea37cb9af19fae476147417bc5be74e25e836bc1",
+                      "name": "origin/ESAAS-6934"
+                    }
+                  ]
+                },
+                "revision": {
+                  "SHA1": "ea37cb9af19fae476147417bc5be74e25e836bc1",
+                  "branch": [
+                    {
+                      "SHA1": "ea37cb9af19fae476147417bc5be74e25e836bc1",
+                      "name": "origin/ESAAS-6934"
+                    }
+                  ]
+                }
+              },
+              "refs/remotes/origin/ESAAS-6788": {
+                "_class": "hudson.plugins.git.util.Build",
+                "buildNumber": 712,
+                "buildResult": null,
+                "marked": {
+                  "SHA1": "d9e7d093fa15499c203eb0fe585637ab083c326f",
+                  "branch": [
+                    {
+                      "SHA1": "d9e7d093fa15499c203eb0fe585637ab083c326f",
+                      "name": "refs/remotes/origin/ESAAS-6788"
+                    }
+                  ]
+                },
+                "revision": {
+                  "SHA1": "d9e7d093fa15499c203eb0fe585637ab083c326f",
+                  "branch": [
+                    {
+                      "SHA1": "d9e7d093fa15499c203eb0fe585637ab083c326f",
+                      "name": "refs/remotes/origin/ESAAS-6788"
+                    }
+                  ]
+                }
+              },
+              "refs/remotes/origin/ESAAS-6942": {
+                "_class": "hudson.plugins.git.util.Build",
+                "buildNumber": 797,
+                "buildResult": null,
+                "marked": {
+                  "SHA1": "cf403a79fa360d35bb80e209de232bd35d9e4907",
+                  "branch": [
+                    {
+                      "SHA1": "cf403a79fa360d35bb80e209de232bd35d9e4907",
+                      "name": "refs/remotes/origin/ESAAS-6942"
+                    }
+                  ]
+                },
+                "revision": {
+                  "SHA1": "cf403a79fa360d35bb80e209de232bd35d9e4907",
+                  "branch": [
+                    {
+                      "SHA1": "cf403a79fa360d35bb80e209de232bd35d9e4907",
+                      "name": "refs/remotes/origin/ESAAS-6942"
+                    }
+                  ]
+                }
+              },
+              "origin/ESSR-2866_test": {
+                "_class": "hudson.plugins.git.util.Build",
+                "buildNumber": 869,
+                "buildResult": null,
+                "marked": {
+                  "SHA1": "958a46cc3f87b833cc68a9a8d8e50d2ab154b0e5",
+                  "branch": [
+                    {
+                      "SHA1": "3ef4760aeaaaa0b1d4b90a2766c35d206026bd46",
+                      "name": "origin/ESSR-2866_test"
+                    },
+                    {
+                      "SHA1": "1cf9e8b920a63906b4d0d646e7ad2d2de6e47b77",
+                      "name": "origin/ESAAS-6970"
+                    },
+                    {
+                      "SHA1": "958a46cc3f87b833cc68a9a8d8e50d2ab154b0e5",
+                      "name": "origin/develop"
+                    },
+                    {
+                      "SHA1": "a9221c3505ba74d72ae50ddc9cb112ca45ff344c",
+                      "name": "origin/feature/ESAASR-6186-dev-postgres-reader-writer-groups"
+                    }
+                  ]
+                },
+                "revision": {
+                  "SHA1": "958a46cc3f87b833cc68a9a8d8e50d2ab154b0e5",
+                  "branch": [
+                    {
+                      "SHA1": "3ef4760aeaaaa0b1d4b90a2766c35d206026bd46",
+                      "name": "origin/ESSR-2866_test"
+                    },
+                    {
+                      "SHA1": "1cf9e8b920a63906b4d0d646e7ad2d2de6e47b77",
+                      "name": "origin/ESAAS-6970"
+                    },
+                    {
+                      "SHA1": "958a46cc3f87b833cc68a9a8d8e50d2ab154b0e5",
+                      "name": "origin/develop"
+                    },
+                    {
+                      "SHA1": "a9221c3505ba74d72ae50ddc9cb112ca45ff344c",
+                      "name": "origin/feature/ESAASR-6186-dev-postgres-reader-writer-groups"
+                    }
+                  ]
+                }
+              },
+              "origin/ESAAS-6934_qa_conf": {
+                "_class": "hudson.plugins.git.util.Build",
+                "buildNumber": 871,
+                "buildResult": null,
+                "marked": {
+                  "SHA1": "91eff704fbea816938489fda9adab9101ec1f0f0",
+                  "branch": [
+                    {
+                      "SHA1": "91eff704fbea816938489fda9adab9101ec1f0f0",
+                      "name": "origin/ESAAS-6934_qa_conf"
+                    }
+                  ]
+                },
+                "revision": {
+                  "SHA1": "91eff704fbea816938489fda9adab9101ec1f0f0",
+                  "branch": [
+                    {
+                      "SHA1": "91eff704fbea816938489fda9adab9101ec1f0f0",
+                      "name": "origin/ESAAS-6934_qa_conf"
+                    }
+                  ]
+                }
+              },
+              "origin/ESAAS-6970": {
+                "_class": "hudson.plugins.git.util.Build",
+                "buildNumber": 889,
+                "buildResult": null,
+                "marked": {
+                  "SHA1": "1cf9e8b920a63906b4d0d646e7ad2d2de6e47b77",
+                  "branch": [
+                    {
+                      "SHA1": "1cf9e8b920a63906b4d0d646e7ad2d2de6e47b77",
+                      "name": "origin/ESAAS-6970"
+                    }
+                  ]
+                },
+                "revision": {
+                  "SHA1": "1cf9e8b920a63906b4d0d646e7ad2d2de6e47b77",
+                  "branch": [
+                    {
+                      "SHA1": "1cf9e8b920a63906b4d0d646e7ad2d2de6e47b77",
+                      "name": "origin/ESAAS-6970"
+                    }
+                  ]
+                }
+              },
+              "origin/ESSP-10788": {
+                "_class": "hudson.plugins.git.util.Build",
+                "buildNumber": 1009,
+                "buildResult": null,
+                "marked": {
+                  "SHA1": "d35c9ea7ac70a859ff9ba6f27448a0d5334a4d06",
+                  "branch": [
+                    {
+                      "SHA1": "d35c9ea7ac70a859ff9ba6f27448a0d5334a4d06",
+                      "name": "origin/ESSP-10788"
+                    }
+                  ]
+                },
+                "revision": {
+                  "SHA1": "d35c9ea7ac70a859ff9ba6f27448a0d5334a4d06",
+                  "branch": [
+                    {
+                      "SHA1": "d35c9ea7ac70a859ff9ba6f27448a0d5334a4d06",
+                      "name": "origin/ESSP-10788"
+                    }
+                  ]
+                }
+              },
+              "refs/remotes/origin/ESSR-2589": {
+                "_class": "hudson.plugins.git.util.Build",
+                "buildNumber": 670,
+                "buildResult": null,
+                "marked": {
+                  "SHA1": "49ef4cd2b1472078a6918dd36f12e3f21415c724",
+                  "branch": [
+                    {
+                      "SHA1": "49ef4cd2b1472078a6918dd36f12e3f21415c724",
+                      "name": "refs/remotes/origin/ESSR-2589"
+                    }
+                  ]
+                },
+                "revision": {
+                  "SHA1": "49ef4cd2b1472078a6918dd36f12e3f21415c724",
+                  "branch": [
+                    {
+                      "SHA1": "49ef4cd2b1472078a6918dd36f12e3f21415c724",
+                      "name": "refs/remotes/origin/ESSR-2589"
+                    }
+                  ]
+                }
+              },
+              "origin/ESAAS-7103": {
+                "_class": "hudson.plugins.git.util.Build",
+                "buildNumber": 986,
+                "buildResult": null,
+                "marked": {
+                  "SHA1": "c667504a738a931af14473c2ca2a99b2c3feb169",
+                  "branch": [
+                    {
+                      "SHA1": "c667504a738a931af14473c2ca2a99b2c3feb169",
+                      "name": "origin/ESAAS-7103"
+                    }
+                  ]
+                },
+                "revision": {
+                  "SHA1": "c667504a738a931af14473c2ca2a99b2c3feb169",
+                  "branch": [
+                    {
+                      "SHA1": "c667504a738a931af14473c2ca2a99b2c3feb169",
+                      "name": "origin/ESAAS-7103"
+                    }
+                  ]
+                }
+              },
+              "origin/ESSP-10240": {
+                "_class": "hudson.plugins.git.util.Build",
+                "buildNumber": 700,
+                "buildResult": null,
+                "marked": {
+                  "SHA1": "f256bd65f871de644892b65aaa527bec28a57d4f",
+                  "branch": [
+                    {
+                      "SHA1": "f256bd65f871de644892b65aaa527bec28a57d4f",
+                      "name": "origin/ESSP-10240"
+                    }
+                  ]
+                },
+                "revision": {
+                  "SHA1": "f256bd65f871de644892b65aaa527bec28a57d4f",
+                  "branch": [
+                    {
+                      "SHA1": "f256bd65f871de644892b65aaa527bec28a57d4f",
+                      "name": "origin/ESSP-10240"
+                    }
+                  ]
+                }
+              },
+              "origin/ESAAS-6942_typo_fix": {
+                "_class": "hudson.plugins.git.util.Build",
+                "buildNumber": 805,
+                "buildResult": null,
+                "marked": {
+                  "SHA1": "aaf63169760f97af1e04640d3d24a2e91b616d38",
+                  "branch": [
+                    {
+                      "SHA1": "aaf63169760f97af1e04640d3d24a2e91b616d38",
+                      "name": "origin/ESAAS-6942_typo_fix"
+                    }
+                  ]
+                },
+                "revision": {
+                  "SHA1": "aaf63169760f97af1e04640d3d24a2e91b616d38",
+                  "branch": [
+                    {
+                      "SHA1": "aaf63169760f97af1e04640d3d24a2e91b616d38",
+                      "name": "origin/ESAAS-6942_typo_fix"
+                    }
+                  ]
+                }
+              },
+              "refs/remotes/origin/ESSP-10061": {
+                "_class": "hudson.plugins.git.util.Build",
+                "buildNumber": 691,
+                "buildResult": null,
+                "marked": {
+                  "SHA1": "b254e47b6b7e7ec56fff05ffb0f6c58a91088539",
+                  "branch": [
+                    {
+                      "SHA1": "b254e47b6b7e7ec56fff05ffb0f6c58a91088539",
+                      "name": "refs/remotes/origin/ESSP-10061"
+                    }
+                  ]
+                },
+                "revision": {
+                  "SHA1": "b254e47b6b7e7ec56fff05ffb0f6c58a91088539",
+                  "branch": [
+                    {
+                      "SHA1": "b254e47b6b7e7ec56fff05ffb0f6c58a91088539",
+                      "name": "refs/remotes/origin/ESSP-10061"
+                    }
+                  ]
+                }
+              },
+              "origin/ESAAS-6929": {
+                "_class": "hudson.plugins.git.util.Build",
+                "buildNumber": 756,
+                "buildResult": null,
+                "marked": {
+                  "SHA1": "876a98ea9baa0f0b7072212ac02bcd777858615b",
+                  "branch": [
+                    {
+                      "SHA1": "876a98ea9baa0f0b7072212ac02bcd777858615b",
+                      "name": "origin/ESAAS-6929"
+                    }
+                  ]
+                },
+                "revision": {
+                  "SHA1": "876a98ea9baa0f0b7072212ac02bcd777858615b",
+                  "branch": [
+                    {
+                      "SHA1": "876a98ea9baa0f0b7072212ac02bcd777858615b",
+                      "name": "origin/ESAAS-6929"
+                    }
+                  ]
+                }
+              },
+              "origin/feature/ESAASR-6186-dev-postgres-reader-writer-groups": {
+                "_class": "hudson.plugins.git.util.Build",
+                "buildNumber": 920,
+                "buildResult": null,
+                "marked": {
+                  "SHA1": "051dc2d72467f414fb16eaf6eb77b9e0474e419c",
+                  "branch": [
+                    {
+                      "SHA1": "051dc2d72467f414fb16eaf6eb77b9e0474e419c",
+                      "name": "origin/feature/ESAASR-6186-dev-postgres-reader-writer-groups"
+                    }
+                  ]
+                },
+                "revision": {
+                  "SHA1": "051dc2d72467f414fb16eaf6eb77b9e0474e419c",
+                  "branch": [
+                    {
+                      "SHA1": "051dc2d72467f414fb16eaf6eb77b9e0474e419c",
+                      "name": "origin/feature/ESAASR-6186-dev-postgres-reader-writer-groups"
+                    }
+                  ]
+                }
+              },
+              "origin/auto-save/ESSP-10801/4f49078f/ESSP-10801-1d5e219": {
+                "_class": "hudson.plugins.git.util.Build",
+                "buildNumber": 975,
+                "buildResult": null,
+                "marked": {
+                  "SHA1": "8b2cee2b07dc68a50a5ad993fb38a825f23c745d",
+                  "branch": [
+                    {
+                      "SHA1": "75877e8a082ab7a1416e707f6757563ec4e1b4be",
+                      "name": "origin/ESSP-10801"
+                    },
+                    {
+                      "SHA1": "1d5e219bbff14bec9d8b2d803040eac5d607a791",
+                      "name": "origin/auto-save/ESSP-10801/4f49078f/ESSP-10801-1d5e219"
+                    },
+                    {
+                      "SHA1": "8b2cee2b07dc68a50a5ad993fb38a825f23c745d",
+                      "name": "origin/develop"
+                    },
+                    {
+                      "SHA1": "8b2cee2b07dc68a50a5ad993fb38a825f23c745d",
+                      "name": "origin/ESSP-10801-1"
+                    }
+                  ]
+                },
+                "revision": {
+                  "SHA1": "8b2cee2b07dc68a50a5ad993fb38a825f23c745d",
+                  "branch": [
+                    {
+                      "SHA1": "75877e8a082ab7a1416e707f6757563ec4e1b4be",
+                      "name": "origin/ESSP-10801"
+                    },
+                    {
+                      "SHA1": "1d5e219bbff14bec9d8b2d803040eac5d607a791",
+                      "name": "origin/auto-save/ESSP-10801/4f49078f/ESSP-10801-1d5e219"
+                    },
+                    {
+                      "SHA1": "8b2cee2b07dc68a50a5ad993fb38a825f23c745d",
+                      "name": "origin/develop"
+                    },
+                    {
+                      "SHA1": "8b2cee2b07dc68a50a5ad993fb38a825f23c745d",
+                      "name": "origin/ESSP-10801-1"
+                    }
+                  ]
+                }
+              },
+              "origin/ESSP-10801-1": {
+                "_class": "hudson.plugins.git.util.Build",
+                "buildNumber": 978,
+                "buildResult": null,
+                "marked": {
+                  "SHA1": "f1216e45ab763aae6dbb9adf8cbd9f2fc5e06dcf",
+                  "branch": [
+                    {
+                      "SHA1": "f1216e45ab763aae6dbb9adf8cbd9f2fc5e06dcf",
+                      "name": "origin/ESSP-10801-1"
+                    }
+                  ]
+                },
+                "revision": {
+                  "SHA1": "f1216e45ab763aae6dbb9adf8cbd9f2fc5e06dcf",
+                  "branch": [
+                    {
+                      "SHA1": "f1216e45ab763aae6dbb9adf8cbd9f2fc5e06dcf",
+                      "name": "origin/ESSP-10801-1"
+                    }
+                  ]
+                }
+              },
+              "origin/ESSP-10801": {
+                "_class": "hudson.plugins.git.util.Build",
+                "buildNumber": 975,
+                "buildResult": null,
+                "marked": {
+                  "SHA1": "8b2cee2b07dc68a50a5ad993fb38a825f23c745d",
+                  "branch": [
+                    {
+                      "SHA1": "75877e8a082ab7a1416e707f6757563ec4e1b4be",
+                      "name": "origin/ESSP-10801"
+                    },
+                    {
+                      "SHA1": "1d5e219bbff14bec9d8b2d803040eac5d607a791",
+                      "name": "origin/auto-save/ESSP-10801/4f49078f/ESSP-10801-1d5e219"
+                    },
+                    {
+                      "SHA1": "8b2cee2b07dc68a50a5ad993fb38a825f23c745d",
+                      "name": "origin/develop"
+                    },
+                    {
+                      "SHA1": "8b2cee2b07dc68a50a5ad993fb38a825f23c745d",
+                      "name": "origin/ESSP-10801-1"
+                    }
+                  ]
+                },
+                "revision": {
+                  "SHA1": "8b2cee2b07dc68a50a5ad993fb38a825f23c745d",
+                  "branch": [
+                    {
+                      "SHA1": "75877e8a082ab7a1416e707f6757563ec4e1b4be",
+                      "name": "origin/ESSP-10801"
+                    },
+                    {
+                      "SHA1": "1d5e219bbff14bec9d8b2d803040eac5d607a791",
+                      "name": "origin/auto-save/ESSP-10801/4f49078f/ESSP-10801-1d5e219"
+                    },
+                    {
+                      "SHA1": "8b2cee2b07dc68a50a5ad993fb38a825f23c745d",
+                      "name": "origin/develop"
+                    },
+                    {
+                      "SHA1": "8b2cee2b07dc68a50a5ad993fb38a825f23c745d",
+                      "name": "origin/ESSP-10801-1"
+                    }
+                  ]
+                }
+              },
+              "origin/ESAAS-6788": {
+                "_class": "hudson.plugins.git.util.Build",
+                "buildNumber": 713,
+                "buildResult": null,
+                "marked": {
+                  "SHA1": "d9e7d093fa15499c203eb0fe585637ab083c326f",
+                  "branch": [
+                    {
+                      "SHA1": "d9e7d093fa15499c203eb0fe585637ab083c326f",
+                      "name": "origin/ESAAS-6788"
+                    }
+                  ]
+                },
+                "revision": {
+                  "SHA1": "d9e7d093fa15499c203eb0fe585637ab083c326f",
+                  "branch": [
+                    {
+                      "SHA1": "d9e7d093fa15499c203eb0fe585637ab083c326f",
+                      "name": "origin/ESAAS-6788"
+                    }
+                  ]
+                }
+              },
+              "origin/cherry-pick-eed56aaa": {
+                "_class": "hudson.plugins.git.util.Build",
+                "buildNumber": 1014,
+                "buildResult": null,
+                "marked": {
+                  "SHA1": "65571283d253fa3fd78e4cba79dcdd5ff1916afb",
+                  "branch": [
+                    {
+                      "SHA1": "65571283d253fa3fd78e4cba79dcdd5ff1916afb",
+                      "name": "origin/cherry-pick-eed56aaa"
+                    }
+                  ]
+                },
+                "revision": {
+                  "SHA1": "65571283d253fa3fd78e4cba79dcdd5ff1916afb",
+                  "branch": [
+                    {
+                      "SHA1": "65571283d253fa3fd78e4cba79dcdd5ff1916afb",
+                      "name": "origin/cherry-pick-eed56aaa"
+                    }
+                  ]
+                }
+              },
+              "origin/ESSP-10801_WafId": {
+                "_class": "hudson.plugins.git.util.Build",
+                "buildNumber": 970,
+                "buildResult": null,
+                "marked": {
+                  "SHA1": "1f6e33c7d76b0983346139cbf8ad77c8706c03ce",
+                  "branch": [
+                    {
+                      "SHA1": "1f6e33c7d76b0983346139cbf8ad77c8706c03ce",
+                      "name": "origin/ESSP-10801_WafId"
+                    }
+                  ]
+                },
+                "revision": {
+                  "SHA1": "1f6e33c7d76b0983346139cbf8ad77c8706c03ce",
+                  "branch": [
+                    {
+                      "SHA1": "1f6e33c7d76b0983346139cbf8ad77c8706c03ce",
+                      "name": "origin/ESSP-10801_WafId"
+                    }
+                  ]
+                }
+              },
+              "refs/remotes/origin/ESAAS-6856_link": {
+                "_class": "hudson.plugins.git.util.Build",
+                "buildNumber": 692,
+                "buildResult": null,
+                "marked": {
+                  "SHA1": "d2bfc3eee35fc0336f42786a8e4c8a14d8472039",
+                  "branch": [
+                    {
+                      "SHA1": "d2bfc3eee35fc0336f42786a8e4c8a14d8472039",
+                      "name": "refs/remotes/origin/ESAAS-6856_link"
+                    }
+                  ]
+                },
+                "revision": {
+                  "SHA1": "d2bfc3eee35fc0336f42786a8e4c8a14d8472039",
+                  "branch": [
+                    {
+                      "SHA1": "d2bfc3eee35fc0336f42786a8e4c8a14d8472039",
+                      "name": "refs/remotes/origin/ESAAS-6856_link"
+                    }
+                  ]
+                }
+              },
+              "origin/ESAAS-6900": {
+                "_class": "hudson.plugins.git.util.Build",
+                "buildNumber": 762,
+                "buildResult": null,
+                "marked": {
+                  "SHA1": "f690be6e806c7fda0453987cbdf573180410f840",
+                  "branch": [
+                    {
+                      "SHA1": "f690be6e806c7fda0453987cbdf573180410f840",
+                      "name": "origin/ESAAS-6900"
+                    }
+                  ]
+                },
+                "revision": {
+                  "SHA1": "f690be6e806c7fda0453987cbdf573180410f840",
+                  "branch": [
+                    {
+                      "SHA1": "f690be6e806c7fda0453987cbdf573180410f840",
+                      "name": "origin/ESAAS-6900"
+                    }
+                  ]
+                }
+              },
+              "origin/revert-f11800d2": {
+                "_class": "hudson.plugins.git.util.Build",
+                "buildNumber": 927,
+                "buildResult": null,
+                "marked": {
+                  "SHA1": "4d3850fad33c88a35a2c1ac78afce75e5e5bbdd6",
+                  "branch": [
+                    {
+                      "SHA1": "4d3850fad33c88a35a2c1ac78afce75e5e5bbdd6",
+                      "name": "origin/revert-f11800d2"
+                    }
+                  ]
+                },
+                "revision": {
+                  "SHA1": "4d3850fad33c88a35a2c1ac78afce75e5e5bbdd6",
+                  "branch": [
+                    {
+                      "SHA1": "4d3850fad33c88a35a2c1ac78afce75e5e5bbdd6",
+                      "name": "origin/revert-f11800d2"
+                    }
+                  ]
+                }
+              },
+              "origin/ESSP-10386-add-buildId-tag": {
+                "_class": "hudson.plugins.git.util.Build",
+                "buildNumber": 693,
+                "buildResult": null,
+                "marked": {
+                  "SHA1": "dc75342f01380a4d5890afce2bb1a1fe16766428",
+                  "branch": [
+                    {
+                      "SHA1": "dc75342f01380a4d5890afce2bb1a1fe16766428",
+                      "name": "origin/ESSP-10386-add-buildId-tag"
+                    }
+                  ]
+                },
+                "revision": {
+                  "SHA1": "dc75342f01380a4d5890afce2bb1a1fe16766428",
+                  "branch": [
+                    {
+                      "SHA1": "dc75342f01380a4d5890afce2bb1a1fe16766428",
+                      "name": "origin/ESSP-10386-add-buildId-tag"
+                    }
+                  ]
+                }
+              },
+              "refs/remotes/origin/ESAAS-6840": {
+                "_class": "hudson.plugins.git.util.Build",
+                "buildNumber": 895,
+                "buildResult": null,
+                "marked": {
+                  "SHA1": "f287b8ec161cee69443072a1204b2f9f3731dd9e",
+                  "branch": [
+                    {
+                      "SHA1": "f287b8ec161cee69443072a1204b2f9f3731dd9e",
+                      "name": "refs/remotes/origin/ESAAS-6840"
+                    }
+                  ]
+                },
+                "revision": {
+                  "SHA1": "f287b8ec161cee69443072a1204b2f9f3731dd9e",
+                  "branch": [
+                    {
+                      "SHA1": "f287b8ec161cee69443072a1204b2f9f3731dd9e",
+                      "name": "refs/remotes/origin/ESAAS-6840"
+                    }
+                  ]
+                }
+              },
+              "refs/remotes/origin/ESSP-10788": {
+                "_class": "hudson.plugins.git.util.Build",
+                "buildNumber": 1010,
+                "buildResult": null,
+                "marked": {
+                  "SHA1": "d35c9ea7ac70a859ff9ba6f27448a0d5334a4d06",
+                  "branch": [
+                    {
+                      "SHA1": "d35c9ea7ac70a859ff9ba6f27448a0d5334a4d06",
+                      "name": "refs/remotes/origin/ESSP-10788"
+                    }
+                  ]
+                },
+                "revision": {
+                  "SHA1": "d35c9ea7ac70a859ff9ba6f27448a0d5334a4d06",
+                  "branch": [
+                    {
+                      "SHA1": "d35c9ea7ac70a859ff9ba6f27448a0d5334a4d06",
+                      "name": "refs/remotes/origin/ESSP-10788"
+                    }
+                  ]
+                }
+              },
+              "origin/cherry-pick-1152f0a8": {
+                "_class": "hudson.plugins.git.util.Build",
+                "buildNumber": 982,
+                "buildResult": null,
+                "marked": {
+                  "SHA1": "1e10adcd1406895a3ef771a2bb0e63e01c50d3c6",
+                  "branch": [
+                    {
+                      "SHA1": "1e10adcd1406895a3ef771a2bb0e63e01c50d3c6",
+                      "name": "origin/cherry-pick-1152f0a8"
+                    }
+                  ]
+                },
+                "revision": {
+                  "SHA1": "1e10adcd1406895a3ef771a2bb0e63e01c50d3c6",
+                  "branch": [
+                    {
+                      "SHA1": "1e10adcd1406895a3ef771a2bb0e63e01c50d3c6",
+                      "name": "origin/cherry-pick-1152f0a8"
+                    }
+                  ]
+                }
+              },
+              "refs/remotes/origin/PSEC-796": {
+                "_class": "hudson.plugins.git.util.Build",
+                "buildNumber": 607,
+                "buildResult": null,
+                "marked": {
+                  "SHA1": "9cd3f9ee9f56dcf5548f3b55c498932a55877154",
+                  "branch": [
+                    {
+                      "SHA1": "9cd3f9ee9f56dcf5548f3b55c498932a55877154",
+                      "name": "refs/remotes/origin/PSEC-796"
+                    }
+                  ]
+                },
+                "revision": {
+                  "SHA1": "9cd3f9ee9f56dcf5548f3b55c498932a55877154",
+                  "branch": [
+                    {
+                      "SHA1": "9cd3f9ee9f56dcf5548f3b55c498932a55877154",
+                      "name": "refs/remotes/origin/PSEC-796"
+                    }
+                  ]
+                }
+              },
+              "origin/ESAAS-7099": {
+                "_class": "hudson.plugins.git.util.Build",
+                "buildNumber": 954,
+                "buildResult": null,
+                "marked": {
+                  "SHA1": "91b93a727ba297b53499f79b4ec3decc612d9046",
+                  "branch": [
+                    {
+                      "SHA1": "91b93a727ba297b53499f79b4ec3decc612d9046",
+                      "name": "origin/ESAAS-7099"
+                    }
+                  ]
+                },
+                "revision": {
+                  "SHA1": "91b93a727ba297b53499f79b4ec3decc612d9046",
+                  "branch": [
+                    {
+                      "SHA1": "91b93a727ba297b53499f79b4ec3decc612d9046",
+                      "name": "origin/ESAAS-7099"
+                    }
+                  ]
+                }
+              },
+              "refs/remotes/origin/ESAAS-6879": {
+                "_class": "hudson.plugins.git.util.Build",
+                "buildNumber": 718,
+                "buildResult": null,
+                "marked": {
+                  "SHA1": "98ed3e15e30a8899fe2d768bb62ce8345eeb0ff5",
+                  "branch": [
+                    {
+                      "SHA1": "98ed3e15e30a8899fe2d768bb62ce8345eeb0ff5",
+                      "name": "refs/remotes/origin/ESAAS-6879"
+                    }
+                  ]
+                },
+                "revision": {
+                  "SHA1": "98ed3e15e30a8899fe2d768bb62ce8345eeb0ff5",
+                  "branch": [
+                    {
+                      "SHA1": "98ed3e15e30a8899fe2d768bb62ce8345eeb0ff5",
+                      "name": "refs/remotes/origin/ESAAS-6879"
+                    }
+                  ]
+                }
+              },
+              "refs/remotes/origin/ESAAS-6934": {
+                "_class": "hudson.plugins.git.util.Build",
+                "buildNumber": 827,
+                "buildResult": null,
+                "marked": {
+                  "SHA1": "ea37cb9af19fae476147417bc5be74e25e836bc1",
+                  "branch": [
+                    {
+                      "SHA1": "ea37cb9af19fae476147417bc5be74e25e836bc1",
+                      "name": "refs/remotes/origin/ESAAS-6934"
+                    }
+                  ]
+                },
+                "revision": {
+                  "SHA1": "ea37cb9af19fae476147417bc5be74e25e836bc1",
+                  "branch": [
+                    {
+                      "SHA1": "ea37cb9af19fae476147417bc5be74e25e836bc1",
+                      "name": "refs/remotes/origin/ESAAS-6934"
+                    }
+                  ]
+                }
+              },
+              "origin/ESAAS-test": {
+                "_class": "hudson.plugins.git.util.Build",
+                "buildNumber": 846,
+                "buildResult": null,
+                "marked": {
+                  "SHA1": "9fa93e06786c38a615307c7b16fdc578b051137e",
+                  "branch": [
+                    {
+                      "SHA1": "9fa93e06786c38a615307c7b16fdc578b051137e",
+                      "name": "origin/ESAAS-test"
+                    }
+                  ]
+                },
+                "revision": {
+                  "SHA1": "9fa93e06786c38a615307c7b16fdc578b051137e",
+                  "branch": [
+                    {
+                      "SHA1": "9fa93e06786c38a615307c7b16fdc578b051137e",
+                      "name": "origin/ESAAS-test"
+                    }
+                  ]
+                }
+              },
+              "origin/ESAAS-6840": {
+                "_class": "hudson.plugins.git.util.Build",
+                "buildNumber": 907,
+                "buildResult": null,
+                "marked": {
+                  "SHA1": "83b28dfea79dc6921bd5b63c7db595eef5446aaf",
+                  "branch": [
+                    {
+                      "SHA1": "83b28dfea79dc6921bd5b63c7db595eef5446aaf",
+                      "name": "origin/ESAAS-6840"
+                    }
+                  ]
+                },
+                "revision": {
+                  "SHA1": "83b28dfea79dc6921bd5b63c7db595eef5446aaf",
+                  "branch": [
+                    {
+                      "SHA1": "83b28dfea79dc6921bd5b63c7db595eef5446aaf",
+                      "name": "origin/ESAAS-6840"
+                    }
+                  ]
+                }
+              },
+              "origin/cherry-pick-8b2cee2b": {
+                "_class": "hudson.plugins.git.util.Build",
+                "buildNumber": 958,
+                "buildResult": null,
+                "marked": {
+                  "SHA1": "c156d325a0b39307f12c6d36be0bbf4047831bae",
+                  "branch": [
+                    {
+                      "SHA1": "c156d325a0b39307f12c6d36be0bbf4047831bae",
+                      "name": "origin/cherry-pick-8b2cee2b"
+                    }
+                  ]
+                },
+                "revision": {
+                  "SHA1": "c156d325a0b39307f12c6d36be0bbf4047831bae",
+                  "branch": [
+                    {
+                      "SHA1": "c156d325a0b39307f12c6d36be0bbf4047831bae",
+                      "name": "origin/cherry-pick-8b2cee2b"
+                    }
+                  ]
+                }
+              },
+              "refs/remotes/origin/feature/ESSP-9874-immutable-portal-snippet": {
+                "_class": "hudson.plugins.git.util.Build",
+                "buildNumber": 634,
+                "buildResult": null,
+                "marked": {
+                  "SHA1": "051a4f25ec15d806b8499f41ee89086774edf079",
+                  "branch": [
+                    {
+                      "SHA1": "051a4f25ec15d806b8499f41ee89086774edf079",
+                      "name": "refs/remotes/origin/feature/ESSP-9874-immutable-portal-snippet"
+                    }
+                  ]
+                },
+                "revision": {
+                  "SHA1": "051a4f25ec15d806b8499f41ee89086774edf079",
+                  "branch": [
+                    {
+                      "SHA1": "051a4f25ec15d806b8499f41ee89086774edf079",
+                      "name": "refs/remotes/origin/feature/ESSP-9874-immutable-portal-snippet"
+                    }
+                  ]
+                }
+              },
+              "refs/remotes/origin/feature/ESSP-2333-app-config": {
+                "_class": "hudson.plugins.git.util.Build",
+                "buildNumber": 676,
+                "buildResult": null,
+                "marked": {
+                  "SHA1": "feff8efc6f334c0239575488160c3514fdb619bc",
+                  "branch": [
+                    {
+                      "SHA1": "feff8efc6f334c0239575488160c3514fdb619bc",
+                      "name": "refs/remotes/origin/feature/ESSP-2333-app-config"
+                    }
+                  ]
+                },
+                "revision": {
+                  "SHA1": "feff8efc6f334c0239575488160c3514fdb619bc",
+                  "branch": [
+                    {
+                      "SHA1": "feff8efc6f334c0239575488160c3514fdb619bc",
+                      "name": "refs/remotes/origin/feature/ESSP-2333-app-config"
+                    }
+                  ]
+                }
+              },
+              "origin/cherry-pick-db5c7c9c": {
+                "_class": "hudson.plugins.git.util.Build",
+                "buildNumber": 968,
+                "buildResult": null,
+                "marked": {
+                  "SHA1": "0fa2ec044ea770a2e883b9eaba0521e5ca089dee",
+                  "branch": [
+                    {
+                      "SHA1": "0fa2ec044ea770a2e883b9eaba0521e5ca089dee",
+                      "name": "origin/cherry-pick-db5c7c9c"
+                    }
+                  ]
+                },
+                "revision": {
+                  "SHA1": "0fa2ec044ea770a2e883b9eaba0521e5ca089dee",
+                  "branch": [
+                    {
+                      "SHA1": "0fa2ec044ea770a2e883b9eaba0521e5ca089dee",
+                      "name": "origin/cherry-pick-db5c7c9c"
+                    }
+                  ]
+                }
+              },
+              "refs/remotes/origin/feature/ESSP-10121-revert-test": {
+                "_class": "hudson.plugins.git.util.Build",
+                "buildNumber": 681,
+                "buildResult": null,
+                "marked": {
+                  "SHA1": "2a396157cac8dd55849d23a6e1dfca75a14e0bd9",
+                  "branch": [
+                    {
+                      "SHA1": "2a396157cac8dd55849d23a6e1dfca75a14e0bd9",
+                      "name": "refs/remotes/origin/feature/ESSP-10121-revert-test"
+                    }
+                  ]
+                },
+                "revision": {
+                  "SHA1": "2a396157cac8dd55849d23a6e1dfca75a14e0bd9",
+                  "branch": [
+                    {
+                      "SHA1": "2a396157cac8dd55849d23a6e1dfca75a14e0bd9",
+                      "name": "refs/remotes/origin/feature/ESSP-10121-revert-test"
+                    }
+                  ]
+                }
+              },
+              "refs/remotes/origin/develop": {
+                "_class": "hudson.plugins.git.util.Build",
+                "buildNumber": 929,
+                "buildResult": null,
+                "marked": {
+                  "SHA1": "d3e2d99031bfc759476fdb723b9a7bde988c33f1",
+                  "branch": [
+                    {
+                      "SHA1": "d3e2d99031bfc759476fdb723b9a7bde988c33f1",
+                      "name": "refs/remotes/origin/develop"
+                    }
+                  ]
+                },
+                "revision": {
+                  "SHA1": "d3e2d99031bfc759476fdb723b9a7bde988c33f1",
+                  "branch": [
+                    {
+                      "SHA1": "d3e2d99031bfc759476fdb723b9a7bde988c33f1",
+                      "name": "refs/remotes/origin/develop"
+                    }
+                  ]
+                }
+              },
+              "origin/ESAAS-6942_qa_conf": {
+                "_class": "hudson.plugins.git.util.Build",
+                "buildNumber": 878,
+                "buildResult": null,
+                "marked": {
+                  "SHA1": "da8f1b074e317e4e90a1cb0e0ec183475ff21305",
+                  "branch": [
+                    {
+                      "SHA1": "da8f1b074e317e4e90a1cb0e0ec183475ff21305",
+                      "name": "origin/ESAAS-6942_qa_conf"
+                    }
+                  ]
+                },
+                "revision": {
+                  "SHA1": "da8f1b074e317e4e90a1cb0e0ec183475ff21305",
+                  "branch": [
+                    {
+                      "SHA1": "da8f1b074e317e4e90a1cb0e0ec183475ff21305",
+                      "name": "origin/ESAAS-6942_qa_conf"
+                    }
+                  ]
+                }
+              }
+            },
+            "lastBuiltRevision": {
+              "SHA1": "549ccfd0432b682e16b87e22b40f79aefa4c614e",
+              "branch": [
+                {
+                  "SHA1": "549ccfd0432b682e16b87e22b40f79aefa4c614e",
+                  "name": "origin/develop"
+                }
+              ]
+            },
+            "remoteUrls": [
+              "ssh://git@gitserver.com:5555/cloudops/IaaC/iot-platform-iac.git"
+            ],
+            "scmName": ""
+          },
+          {},
+          {
+            "_class": "org.jenkinsci.plugins.workflow.libs.LibrariesAction"
+          },
+          {
+            "_class": "hudson.plugins.git.util.BuildData",
+            "buildsByBranchName": {
+              "master": {
+                "_class": "hudson.plugins.git.util.Build",
+                "buildNumber": 1019,
+                "buildResult": null,
+                "marked": {
+                  "SHA1": "efc46e9217f9bbbad9f2fbb0a99ae264a52fd031",
+                  "branch": [
+                    {
+                      "SHA1": "efc46e9217f9bbbad9f2fbb0a99ae264a52fd031",
+                      "name": "master"
+                    }
+                  ]
+                },
+                "revision": {
+                  "SHA1": "efc46e9217f9bbbad9f2fbb0a99ae264a52fd031",
+                  "branch": [
+                    {
+                      "SHA1": "efc46e9217f9bbbad9f2fbb0a99ae264a52fd031",
+                      "name": "master"
+                    }
+                  ]
+                }
+              }
+            },
+            "lastBuiltRevision": {
+              "SHA1": "efc46e9217f9bbbad9f2fbb0a99ae264a52fd031",
+              "branch": [
+                {
+                  "SHA1": "efc46e9217f9bbbad9f2fbb0a99ae264a52fd031",
+                  "name": "master"
+                }
+              ]
+            },
+            "remoteUrls": [
+              "ssh://git@gitserver.com:5555/produce-recognition/jenkinspipeline.git"
+            ],
+            "scmName": ""
+          },
+          {
+            "_class": "hudson.plugins.git.util.BuildData",
+            "buildsByBranchName": {
+              "master": {
+                "_class": "hudson.plugins.git.util.Build",
+                "buildNumber": 1019,
+                "buildResult": null,
+                "marked": {
+                  "SHA1": "3ba54ae1848ed8d07d2669807dc596fd45885e0b",
+                  "branch": [
+                    {
+                      "SHA1": "3ba54ae1848ed8d07d2669807dc596fd45885e0b",
+                      "name": "master"
+                    }
+                  ]
+                },
+                "revision": {
+                  "SHA1": "3ba54ae1848ed8d07d2669807dc596fd45885e0b",
+                  "branch": [
+                    {
+                      "SHA1": "3ba54ae1848ed8d07d2669807dc596fd45885e0b",
+                      "name": "master"
+                    }
+                  ]
+                }
+              }
+            },
+            "lastBuiltRevision": {
+              "SHA1": "3ba54ae1848ed8d07d2669807dc596fd45885e0b",
+              "branch": [
+                {
+                  "SHA1": "3ba54ae1848ed8d07d2669807dc596fd45885e0b",
+                  "name": "master"
+                }
+              ]
+            },
+            "remoteUrls": [
+              "ssh://git@gitserver.com:5555/selfservice/JenkinsPipeline.git"
+            ],
+            "scmName": ""
+          },
+          {
+            "_class": "hudson.plugins.git.util.BuildData",
+            "buildsByBranchName": {
+              "master": {
+                "_class": "hudson.plugins.git.util.Build",
+                "buildNumber": 1019,
+                "buildResult": null,
+                "marked": {
+                  "SHA1": "2ac0ce2e74c076f697711608d7e1868650ea8d2d",
+                  "branch": [
+                    {
+                      "SHA1": "2ac0ce2e74c076f697711608d7e1868650ea8d2d",
+                      "name": "master"
+                    }
+                  ]
+                },
+                "revision": {
+                  "SHA1": "2ac0ce2e74c076f697711608d7e1868650ea8d2d",
+                  "branch": [
+                    {
+                      "SHA1": "2ac0ce2e74c076f697711608d7e1868650ea8d2d",
+                      "name": "master"
+                    }
+                  ]
+                }
+              }
+            },
+            "lastBuiltRevision": {
+              "SHA1": "2ac0ce2e74c076f697711608d7e1868650ea8d2d",
+              "branch": [
+                {
+                  "SHA1": "2ac0ce2e74c076f697711608d7e1868650ea8d2d",
+                  "name": "master"
+                }
+              ]
+            },
+            "remoteUrls": [
+              "ssh://git@gitserver.com:5555/vuepos/JenkinsPipeline.git"
+            ],
+            "scmName": ""
+          },
+          {
+            "_class": "hudson.plugins.git.util.BuildData",
+            "buildsByBranchName": {
+              "master": {
+                "_class": "hudson.plugins.git.util.Build",
+                "buildNumber": 1019,
+                "buildResult": null,
+                "marked": {
+                  "SHA1": "6cf06d90778e4ce5213598e37a0a33c92bef963d",
+                  "branch": [
+                    {
+                      "SHA1": "6cf06d90778e4ce5213598e37a0a33c92bef963d",
+                      "name": "master"
+                    }
+                  ]
+                },
+                "revision": {
+                  "SHA1": "6cf06d90778e4ce5213598e37a0a33c92bef963d",
+                  "branch": [
+                    {
+                      "SHA1": "6cf06d90778e4ce5213598e37a0a33c92bef963d",
+                      "name": "master"
+                    }
+                  ]
+                }
+              }
+            },
+            "lastBuiltRevision": {
+              "SHA1": "6cf06d90778e4ce5213598e37a0a33c92bef963d",
+              "branch": [
+                {
+                  "SHA1": "6cf06d90778e4ce5213598e37a0a33c92bef963d",
+                  "name": "master"
+                }
+              ]
+            },
+            "remoteUrls": [
+              "ssh://git@gitserver.com:5555/cloudops/IaaC/shared-jenkins-library.git"
+            ],
+            "scmName": ""
+          },
+          {},
+          {
+            "_class": "org.jenkinsci.plugins.workflow.cps.EnvActionImpl"
+          },
+          {},
+          {},
+          {},
+          {},
+          {},
+          {},
+          {
+            "_class": "org.jenkinsci.plugins.displayurlapi.actions.RunDisplayAction"
+          },
+          {
+            "_class": "org.jenkinsci.plugins.pipeline.modeldefinition.actions.RestartDeclarativePipelineAction"
+          },
+          {},
+          {
+            "_class": "org.jenkinsci.plugins.workflow.job.views.FlowGraphAction"
+          },
+          {},
+          {},
+          {}
+        ],
+        "artifacts": [],
+        "building": false,
+        "description": null,
+        "displayName": "#1019",
+        "duration": 41495,
+        "estimatedDuration": 54387,
+        "executor": null,
+        "fullDisplayName": "iot-platform-deploy-dev #1019",
+        "id": "1019",
+        "keepLog": false,
+        "number": 1019,
+        "queueId": 17157,
+        "result": "SUCCESS",
+        "timestamp": 1789136011173,
+        "url": "https://my-jenkins-server.com/job/iot-platform-deploy-dev/1019/",
+        "changeSets": [],
+        "culprits": [],
+        "inProgress": false,
+        "nextBuild": {
+          "number": 1020,
+          "url": "https://my-jenkins-server.com/job/iot-platform-deploy-dev/1020/"
+        },
+        "previousBuild": {
+          "number": 1018,
+          "url": "https://my-jenkins-server.com/job/iot-platform-deploy-dev/1018/"
+        }
+      },
+      "previousBuild": {
+        "actions": [
+          {
+            "_class": "hudson.model.ParametersAction",
+            "parameters": [
+              {
+                "_class": "hudson.model.StringParameterValue",
+                "name": "ENVIRONMENT",
+                "value": "DEV"
+              },
+              {
+                "_class": "hudson.model.StringParameterValue",
+                "name": "BRANCH",
+                "value": "develop"
+              },
+              {
+                "_class": "hudson.model.StringParameterValue",
+                "name": "Playbook",
+                "value": "Azure Resources"
+              },
+              {
+                "_class": "hudson.model.StringParameterValue",
+                "name": "Parameters",
+                "value": ""
+              },
+              {
+                "_class": "hudson.model.StringParameterValue",
+                "name": "RESOURCE_GROUP",
+                "value": "rg-iot-dev-eus"
+              },
+              {
+                "_class": "hudson.model.StringParameterValue",
+                "name": "REGION_NAME",
+                "value": "eastus"
+              },
+              {
+                "_class": "hudson.model.TextParameterValue",
+                "name": "APP_SETTINGS_JSON",
+                "value": "{\n  \"API_USERNAME\": \"apiapp\",\n  \"API_PASSWORD\": \"\",\n  \"CAMERA_HEALTHCHECK_SCHEDULE\": \"0 10 12 * * *\",\n  \"EMAIL_SENDER\": \"DoNotReply@4b91465e-ca73-4113-b214-b1188a352fdf.azurecomm.net\",\n  \"NOTIFICATION_API_USERNAME\": \"tgcs-admin\",\n  \"NOTIFICATION_API_PASSWORD\": \"\",\n  \"NOTIFICATIONS_SCHEDULE\": \"0 10 12 * * *\"\n}"
+              },
+              {
+                "_class": "hudson.model.TextParameterValue",
+                "name": "MARKUP_IMAGE_VERSIONS",
+                "value": "{\n    \"iot-markups-inference\": \"1.2603.61-qa-2026-09-10-432577c\"\n}"
+              }
+            ]
+          },
+          {
+            "_class": "hudson.model.CauseAction",
+            "causes": [
+              {
+                "_class": "hudson.model.Cause$UserIdCause",
+                "shortDescription": "Started by user Artem Holovchenko",
+                "userId": "artem",
+                "userName": "Artem Holovchenko"
+              }
+            ]
+          },
+          {
+            "_class": "jenkins.metrics.impl.TimeInQueueAction",
+            "blockedDurationMillis": 0,
+            "blockedTimeMillis": 0,
+            "buildableDurationMillis": 0,
+            "buildableTimeMillis": 1,
+            "buildingDurationMillis": 558612,
+            "executingTimeMillis": 555455,
+            "executorUtilization": 0.99,
+            "subTaskCount": 1,
+            "waitingDurationMillis": 1,
+            "waitingTimeMillis": 1
+          },
+          {},
+          {
+            "_class": "hudson.plugins.git.util.BuildData",
+            "buildsByBranchName": {
+              "origin/cherry-pick-38b8fa45": {
+                "_class": "hudson.plugins.git.util.Build",
+                "buildNumber": 868,
+                "buildResult": null,
+                "marked": {
+                  "SHA1": "0a957fdff68aa993e9b31bc86cacf136f63fa531",
+                  "branch": [
+                    {
+                      "SHA1": "0a957fdff68aa993e9b31bc86cacf136f63fa531",
+                      "name": "origin/cherry-pick-38b8fa45"
+                    }
+                  ]
+                },
+                "revision": {
+                  "SHA1": "0a957fdff68aa993e9b31bc86cacf136f63fa531",
+                  "branch": [
+                    {
+                      "SHA1": "0a957fdff68aa993e9b31bc86cacf136f63fa531",
+                      "name": "origin/cherry-pick-38b8fa45"
+                    }
+                  ]
+                }
+              },
+              "origin/hotfix-ESAAS-7079": {
+                "_class": "hudson.plugins.git.util.Build",
+                "buildNumber": 948,
+                "buildResult": null,
+                "marked": {
+                  "SHA1": "1a3dc4ae351084fe390b0139aaf979b5c425e4cd",
+                  "branch": [
+                    {
+                      "SHA1": "1a3dc4ae351084fe390b0139aaf979b5c425e4cd",
+                      "name": "origin/hotfix-ESAAS-7079"
+                    }
+                  ]
+                },
+                "revision": {
+                  "SHA1": "1a3dc4ae351084fe390b0139aaf979b5c425e4cd",
+                  "branch": [
+                    {
+                      "SHA1": "1a3dc4ae351084fe390b0139aaf979b5c425e4cd",
+                      "name": "origin/hotfix-ESAAS-7079"
+                    }
+                  ]
+                }
+              },
+              "origin/ESSR-2866": {
+                "_class": "hudson.plugins.git.util.Build",
+                "buildNumber": 851,
+                "buildResult": null,
+                "marked": {
+                  "SHA1": "887c6aadc7479374c154a41fb6bc6fe16a529f07",
+                  "branch": [
+                    {
+                      "SHA1": "887c6aadc7479374c154a41fb6bc6fe16a529f07",
+                      "name": "origin/ESSR-2866"
+                    }
+                  ]
+                },
+                "revision": {
+                  "SHA1": "887c6aadc7479374c154a41fb6bc6fe16a529f07",
+                  "branch": [
+                    {
+                      "SHA1": "887c6aadc7479374c154a41fb6bc6fe16a529f07",
+                      "name": "origin/ESSR-2866"
+                    }
+                  ]
+                }
+              },
+              "origin/qa": {
+                "_class": "hudson.plugins.git.util.Build",
+                "buildNumber": 974,
+                "buildResult": null,
+                "marked": {
+                  "SHA1": "48afb9824f54f043d9d784755496e1ab696a2f45",
+                  "branch": [
+                    {
+                      "SHA1": "48afb9824f54f043d9d784755496e1ab696a2f45",
+                      "name": "origin/qa"
+                    }
+                  ]
+                },
+                "revision": {
+                  "SHA1": "48afb9824f54f043d9d784755496e1ab696a2f45",
+                  "branch": [
+                    {
+                      "SHA1": "48afb9824f54f043d9d784755496e1ab696a2f45",
+                      "name": "origin/qa"
+                    }
+                  ]
+                }
+              },
+              "origin/hotfix-ESSP-10240": {
+                "_class": "hudson.plugins.git.util.Build",
+                "buildNumber": 744,
+                "buildResult": null,
+                "marked": {
+                  "SHA1": "40691e1b66fc97b561bb57d4a8126028fea4a88e",
+                  "branch": [
+                    {
+                      "SHA1": "40691e1b66fc97b561bb57d4a8126028fea4a88e",
+                      "name": "origin/hotfix-ESSP-10240"
+                    }
+                  ]
+                },
+                "revision": {
+                  "SHA1": "40691e1b66fc97b561bb57d4a8126028fea4a88e",
+                  "branch": [
+                    {
+                      "SHA1": "40691e1b66fc97b561bb57d4a8126028fea4a88e",
+                      "name": "origin/hotfix-ESSP-10240"
+                    }
+                  ]
+                }
+              },
+              "origin/develop": {
+                "_class": "hudson.plugins.git.util.Build",
+                "buildNumber": 1017,
+                "buildResult": null,
+                "marked": {
+                  "SHA1": "549ccfd0432b682e16b87e22b40f79aefa4c614e",
+                  "branch": [
+                    {
+                      "SHA1": "549ccfd0432b682e16b87e22b40f79aefa4c614e",
+                      "name": "origin/develop"
+                    }
+                  ]
+                },
+                "revision": {
+                  "SHA1": "549ccfd0432b682e16b87e22b40f79aefa4c614e",
+                  "branch": [
+                    {
+                      "SHA1": "549ccfd0432b682e16b87e22b40f79aefa4c614e",
+                      "name": "origin/develop"
+                    }
+                  ]
+                }
+              },
+              "origin/ESAAS-6934": {
+                "_class": "hudson.plugins.git.util.Build",
+                "buildNumber": 826,
+                "buildResult": null,
+                "marked": {
+                  "SHA1": "ea37cb9af19fae476147417bc5be74e25e836bc1",
+                  "branch": [
+                    {
+                      "SHA1": "ea37cb9af19fae476147417bc5be74e25e836bc1",
+                      "name": "origin/ESAAS-6934"
+                    }
+                  ]
+                },
+                "revision": {
+                  "SHA1": "ea37cb9af19fae476147417bc5be74e25e836bc1",
+                  "branch": [
+                    {
+                      "SHA1": "ea37cb9af19fae476147417bc5be74e25e836bc1",
+                      "name": "origin/ESAAS-6934"
+                    }
+                  ]
+                }
+              },
+              "refs/remotes/origin/ESAAS-6788": {
+                "_class": "hudson.plugins.git.util.Build",
+                "buildNumber": 712,
+                "buildResult": null,
+                "marked": {
+                  "SHA1": "d9e7d093fa15499c203eb0fe585637ab083c326f",
+                  "branch": [
+                    {
+                      "SHA1": "d9e7d093fa15499c203eb0fe585637ab083c326f",
+                      "name": "refs/remotes/origin/ESAAS-6788"
+                    }
+                  ]
+                },
+                "revision": {
+                  "SHA1": "d9e7d093fa15499c203eb0fe585637ab083c326f",
+                  "branch": [
+                    {
+                      "SHA1": "d9e7d093fa15499c203eb0fe585637ab083c326f",
+                      "name": "refs/remotes/origin/ESAAS-6788"
+                    }
+                  ]
+                }
+              },
+              "refs/remotes/origin/ESAAS-6942": {
+                "_class": "hudson.plugins.git.util.Build",
+                "buildNumber": 797,
+                "buildResult": null,
+                "marked": {
+                  "SHA1": "cf403a79fa360d35bb80e209de232bd35d9e4907",
+                  "branch": [
+                    {
+                      "SHA1": "cf403a79fa360d35bb80e209de232bd35d9e4907",
+                      "name": "refs/remotes/origin/ESAAS-6942"
+                    }
+                  ]
+                },
+                "revision": {
+                  "SHA1": "cf403a79fa360d35bb80e209de232bd35d9e4907",
+                  "branch": [
+                    {
+                      "SHA1": "cf403a79fa360d35bb80e209de232bd35d9e4907",
+                      "name": "refs/remotes/origin/ESAAS-6942"
+                    }
+                  ]
+                }
+              },
+              "origin/ESSR-2866_test": {
+                "_class": "hudson.plugins.git.util.Build",
+                "buildNumber": 869,
+                "buildResult": null,
+                "marked": {
+                  "SHA1": "958a46cc3f87b833cc68a9a8d8e50d2ab154b0e5",
+                  "branch": [
+                    {
+                      "SHA1": "3ef4760aeaaaa0b1d4b90a2766c35d206026bd46",
+                      "name": "origin/ESSR-2866_test"
+                    },
+                    {
+                      "SHA1": "1cf9e8b920a63906b4d0d646e7ad2d2de6e47b77",
+                      "name": "origin/ESAAS-6970"
+                    },
+                    {
+                      "SHA1": "958a46cc3f87b833cc68a9a8d8e50d2ab154b0e5",
+                      "name": "origin/develop"
+                    },
+                    {
+                      "SHA1": "a9221c3505ba74d72ae50ddc9cb112ca45ff344c",
+                      "name": "origin/feature/ESAASR-6186-dev-postgres-reader-writer-groups"
+                    }
+                  ]
+                },
+                "revision": {
+                  "SHA1": "958a46cc3f87b833cc68a9a8d8e50d2ab154b0e5",
+                  "branch": [
+                    {
+                      "SHA1": "3ef4760aeaaaa0b1d4b90a2766c35d206026bd46",
+                      "name": "origin/ESSR-2866_test"
+                    },
+                    {
+                      "SHA1": "1cf9e8b920a63906b4d0d646e7ad2d2de6e47b77",
+                      "name": "origin/ESAAS-6970"
+                    },
+                    {
+                      "SHA1": "958a46cc3f87b833cc68a9a8d8e50d2ab154b0e5",
+                      "name": "origin/develop"
+                    },
+                    {
+                      "SHA1": "a9221c3505ba74d72ae50ddc9cb112ca45ff344c",
+                      "name": "origin/feature/ESAASR-6186-dev-postgres-reader-writer-groups"
+                    }
+                  ]
+                }
+              },
+              "origin/ESAAS-6934_qa_conf": {
+                "_class": "hudson.plugins.git.util.Build",
+                "buildNumber": 871,
+                "buildResult": null,
+                "marked": {
+                  "SHA1": "91eff704fbea816938489fda9adab9101ec1f0f0",
+                  "branch": [
+                    {
+                      "SHA1": "91eff704fbea816938489fda9adab9101ec1f0f0",
+                      "name": "origin/ESAAS-6934_qa_conf"
+                    }
+                  ]
+                },
+                "revision": {
+                  "SHA1": "91eff704fbea816938489fda9adab9101ec1f0f0",
+                  "branch": [
+                    {
+                      "SHA1": "91eff704fbea816938489fda9adab9101ec1f0f0",
+                      "name": "origin/ESAAS-6934_qa_conf"
+                    }
+                  ]
+                }
+              },
+              "origin/ESAAS-6970": {
+                "_class": "hudson.plugins.git.util.Build",
+                "buildNumber": 889,
+                "buildResult": null,
+                "marked": {
+                  "SHA1": "1cf9e8b920a63906b4d0d646e7ad2d2de6e47b77",
+                  "branch": [
+                    {
+                      "SHA1": "1cf9e8b920a63906b4d0d646e7ad2d2de6e47b77",
+                      "name": "origin/ESAAS-6970"
+                    }
+                  ]
+                },
+                "revision": {
+                  "SHA1": "1cf9e8b920a63906b4d0d646e7ad2d2de6e47b77",
+                  "branch": [
+                    {
+                      "SHA1": "1cf9e8b920a63906b4d0d646e7ad2d2de6e47b77",
+                      "name": "origin/ESAAS-6970"
+                    }
+                  ]
+                }
+              },
+              "origin/ESSP-10788": {
+                "_class": "hudson.plugins.git.util.Build",
+                "buildNumber": 1009,
+                "buildResult": null,
+                "marked": {
+                  "SHA1": "d35c9ea7ac70a859ff9ba6f27448a0d5334a4d06",
+                  "branch": [
+                    {
+                      "SHA1": "d35c9ea7ac70a859ff9ba6f27448a0d5334a4d06",
+                      "name": "origin/ESSP-10788"
+                    }
+                  ]
+                },
+                "revision": {
+                  "SHA1": "d35c9ea7ac70a859ff9ba6f27448a0d5334a4d06",
+                  "branch": [
+                    {
+                      "SHA1": "d35c9ea7ac70a859ff9ba6f27448a0d5334a4d06",
+                      "name": "origin/ESSP-10788"
+                    }
+                  ]
+                }
+              },
+              "refs/remotes/origin/ESSR-2589": {
+                "_class": "hudson.plugins.git.util.Build",
+                "buildNumber": 670,
+                "buildResult": null,
+                "marked": {
+                  "SHA1": "49ef4cd2b1472078a6918dd36f12e3f21415c724",
+                  "branch": [
+                    {
+                      "SHA1": "49ef4cd2b1472078a6918dd36f12e3f21415c724",
+                      "name": "refs/remotes/origin/ESSR-2589"
+                    }
+                  ]
+                },
+                "revision": {
+                  "SHA1": "49ef4cd2b1472078a6918dd36f12e3f21415c724",
+                  "branch": [
+                    {
+                      "SHA1": "49ef4cd2b1472078a6918dd36f12e3f21415c724",
+                      "name": "refs/remotes/origin/ESSR-2589"
+                    }
+                  ]
+                }
+              },
+              "origin/ESAAS-7103": {
+                "_class": "hudson.plugins.git.util.Build",
+                "buildNumber": 986,
+                "buildResult": null,
+                "marked": {
+                  "SHA1": "c667504a738a931af14473c2ca2a99b2c3feb169",
+                  "branch": [
+                    {
+                      "SHA1": "c667504a738a931af14473c2ca2a99b2c3feb169",
+                      "name": "origin/ESAAS-7103"
+                    }
+                  ]
+                },
+                "revision": {
+                  "SHA1": "c667504a738a931af14473c2ca2a99b2c3feb169",
+                  "branch": [
+                    {
+                      "SHA1": "c667504a738a931af14473c2ca2a99b2c3feb169",
+                      "name": "origin/ESAAS-7103"
+                    }
+                  ]
+                }
+              },
+              "origin/ESSP-10240": {
+                "_class": "hudson.plugins.git.util.Build",
+                "buildNumber": 700,
+                "buildResult": null,
+                "marked": {
+                  "SHA1": "f256bd65f871de644892b65aaa527bec28a57d4f",
+                  "branch": [
+                    {
+                      "SHA1": "f256bd65f871de644892b65aaa527bec28a57d4f",
+                      "name": "origin/ESSP-10240"
+                    }
+                  ]
+                },
+                "revision": {
+                  "SHA1": "f256bd65f871de644892b65aaa527bec28a57d4f",
+                  "branch": [
+                    {
+                      "SHA1": "f256bd65f871de644892b65aaa527bec28a57d4f",
+                      "name": "origin/ESSP-10240"
+                    }
+                  ]
+                }
+              },
+              "origin/ESAAS-6942_typo_fix": {
+                "_class": "hudson.plugins.git.util.Build",
+                "buildNumber": 805,
+                "buildResult": null,
+                "marked": {
+                  "SHA1": "aaf63169760f97af1e04640d3d24a2e91b616d38",
+                  "branch": [
+                    {
+                      "SHA1": "aaf63169760f97af1e04640d3d24a2e91b616d38",
+                      "name": "origin/ESAAS-6942_typo_fix"
+                    }
+                  ]
+                },
+                "revision": {
+                  "SHA1": "aaf63169760f97af1e04640d3d24a2e91b616d38",
+                  "branch": [
+                    {
+                      "SHA1": "aaf63169760f97af1e04640d3d24a2e91b616d38",
+                      "name": "origin/ESAAS-6942_typo_fix"
+                    }
+                  ]
+                }
+              },
+              "refs/remotes/origin/ESSP-10061": {
+                "_class": "hudson.plugins.git.util.Build",
+                "buildNumber": 691,
+                "buildResult": null,
+                "marked": {
+                  "SHA1": "b254e47b6b7e7ec56fff05ffb0f6c58a91088539",
+                  "branch": [
+                    {
+                      "SHA1": "b254e47b6b7e7ec56fff05ffb0f6c58a91088539",
+                      "name": "refs/remotes/origin/ESSP-10061"
+                    }
+                  ]
+                },
+                "revision": {
+                  "SHA1": "b254e47b6b7e7ec56fff05ffb0f6c58a91088539",
+                  "branch": [
+                    {
+                      "SHA1": "b254e47b6b7e7ec56fff05ffb0f6c58a91088539",
+                      "name": "refs/remotes/origin/ESSP-10061"
+                    }
+                  ]
+                }
+              },
+              "origin/ESAAS-6929": {
+                "_class": "hudson.plugins.git.util.Build",
+                "buildNumber": 756,
+                "buildResult": null,
+                "marked": {
+                  "SHA1": "876a98ea9baa0f0b7072212ac02bcd777858615b",
+                  "branch": [
+                    {
+                      "SHA1": "876a98ea9baa0f0b7072212ac02bcd777858615b",
+                      "name": "origin/ESAAS-6929"
+                    }
+                  ]
+                },
+                "revision": {
+                  "SHA1": "876a98ea9baa0f0b7072212ac02bcd777858615b",
+                  "branch": [
+                    {
+                      "SHA1": "876a98ea9baa0f0b7072212ac02bcd777858615b",
+                      "name": "origin/ESAAS-6929"
+                    }
+                  ]
+                }
+              },
+              "origin/feature/ESAASR-6186-dev-postgres-reader-writer-groups": {
+                "_class": "hudson.plugins.git.util.Build",
+                "buildNumber": 920,
+                "buildResult": null,
+                "marked": {
+                  "SHA1": "051dc2d72467f414fb16eaf6eb77b9e0474e419c",
+                  "branch": [
+                    {
+                      "SHA1": "051dc2d72467f414fb16eaf6eb77b9e0474e419c",
+                      "name": "origin/feature/ESAASR-6186-dev-postgres-reader-writer-groups"
+                    }
+                  ]
+                },
+                "revision": {
+                  "SHA1": "051dc2d72467f414fb16eaf6eb77b9e0474e419c",
+                  "branch": [
+                    {
+                      "SHA1": "051dc2d72467f414fb16eaf6eb77b9e0474e419c",
+                      "name": "origin/feature/ESAASR-6186-dev-postgres-reader-writer-groups"
+                    }
+                  ]
+                }
+              },
+              "origin/auto-save/ESSP-10801/4f49078f/ESSP-10801-1d5e219": {
+                "_class": "hudson.plugins.git.util.Build",
+                "buildNumber": 975,
+                "buildResult": null,
+                "marked": {
+                  "SHA1": "8b2cee2b07dc68a50a5ad993fb38a825f23c745d",
+                  "branch": [
+                    {
+                      "SHA1": "75877e8a082ab7a1416e707f6757563ec4e1b4be",
+                      "name": "origin/ESSP-10801"
+                    },
+                    {
+                      "SHA1": "1d5e219bbff14bec9d8b2d803040eac5d607a791",
+                      "name": "origin/auto-save/ESSP-10801/4f49078f/ESSP-10801-1d5e219"
+                    },
+                    {
+                      "SHA1": "8b2cee2b07dc68a50a5ad993fb38a825f23c745d",
+                      "name": "origin/develop"
+                    },
+                    {
+                      "SHA1": "8b2cee2b07dc68a50a5ad993fb38a825f23c745d",
+                      "name": "origin/ESSP-10801-1"
+                    }
+                  ]
+                },
+                "revision": {
+                  "SHA1": "8b2cee2b07dc68a50a5ad993fb38a825f23c745d",
+                  "branch": [
+                    {
+                      "SHA1": "75877e8a082ab7a1416e707f6757563ec4e1b4be",
+                      "name": "origin/ESSP-10801"
+                    },
+                    {
+                      "SHA1": "1d5e219bbff14bec9d8b2d803040eac5d607a791",
+                      "name": "origin/auto-save/ESSP-10801/4f49078f/ESSP-10801-1d5e219"
+                    },
+                    {
+                      "SHA1": "8b2cee2b07dc68a50a5ad993fb38a825f23c745d",
+                      "name": "origin/develop"
+                    },
+                    {
+                      "SHA1": "8b2cee2b07dc68a50a5ad993fb38a825f23c745d",
+                      "name": "origin/ESSP-10801-1"
+                    }
+                  ]
+                }
+              },
+              "origin/ESSP-10801-1": {
+                "_class": "hudson.plugins.git.util.Build",
+                "buildNumber": 978,
+                "buildResult": null,
+                "marked": {
+                  "SHA1": "f1216e45ab763aae6dbb9adf8cbd9f2fc5e06dcf",
+                  "branch": [
+                    {
+                      "SHA1": "f1216e45ab763aae6dbb9adf8cbd9f2fc5e06dcf",
+                      "name": "origin/ESSP-10801-1"
+                    }
+                  ]
+                },
+                "revision": {
+                  "SHA1": "f1216e45ab763aae6dbb9adf8cbd9f2fc5e06dcf",
+                  "branch": [
+                    {
+                      "SHA1": "f1216e45ab763aae6dbb9adf8cbd9f2fc5e06dcf",
+                      "name": "origin/ESSP-10801-1"
+                    }
+                  ]
+                }
+              },
+              "origin/ESSP-10801": {
+                "_class": "hudson.plugins.git.util.Build",
+                "buildNumber": 975,
+                "buildResult": null,
+                "marked": {
+                  "SHA1": "8b2cee2b07dc68a50a5ad993fb38a825f23c745d",
+                  "branch": [
+                    {
+                      "SHA1": "75877e8a082ab7a1416e707f6757563ec4e1b4be",
+                      "name": "origin/ESSP-10801"
+                    },
+                    {
+                      "SHA1": "1d5e219bbff14bec9d8b2d803040eac5d607a791",
+                      "name": "origin/auto-save/ESSP-10801/4f49078f/ESSP-10801-1d5e219"
+                    },
+                    {
+                      "SHA1": "8b2cee2b07dc68a50a5ad993fb38a825f23c745d",
+                      "name": "origin/develop"
+                    },
+                    {
+                      "SHA1": "8b2cee2b07dc68a50a5ad993fb38a825f23c745d",
+                      "name": "origin/ESSP-10801-1"
+                    }
+                  ]
+                },
+                "revision": {
+                  "SHA1": "8b2cee2b07dc68a50a5ad993fb38a825f23c745d",
+                  "branch": [
+                    {
+                      "SHA1": "75877e8a082ab7a1416e707f6757563ec4e1b4be",
+                      "name": "origin/ESSP-10801"
+                    },
+                    {
+                      "SHA1": "1d5e219bbff14bec9d8b2d803040eac5d607a791",
+                      "name": "origin/auto-save/ESSP-10801/4f49078f/ESSP-10801-1d5e219"
+                    },
+                    {
+                      "SHA1": "8b2cee2b07dc68a50a5ad993fb38a825f23c745d",
+                      "name": "origin/develop"
+                    },
+                    {
+                      "SHA1": "8b2cee2b07dc68a50a5ad993fb38a825f23c745d",
+                      "name": "origin/ESSP-10801-1"
+                    }
+                  ]
+                }
+              },
+              "origin/ESAAS-6788": {
+                "_class": "hudson.plugins.git.util.Build",
+                "buildNumber": 713,
+                "buildResult": null,
+                "marked": {
+                  "SHA1": "d9e7d093fa15499c203eb0fe585637ab083c326f",
+                  "branch": [
+                    {
+                      "SHA1": "d9e7d093fa15499c203eb0fe585637ab083c326f",
+                      "name": "origin/ESAAS-6788"
+                    }
+                  ]
+                },
+                "revision": {
+                  "SHA1": "d9e7d093fa15499c203eb0fe585637ab083c326f",
+                  "branch": [
+                    {
+                      "SHA1": "d9e7d093fa15499c203eb0fe585637ab083c326f",
+                      "name": "origin/ESAAS-6788"
+                    }
+                  ]
+                }
+              },
+              "origin/cherry-pick-eed56aaa": {
+                "_class": "hudson.plugins.git.util.Build",
+                "buildNumber": 1014,
+                "buildResult": null,
+                "marked": {
+                  "SHA1": "65571283d253fa3fd78e4cba79dcdd5ff1916afb",
+                  "branch": [
+                    {
+                      "SHA1": "65571283d253fa3fd78e4cba79dcdd5ff1916afb",
+                      "name": "origin/cherry-pick-eed56aaa"
+                    }
+                  ]
+                },
+                "revision": {
+                  "SHA1": "65571283d253fa3fd78e4cba79dcdd5ff1916afb",
+                  "branch": [
+                    {
+                      "SHA1": "65571283d253fa3fd78e4cba79dcdd5ff1916afb",
+                      "name": "origin/cherry-pick-eed56aaa"
+                    }
+                  ]
+                }
+              },
+              "origin/ESSP-10801_WafId": {
+                "_class": "hudson.plugins.git.util.Build",
+                "buildNumber": 970,
+                "buildResult": null,
+                "marked": {
+                  "SHA1": "1f6e33c7d76b0983346139cbf8ad77c8706c03ce",
+                  "branch": [
+                    {
+                      "SHA1": "1f6e33c7d76b0983346139cbf8ad77c8706c03ce",
+                      "name": "origin/ESSP-10801_WafId"
+                    }
+                  ]
+                },
+                "revision": {
+                  "SHA1": "1f6e33c7d76b0983346139cbf8ad77c8706c03ce",
+                  "branch": [
+                    {
+                      "SHA1": "1f6e33c7d76b0983346139cbf8ad77c8706c03ce",
+                      "name": "origin/ESSP-10801_WafId"
+                    }
+                  ]
+                }
+              },
+              "refs/remotes/origin/ESAAS-6856_link": {
+                "_class": "hudson.plugins.git.util.Build",
+                "buildNumber": 692,
+                "buildResult": null,
+                "marked": {
+                  "SHA1": "d2bfc3eee35fc0336f42786a8e4c8a14d8472039",
+                  "branch": [
+                    {
+                      "SHA1": "d2bfc3eee35fc0336f42786a8e4c8a14d8472039",
+                      "name": "refs/remotes/origin/ESAAS-6856_link"
+                    }
+                  ]
+                },
+                "revision": {
+                  "SHA1": "d2bfc3eee35fc0336f42786a8e4c8a14d8472039",
+                  "branch": [
+                    {
+                      "SHA1": "d2bfc3eee35fc0336f42786a8e4c8a14d8472039",
+                      "name": "refs/remotes/origin/ESAAS-6856_link"
+                    }
+                  ]
+                }
+              },
+              "origin/ESAAS-6900": {
+                "_class": "hudson.plugins.git.util.Build",
+                "buildNumber": 762,
+                "buildResult": null,
+                "marked": {
+                  "SHA1": "f690be6e806c7fda0453987cbdf573180410f840",
+                  "branch": [
+                    {
+                      "SHA1": "f690be6e806c7fda0453987cbdf573180410f840",
+                      "name": "origin/ESAAS-6900"
+                    }
+                  ]
+                },
+                "revision": {
+                  "SHA1": "f690be6e806c7fda0453987cbdf573180410f840",
+                  "branch": [
+                    {
+                      "SHA1": "f690be6e806c7fda0453987cbdf573180410f840",
+                      "name": "origin/ESAAS-6900"
+                    }
+                  ]
+                }
+              },
+              "origin/revert-f11800d2": {
+                "_class": "hudson.plugins.git.util.Build",
+                "buildNumber": 927,
+                "buildResult": null,
+                "marked": {
+                  "SHA1": "4d3850fad33c88a35a2c1ac78afce75e5e5bbdd6",
+                  "branch": [
+                    {
+                      "SHA1": "4d3850fad33c88a35a2c1ac78afce75e5e5bbdd6",
+                      "name": "origin/revert-f11800d2"
+                    }
+                  ]
+                },
+                "revision": {
+                  "SHA1": "4d3850fad33c88a35a2c1ac78afce75e5e5bbdd6",
+                  "branch": [
+                    {
+                      "SHA1": "4d3850fad33c88a35a2c1ac78afce75e5e5bbdd6",
+                      "name": "origin/revert-f11800d2"
+                    }
+                  ]
+                }
+              },
+              "origin/ESSP-10386-add-buildId-tag": {
+                "_class": "hudson.plugins.git.util.Build",
+                "buildNumber": 693,
+                "buildResult": null,
+                "marked": {
+                  "SHA1": "dc75342f01380a4d5890afce2bb1a1fe16766428",
+                  "branch": [
+                    {
+                      "SHA1": "dc75342f01380a4d5890afce2bb1a1fe16766428",
+                      "name": "origin/ESSP-10386-add-buildId-tag"
+                    }
+                  ]
+                },
+                "revision": {
+                  "SHA1": "dc75342f01380a4d5890afce2bb1a1fe16766428",
+                  "branch": [
+                    {
+                      "SHA1": "dc75342f01380a4d5890afce2bb1a1fe16766428",
+                      "name": "origin/ESSP-10386-add-buildId-tag"
+                    }
+                  ]
+                }
+              },
+              "refs/remotes/origin/ESAAS-6840": {
+                "_class": "hudson.plugins.git.util.Build",
+                "buildNumber": 895,
+                "buildResult": null,
+                "marked": {
+                  "SHA1": "f287b8ec161cee69443072a1204b2f9f3731dd9e",
+                  "branch": [
+                    {
+                      "SHA1": "f287b8ec161cee69443072a1204b2f9f3731dd9e",
+                      "name": "refs/remotes/origin/ESAAS-6840"
+                    }
+                  ]
+                },
+                "revision": {
+                  "SHA1": "f287b8ec161cee69443072a1204b2f9f3731dd9e",
+                  "branch": [
+                    {
+                      "SHA1": "f287b8ec161cee69443072a1204b2f9f3731dd9e",
+                      "name": "refs/remotes/origin/ESAAS-6840"
+                    }
+                  ]
+                }
+              },
+              "refs/remotes/origin/ESSP-10788": {
+                "_class": "hudson.plugins.git.util.Build",
+                "buildNumber": 1010,
+                "buildResult": null,
+                "marked": {
+                  "SHA1": "d35c9ea7ac70a859ff9ba6f27448a0d5334a4d06",
+                  "branch": [
+                    {
+                      "SHA1": "d35c9ea7ac70a859ff9ba6f27448a0d5334a4d06",
+                      "name": "refs/remotes/origin/ESSP-10788"
+                    }
+                  ]
+                },
+                "revision": {
+                  "SHA1": "d35c9ea7ac70a859ff9ba6f27448a0d5334a4d06",
+                  "branch": [
+                    {
+                      "SHA1": "d35c9ea7ac70a859ff9ba6f27448a0d5334a4d06",
+                      "name": "refs/remotes/origin/ESSP-10788"
+                    }
+                  ]
+                }
+              },
+              "origin/cherry-pick-1152f0a8": {
+                "_class": "hudson.plugins.git.util.Build",
+                "buildNumber": 982,
+                "buildResult": null,
+                "marked": {
+                  "SHA1": "1e10adcd1406895a3ef771a2bb0e63e01c50d3c6",
+                  "branch": [
+                    {
+                      "SHA1": "1e10adcd1406895a3ef771a2bb0e63e01c50d3c6",
+                      "name": "origin/cherry-pick-1152f0a8"
+                    }
+                  ]
+                },
+                "revision": {
+                  "SHA1": "1e10adcd1406895a3ef771a2bb0e63e01c50d3c6",
+                  "branch": [
+                    {
+                      "SHA1": "1e10adcd1406895a3ef771a2bb0e63e01c50d3c6",
+                      "name": "origin/cherry-pick-1152f0a8"
+                    }
+                  ]
+                }
+              },
+              "refs/remotes/origin/PSEC-796": {
+                "_class": "hudson.plugins.git.util.Build",
+                "buildNumber": 607,
+                "buildResult": null,
+                "marked": {
+                  "SHA1": "9cd3f9ee9f56dcf5548f3b55c498932a55877154",
+                  "branch": [
+                    {
+                      "SHA1": "9cd3f9ee9f56dcf5548f3b55c498932a55877154",
+                      "name": "refs/remotes/origin/PSEC-796"
+                    }
+                  ]
+                },
+                "revision": {
+                  "SHA1": "9cd3f9ee9f56dcf5548f3b55c498932a55877154",
+                  "branch": [
+                    {
+                      "SHA1": "9cd3f9ee9f56dcf5548f3b55c498932a55877154",
+                      "name": "refs/remotes/origin/PSEC-796"
+                    }
+                  ]
+                }
+              },
+              "origin/ESAAS-7099": {
+                "_class": "hudson.plugins.git.util.Build",
+                "buildNumber": 954,
+                "buildResult": null,
+                "marked": {
+                  "SHA1": "91b93a727ba297b53499f79b4ec3decc612d9046",
+                  "branch": [
+                    {
+                      "SHA1": "91b93a727ba297b53499f79b4ec3decc612d9046",
+                      "name": "origin/ESAAS-7099"
+                    }
+                  ]
+                },
+                "revision": {
+                  "SHA1": "91b93a727ba297b53499f79b4ec3decc612d9046",
+                  "branch": [
+                    {
+                      "SHA1": "91b93a727ba297b53499f79b4ec3decc612d9046",
+                      "name": "origin/ESAAS-7099"
+                    }
+                  ]
+                }
+              },
+              "refs/remotes/origin/ESAAS-6879": {
+                "_class": "hudson.plugins.git.util.Build",
+                "buildNumber": 718,
+                "buildResult": null,
+                "marked": {
+                  "SHA1": "98ed3e15e30a8899fe2d768bb62ce8345eeb0ff5",
+                  "branch": [
+                    {
+                      "SHA1": "98ed3e15e30a8899fe2d768bb62ce8345eeb0ff5",
+                      "name": "refs/remotes/origin/ESAAS-6879"
+                    }
+                  ]
+                },
+                "revision": {
+                  "SHA1": "98ed3e15e30a8899fe2d768bb62ce8345eeb0ff5",
+                  "branch": [
+                    {
+                      "SHA1": "98ed3e15e30a8899fe2d768bb62ce8345eeb0ff5",
+                      "name": "refs/remotes/origin/ESAAS-6879"
+                    }
+                  ]
+                }
+              },
+              "refs/remotes/origin/ESAAS-6934": {
+                "_class": "hudson.plugins.git.util.Build",
+                "buildNumber": 827,
+                "buildResult": null,
+                "marked": {
+                  "SHA1": "ea37cb9af19fae476147417bc5be74e25e836bc1",
+                  "branch": [
+                    {
+                      "SHA1": "ea37cb9af19fae476147417bc5be74e25e836bc1",
+                      "name": "refs/remotes/origin/ESAAS-6934"
+                    }
+                  ]
+                },
+                "revision": {
+                  "SHA1": "ea37cb9af19fae476147417bc5be74e25e836bc1",
+                  "branch": [
+                    {
+                      "SHA1": "ea37cb9af19fae476147417bc5be74e25e836bc1",
+                      "name": "refs/remotes/origin/ESAAS-6934"
+                    }
+                  ]
+                }
+              },
+              "origin/ESAAS-test": {
+                "_class": "hudson.plugins.git.util.Build",
+                "buildNumber": 846,
+                "buildResult": null,
+                "marked": {
+                  "SHA1": "9fa93e06786c38a615307c7b16fdc578b051137e",
+                  "branch": [
+                    {
+                      "SHA1": "9fa93e06786c38a615307c7b16fdc578b051137e",
+                      "name": "origin/ESAAS-test"
+                    }
+                  ]
+                },
+                "revision": {
+                  "SHA1": "9fa93e06786c38a615307c7b16fdc578b051137e",
+                  "branch": [
+                    {
+                      "SHA1": "9fa93e06786c38a615307c7b16fdc578b051137e",
+                      "name": "origin/ESAAS-test"
+                    }
+                  ]
+                }
+              },
+              "origin/ESAAS-6840": {
+                "_class": "hudson.plugins.git.util.Build",
+                "buildNumber": 907,
+                "buildResult": null,
+                "marked": {
+                  "SHA1": "83b28dfea79dc6921bd5b63c7db595eef5446aaf",
+                  "branch": [
+                    {
+                      "SHA1": "83b28dfea79dc6921bd5b63c7db595eef5446aaf",
+                      "name": "origin/ESAAS-6840"
+                    }
+                  ]
+                },
+                "revision": {
+                  "SHA1": "83b28dfea79dc6921bd5b63c7db595eef5446aaf",
+                  "branch": [
+                    {
+                      "SHA1": "83b28dfea79dc6921bd5b63c7db595eef5446aaf",
+                      "name": "origin/ESAAS-6840"
+                    }
+                  ]
+                }
+              },
+              "origin/cherry-pick-8b2cee2b": {
+                "_class": "hudson.plugins.git.util.Build",
+                "buildNumber": 958,
+                "buildResult": null,
+                "marked": {
+                  "SHA1": "c156d325a0b39307f12c6d36be0bbf4047831bae",
+                  "branch": [
+                    {
+                      "SHA1": "c156d325a0b39307f12c6d36be0bbf4047831bae",
+                      "name": "origin/cherry-pick-8b2cee2b"
+                    }
+                  ]
+                },
+                "revision": {
+                  "SHA1": "c156d325a0b39307f12c6d36be0bbf4047831bae",
+                  "branch": [
+                    {
+                      "SHA1": "c156d325a0b39307f12c6d36be0bbf4047831bae",
+                      "name": "origin/cherry-pick-8b2cee2b"
+                    }
+                  ]
+                }
+              },
+              "refs/remotes/origin/feature/ESSP-9874-immutable-portal-snippet": {
+                "_class": "hudson.plugins.git.util.Build",
+                "buildNumber": 634,
+                "buildResult": null,
+                "marked": {
+                  "SHA1": "051a4f25ec15d806b8499f41ee89086774edf079",
+                  "branch": [
+                    {
+                      "SHA1": "051a4f25ec15d806b8499f41ee89086774edf079",
+                      "name": "refs/remotes/origin/feature/ESSP-9874-immutable-portal-snippet"
+                    }
+                  ]
+                },
+                "revision": {
+                  "SHA1": "051a4f25ec15d806b8499f41ee89086774edf079",
+                  "branch": [
+                    {
+                      "SHA1": "051a4f25ec15d806b8499f41ee89086774edf079",
+                      "name": "refs/remotes/origin/feature/ESSP-9874-immutable-portal-snippet"
+                    }
+                  ]
+                }
+              },
+              "refs/remotes/origin/feature/ESSP-2333-app-config": {
+                "_class": "hudson.plugins.git.util.Build",
+                "buildNumber": 676,
+                "buildResult": null,
+                "marked": {
+                  "SHA1": "feff8efc6f334c0239575488160c3514fdb619bc",
+                  "branch": [
+                    {
+                      "SHA1": "feff8efc6f334c0239575488160c3514fdb619bc",
+                      "name": "refs/remotes/origin/feature/ESSP-2333-app-config"
+                    }
+                  ]
+                },
+                "revision": {
+                  "SHA1": "feff8efc6f334c0239575488160c3514fdb619bc",
+                  "branch": [
+                    {
+                      "SHA1": "feff8efc6f334c0239575488160c3514fdb619bc",
+                      "name": "refs/remotes/origin/feature/ESSP-2333-app-config"
+                    }
+                  ]
+                }
+              },
+              "origin/cherry-pick-db5c7c9c": {
+                "_class": "hudson.plugins.git.util.Build",
+                "buildNumber": 968,
+                "buildResult": null,
+                "marked": {
+                  "SHA1": "0fa2ec044ea770a2e883b9eaba0521e5ca089dee",
+                  "branch": [
+                    {
+                      "SHA1": "0fa2ec044ea770a2e883b9eaba0521e5ca089dee",
+                      "name": "origin/cherry-pick-db5c7c9c"
+                    }
+                  ]
+                },
+                "revision": {
+                  "SHA1": "0fa2ec044ea770a2e883b9eaba0521e5ca089dee",
+                  "branch": [
+                    {
+                      "SHA1": "0fa2ec044ea770a2e883b9eaba0521e5ca089dee",
+                      "name": "origin/cherry-pick-db5c7c9c"
+                    }
+                  ]
+                }
+              },
+              "refs/remotes/origin/feature/ESSP-10121-revert-test": {
+                "_class": "hudson.plugins.git.util.Build",
+                "buildNumber": 681,
+                "buildResult": null,
+                "marked": {
+                  "SHA1": "2a396157cac8dd55849d23a6e1dfca75a14e0bd9",
+                  "branch": [
+                    {
+                      "SHA1": "2a396157cac8dd55849d23a6e1dfca75a14e0bd9",
+                      "name": "refs/remotes/origin/feature/ESSP-10121-revert-test"
+                    }
+                  ]
+                },
+                "revision": {
+                  "SHA1": "2a396157cac8dd55849d23a6e1dfca75a14e0bd9",
+                  "branch": [
+                    {
+                      "SHA1": "2a396157cac8dd55849d23a6e1dfca75a14e0bd9",
+                      "name": "refs/remotes/origin/feature/ESSP-10121-revert-test"
+                    }
+                  ]
+                }
+              },
+              "refs/remotes/origin/develop": {
+                "_class": "hudson.plugins.git.util.Build",
+                "buildNumber": 929,
+                "buildResult": null,
+                "marked": {
+                  "SHA1": "d3e2d99031bfc759476fdb723b9a7bde988c33f1",
+                  "branch": [
+                    {
+                      "SHA1": "d3e2d99031bfc759476fdb723b9a7bde988c33f1",
+                      "name": "refs/remotes/origin/develop"
+                    }
+                  ]
+                },
+                "revision": {
+                  "SHA1": "d3e2d99031bfc759476fdb723b9a7bde988c33f1",
+                  "branch": [
+                    {
+                      "SHA1": "d3e2d99031bfc759476fdb723b9a7bde988c33f1",
+                      "name": "refs/remotes/origin/develop"
+                    }
+                  ]
+                }
+              },
+              "origin/ESAAS-6942_qa_conf": {
+                "_class": "hudson.plugins.git.util.Build",
+                "buildNumber": 878,
+                "buildResult": null,
+                "marked": {
+                  "SHA1": "da8f1b074e317e4e90a1cb0e0ec183475ff21305",
+                  "branch": [
+                    {
+                      "SHA1": "da8f1b074e317e4e90a1cb0e0ec183475ff21305",
+                      "name": "origin/ESAAS-6942_qa_conf"
+                    }
+                  ]
+                },
+                "revision": {
+                  "SHA1": "da8f1b074e317e4e90a1cb0e0ec183475ff21305",
+                  "branch": [
+                    {
+                      "SHA1": "da8f1b074e317e4e90a1cb0e0ec183475ff21305",
+                      "name": "origin/ESAAS-6942_qa_conf"
+                    }
+                  ]
+                }
+              }
+            },
+            "lastBuiltRevision": {
+              "SHA1": "549ccfd0432b682e16b87e22b40f79aefa4c614e",
+              "branch": [
+                {
+                  "SHA1": "549ccfd0432b682e16b87e22b40f79aefa4c614e",
+                  "name": "origin/develop"
+                }
+              ]
+            },
+            "remoteUrls": [
+              "ssh://git@gitserver.com:5555/cloudops/IaaC/iot-platform-iac.git"
+            ],
+            "scmName": ""
+          },
+          {},
+          {
+            "_class": "org.jenkinsci.plugins.workflow.libs.LibrariesAction"
+          },
+          {
+            "_class": "hudson.plugins.git.util.BuildData",
+            "buildsByBranchName": {
+              "master": {
+                "_class": "hudson.plugins.git.util.Build",
+                "buildNumber": 1017,
+                "buildResult": null,
+                "marked": {
+                  "SHA1": "efc46e9217f9bbbad9f2fbb0a99ae264a52fd031",
+                  "branch": [
+                    {
+                      "SHA1": "efc46e9217f9bbbad9f2fbb0a99ae264a52fd031",
+                      "name": "master"
+                    }
+                  ]
+                },
+                "revision": {
+                  "SHA1": "efc46e9217f9bbbad9f2fbb0a99ae264a52fd031",
+                  "branch": [
+                    {
+                      "SHA1": "efc46e9217f9bbbad9f2fbb0a99ae264a52fd031",
+                      "name": "master"
+                    }
+                  ]
+                }
+              }
+            },
+            "lastBuiltRevision": {
+              "SHA1": "efc46e9217f9bbbad9f2fbb0a99ae264a52fd031",
+              "branch": [
+                {
+                  "SHA1": "efc46e9217f9bbbad9f2fbb0a99ae264a52fd031",
+                  "name": "master"
+                }
+              ]
+            },
+            "remoteUrls": [
+              "ssh://git@gitserver.com:5555/produce-recognition/jenkinspipeline.git"
+            ],
+            "scmName": ""
+          },
+          {
+            "_class": "hudson.plugins.git.util.BuildData",
+            "buildsByBranchName": {
+              "master": {
+                "_class": "hudson.plugins.git.util.Build",
+                "buildNumber": 1017,
+                "buildResult": null,
+                "marked": {
+                  "SHA1": "3ba54ae1848ed8d07d2669807dc596fd45885e0b",
+                  "branch": [
+                    {
+                      "SHA1": "3ba54ae1848ed8d07d2669807dc596fd45885e0b",
+                      "name": "master"
+                    }
+                  ]
+                },
+                "revision": {
+                  "SHA1": "3ba54ae1848ed8d07d2669807dc596fd45885e0b",
+                  "branch": [
+                    {
+                      "SHA1": "3ba54ae1848ed8d07d2669807dc596fd45885e0b",
+                      "name": "master"
+                    }
+                  ]
+                }
+              }
+            },
+            "lastBuiltRevision": {
+              "SHA1": "3ba54ae1848ed8d07d2669807dc596fd45885e0b",
+              "branch": [
+                {
+                  "SHA1": "3ba54ae1848ed8d07d2669807dc596fd45885e0b",
+                  "name": "master"
+                }
+              ]
+            },
+            "remoteUrls": [
+              "ssh://git@gitserver.com:5555/selfservice/JenkinsPipeline.git"
+            ],
+            "scmName": ""
+          },
+          {
+            "_class": "hudson.plugins.git.util.BuildData",
+            "buildsByBranchName": {
+              "master": {
+                "_class": "hudson.plugins.git.util.Build",
+                "buildNumber": 1017,
+                "buildResult": null,
+                "marked": {
+                  "SHA1": "2ac0ce2e74c076f697711608d7e1868650ea8d2d",
+                  "branch": [
+                    {
+                      "SHA1": "2ac0ce2e74c076f697711608d7e1868650ea8d2d",
+                      "name": "master"
+                    }
+                  ]
+                },
+                "revision": {
+                  "SHA1": "2ac0ce2e74c076f697711608d7e1868650ea8d2d",
+                  "branch": [
+                    {
+                      "SHA1": "2ac0ce2e74c076f697711608d7e1868650ea8d2d",
+                      "name": "master"
+                    }
+                  ]
+                }
+              }
+            },
+            "lastBuiltRevision": {
+              "SHA1": "2ac0ce2e74c076f697711608d7e1868650ea8d2d",
+              "branch": [
+                {
+                  "SHA1": "2ac0ce2e74c076f697711608d7e1868650ea8d2d",
+                  "name": "master"
+                }
+              ]
+            },
+            "remoteUrls": [
+              "ssh://git@gitserver.com:5555/vuepos/JenkinsPipeline.git"
+            ],
+            "scmName": ""
+          },
+          {
+            "_class": "hudson.plugins.git.util.BuildData",
+            "buildsByBranchName": {
+              "master": {
+                "_class": "hudson.plugins.git.util.Build",
+                "buildNumber": 1017,
+                "buildResult": null,
+                "marked": {
+                  "SHA1": "6cf06d90778e4ce5213598e37a0a33c92bef963d",
+                  "branch": [
+                    {
+                      "SHA1": "6cf06d90778e4ce5213598e37a0a33c92bef963d",
+                      "name": "master"
+                    }
+                  ]
+                },
+                "revision": {
+                  "SHA1": "6cf06d90778e4ce5213598e37a0a33c92bef963d",
+                  "branch": [
+                    {
+                      "SHA1": "6cf06d90778e4ce5213598e37a0a33c92bef963d",
+                      "name": "master"
+                    }
+                  ]
+                }
+              }
+            },
+            "lastBuiltRevision": {
+              "SHA1": "6cf06d90778e4ce5213598e37a0a33c92bef963d",
+              "branch": [
+                {
+                  "SHA1": "6cf06d90778e4ce5213598e37a0a33c92bef963d",
+                  "name": "master"
+                }
+              ]
+            },
+            "remoteUrls": [
+              "ssh://git@gitserver.com:5555/cloudops/IaaC/shared-jenkins-library.git"
+            ],
+            "scmName": ""
+          },
+          {},
+          {
+            "_class": "org.jenkinsci.plugins.workflow.cps.EnvActionImpl"
+          },
+          {
+            "_class": "hudson.plugins.git.util.BuildData",
+            "buildsByBranchName": {
+              "refs/remotes/origin/feature/ESAASR-6186-dev-postgres-reader-writer-groups": {
+                "_class": "hudson.plugins.git.util.Build",
+                "buildNumber": 916,
+                "buildResult": null,
+                "marked": {
+                  "SHA1": "e1b4315f7021e0c99d4d9445d2aff4a1a406b4d9",
+                  "branch": [
+                    {
+                      "SHA1": "e1b4315f7021e0c99d4d9445d2aff4a1a406b4d9",
+                      "name": "refs/remotes/origin/feature/ESAASR-6186-dev-postgres-reader-writer-groups"
+                    }
+                  ]
+                },
+                "revision": {
+                  "SHA1": "e1b4315f7021e0c99d4d9445d2aff4a1a406b4d9",
+                  "branch": [
+                    {
+                      "SHA1": "e1b4315f7021e0c99d4d9445d2aff4a1a406b4d9",
+                      "name": "refs/remotes/origin/feature/ESAASR-6186-dev-postgres-reader-writer-groups"
+                    }
+                  ]
+                }
+              },
+              "refs/remotes/origin/develop": {
+                "_class": "hudson.plugins.git.util.Build",
+                "buildNumber": 1017,
+                "buildResult": null,
+                "marked": {
+                  "SHA1": "e7f4e0b302052a0057e7971377e8963246bf0516",
+                  "branch": [
+                    {
+                      "SHA1": "e7f4e0b302052a0057e7971377e8963246bf0516",
+                      "name": "refs/remotes/origin/develop"
+                    }
+                  ]
+                },
+                "revision": {
+                  "SHA1": "e7f4e0b302052a0057e7971377e8963246bf0516",
+                  "branch": [
+                    {
+                      "SHA1": "e7f4e0b302052a0057e7971377e8963246bf0516",
+                      "name": "refs/remotes/origin/develop"
+                    }
+                  ]
+                }
+              }
+            },
+            "lastBuiltRevision": {
+              "SHA1": "e7f4e0b302052a0057e7971377e8963246bf0516",
+              "branch": [
+                {
+                  "SHA1": "e7f4e0b302052a0057e7971377e8963246bf0516",
+                  "name": "refs/remotes/origin/develop"
+                }
+              ]
+            },
+            "remoteUrls": [
+              "ssh://git@gitserver.com:5555/cloudops/IaaC/shared-modules.git"
+            ],
+            "scmName": ""
+          },
+          {
+            "_class": "org.jenkinsci.plugins.workflow.cps.view.InterpolatedSecretsAction"
+          },
+          {
+            "_class": "org.jenkinsci.plugins.workflow.support.steps.input.InputAction"
+          },
+          {
+            "_class": "org.jenkinsci.plugins.workflow.support.steps.input.ApproverAction"
+          },
+          {},
+          {},
+          {},
+          {},
+          {},
+          {},
+          {
+            "_class": "org.jenkinsci.plugins.displayurlapi.actions.RunDisplayAction"
+          },
+          {
+            "_class": "org.jenkinsci.plugins.pipeline.modeldefinition.actions.RestartDeclarativePipelineAction"
+          },
+          {},
+          {
+            "_class": "org.jenkinsci.plugins.workflow.job.views.FlowGraphAction"
+          },
+          {},
+          {},
+          {}
+        ],
+        "artifacts": [],
+        "building": false,
+        "description": null,
+        "displayName": "#1017",
+        "duration": 558612,
+        "estimatedDuration": 54387,
+        "executor": null,
+        "fullDisplayName": "iot-platform-deploy-dev #1017",
+        "id": "1017",
+        "keepLog": false,
+        "number": 1017,
+        "queueId": 16949,
+        "result": "FAILURE",
+        "timestamp": 1789133120614,
+        "url": "https://my-jenkins-server.com/job/iot-platform-deploy-dev/1017/",
+        "changeSets": [],
+        "culprits": [],
+        "inProgress": false,
+        "nextBuild": {
+          "number": 1018,
+          "url": "https://my-jenkins-server.com/job/iot-platform-deploy-dev/1018/"
+        },
+        "previousBuild": {
+          "number": 1016,
+          "url": "https://my-jenkins-server.com/job/iot-platform-deploy-dev/1016/"
+        }
+      }
+    }
+  }
+}
