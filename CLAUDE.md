@@ -4,95 +4,81 @@ After implementing any change, invoke code-reviewer and qa-reviewer. Fix all blo
 
 
 
-\## Commands (for Windows)
+## Commands (for Windows)
 
-\- Test: `mvnw test`
+- Test: `mvnw test`
 
-\- Run program: `java -jar target\\application.jar` or use full path to the jar file
-
-
-
-\## Commands (for Linux)
-
-\- Test: `mvn test`
+- Run program: `java -jar target\application.jar` or use full path to the jar file
 
 
 
+## Commands (for Linux)
+
+- Test: `mvn test`
 
 
-\# Project Guidelines
 
 
 
-\## Stack
+# Project Guidelines
+
+
+
+## Stack
 
 Java (17+), Spring Boot, Maven, JUnit 5, AI/LLM integrations.
 
 
 
-\## Engineering approach
+## Engineering approach
 
-\- Write code like an experienced engineer: correct first, then clear, then clever
+- Write code like an experienced engineer: correct first, then clear, then clever only when necessary.
 
-&#x20; only when necessary.
+- Apply design patterns (Strategy, Factory, Builder, etc.) and architecture patterns (layered, hexagonal, etc.) only when they solve a real problem in this codebase today. Do not add patterns, abstractions, or interfaces "just in case."
 
-\- Apply design patterns (Strategy, Factory, Builder, etc.) and architecture
+- Keep code simple. Prefer the plainest solution that works: no interface with a single implementation, no generic framework for a one-off need, no speculative extension points.
 
-&#x20; patterns (layered, hexagonal, etc.) only when they solve a real problem in
+- Follow existing conventions in the surrounding code before introducing new ones.
 
-&#x20; this codebase today. Do not add patterns, abstractions, or interfaces
-
-&#x20; "just in case."
-
-\- Keep code simple. Prefer the plainest solution that works: no interface with a
-
-&#x20; single implementation, no generic framework for a one-off need, no
-
-&#x20; speculative extension points.
-
-\- Follow existing conventions in the surrounding code before introducing new ones.
-
-\- Small, focused methods and classes; meaningful names; comments explain "why",
-
-&#x20; not "what."
+- Small, focused methods and classes; meaningful names; comments explain "why", not "what."
 
 
 
-\## Spring Boot conventions
+## Spring Boot conventions
 
-\- Constructor injection only (no field @Autowired).
+- Constructor injection only (no field @Autowired).
 
-\- Keep controllers thin; business logic in services; persistence in repositories.
+- Keep controllers thin; business logic in services; persistence in repositories.
 
-\- Validate input at the boundary; use DTOs instead of exposing entities.
+- Validate input at the boundary; use DTOs instead of exposing entities.
 
-\- Centralized exception handling with @ControllerAdvice.
+- Centralized exception handling with @ControllerAdvice.
 
-\- Configuration via application.yml and @ConfigurationProperties, never hardcoded.
-
-
-
-\## AI/LLM code
-
-\- Isolate model/provider calls behind a small service so they can be swapped and mocked.
-
-\- Never log secrets, API keys, or full user prompts containing sensitive data.
-
-\- Handle timeouts, retries, and malformed model output explicitly.
+- Configuration via application.yml and @ConfigurationProperties, never hardcoded.
 
 
 
-\## Commands (work on Windows and Linux)
+## AI/LLM code
 
-\- Build: `mvn -q compile`
+- Isolate model/provider calls behind a small service so they can be swapped and mocked.
 
-\- Test: `mvn test`
+- Never log secrets, API keys, or full user prompts containing sensitive data.
 
-\- Full check: `mvn verify`
+- Handle timeouts, retries, and malformed model output explicitly.
 
 
 
-\## Workflow
+## Commands (work on Windows and Linux)
+
+- Build: `mvn -q compile`
+
+- Test: `mvn test`
+
+- Full check: `mvn verify`
+
+
+
+## Workflow
 
 After implementing any change, invoke `code-reviewer` and `qa-reviewer`.
 
