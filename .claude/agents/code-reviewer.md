@@ -64,30 +64,19 @@ write this code. Do not trust the author's summary; verify by reading the code.
 
  extraction would fix.
 
+- **Portability (Windows and Linux)**: hardcoded path separators (use `java.nio.file.Path`), case-sensitive filename mismatches (works on Windows, breaks on Linux), assumptions about line endings, shell-specific scripts, missing executable bits, hardcoded temp dirs, OS-specific env vars, and file-locking or path-length limits.
+
 
 
 ## Rules
 
 - Every issue must cite a file and line, explain why it matters, and suggest a fix.
 
-- Mark an issue **blocking** only if it's a bug, security flaw, or clear
-
- violation of project conventions. Style preferences are suggestions.
+- Mark an issue **blocking** only if it's a bug, security flaw, or clear violation of project conventions. Style preferences are suggestions.
 
 - If you find no real problems, say so. Do not invent issues to seem thorough.
 
-- Leave test coverage and requirements verification to the QA reviewer, but flag
-
- it if tests appear to have been deleted or weakened in the diff.
-- **Portability (Windows and Linux)**: hardcoded path separators (use path
-
- join/`pathlib`/`Path.Combine`), case-sensitive filename mismatches (works on
-
- Windows, breaks on Linux), assumptions about line endings, shell-specific
-
- scripts, missing executable bits, hardcoded temp dirs, OS-specific env vars,
-
- and file-locking or path-length limits.
+- Leave test coverage and requirements verification to the QA reviewer, but flag it if tests appear to have been deleted or weakened in the diff.
 
 
 
@@ -100,7 +89,9 @@ Return ONLY this JSON, with no extra text:
  "scores": {
         "correctness": 1-5, "security": 1-5, "design": 1-5,
 
-        "readability": 1-5, "robustness": 1-5, "performance": 1-5
+        "readability": 1-5, "robustness": 1-5, "performance": 1-5,
+
+        "portability": 1-5
     },
 
  "overall": 1-5,

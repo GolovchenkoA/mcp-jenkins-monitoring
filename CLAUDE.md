@@ -1,25 +1,3 @@
-After implementing any change, invoke code-reviewer and qa-reviewer. Fix all blocking issues, then re-run both. Stop after 3 rounds or when both score 4 or higher.
-
-
-
-
-
-## Commands (for Windows)
-
-- Test: `mvnw test`
-
-- Run program: `java -jar target\application.jar` or use full path to the jar file
-
-
-
-## Commands (for Linux)
-
-- Test: `mvn test`
-
-
-
-
-
 # Project Guidelines
 
 
@@ -48,13 +26,11 @@ Java (17+), Spring Boot, Maven, JUnit 5, AI/LLM integrations.
 
 - Constructor injection only (no field @Autowired).
 
-- Keep controllers thin; business logic in services; persistence in repositories.
+- Keep controllers and `@McpTool` methods thin; business logic in services; persistence in repositories.
 
-- Validate input at the boundary; use DTOs instead of exposing entities.
+- Validate tool input in the `@McpTool` methods and return errors as tool error responses.
 
-- Centralized exception handling with @ControllerAdvice.
-
-- Configuration via application.yml and @ConfigurationProperties, never hardcoded.
+- Configuration via application.properties and @ConfigurationProperties, never hardcoded.
 
 
 
@@ -68,7 +44,25 @@ Java (17+), Spring Boot, Maven, JUnit 5, AI/LLM integrations.
 
 
 
-## Commands (work on Windows and Linux)
+## Commands Java
+
+- Run program: `java -jar target/application.jar` or use full path to the jar file
+
+## Command Maven
+
+For Windows use the Maven wrapper. Prefix it with the path: `.\mvnw` in PowerShell, `./mvnw` in Git Bash (plain `mvnw` works only in cmd.exe).
+
+Windows examples:
+
+- Build: `.\mvnw -q compile`
+
+- Test: `.\mvnw test`
+
+- Full check: `.\mvnw verify`
+
+For Linux use Maven 'mvn'
+
+Linux examples:
 
 - Build: `mvn -q compile`
 
